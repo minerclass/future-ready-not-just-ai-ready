@@ -1,0 +1,16 @@
+# Credentials and vendor trial access. Never commit these.
+*credential*
+*login*
+.env*
+secrets/
+sensitive/
+
+# Local and editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+.vscode/
+.idea/
+~$*
+*.tmp

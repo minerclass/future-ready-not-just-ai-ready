@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Future Ready, Not Just AI Ready</title>
+<meta name="description" content="Keynote for the Imagine Learning IL Future Ready Student Summit. Screen time, pedagogical friction, and AI: a district leader's lens for deciding what should stay hard.">
+<style>
+  /* Committed single look. A projected deck should not change with the room
+     machine's OS theme, so every color is painted explicitly and there is no
+     dark-mode swap. Light ground chosen because dark slides wash out under
+     conference-room ambient light. */
+  :root {
+    --ground:      #F5F7F5;
+    --panel:       #FFFFFF;
+    --panel-alt:   #EAEFEB;
+    --ink:         #131E19;
+    --ink-muted:   #4B574F;
+    --ink-faint:   #5A655E;
+    --rule:        #CFD9D2;
+    --rule-soft:   #E2E8E4;
+    --accent:      #17523F;
+    --accent-soft: #DEEBE4;
+    --protect:     #8A3620;
+    --protect-soft:#F7E5DF;
+    --reduce:      #8C6014;
+    --reduce-soft: #F5EDD9;
+
+    --font-display: "Segoe UI Variable Display", ui-sans-serif, -apple-system, "Segoe UI", Roboto, system-ui, sans-serif;
+    --font-body: ui-sans-serif, -apple-system, "Segoe UI", Roboto, system-ui, sans-serif;
+    --font-evidence: Georgia, "Iowan Old Style", "Times New Roman", serif;
+    --font-data: ui-monospace, "Cascadia Mono", Consolas, "SF Mono", Menlo, monospace;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--font-body);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    overflow: hidden;
+  }
+
+  /* ---------- scene system ---------- */
+
+  .deck { position: relative; height: 100%; width: 100%; }
+
+  .scene {
+    position: absolute; inset: 0;
+    display: none;
+    flex-direction: column; justify-content: center;
+    padding: clamp(2rem, 6vmin, 5.5rem) clamp(1.5rem, 8vw, 7rem) clamp(4rem, 9vmin, 6rem);
+    overflow-y: auto;
+  }
+  .scene.is-active { display: flex; }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .scene.is-active > * { animation: rise 380ms cubic-bezier(.22,.9,.3,1) both; }
+    .scene.is-active > *:nth-child(2) { animation-delay: 60ms; }
+    .scene.is-active > *:nth-child(3) { animation-delay: 110ms; }
+    .scene.is-active > *:nth-child(4) { animation-delay: 155ms; }
+    @keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+  }
+
+  .inner { max-width: 54rem; width: 100%; margin: 0 auto; display: flex; flex-direction: column; gap: clamp(0.9rem, 2.2vmin, 1.6rem); }
+
+  /* ---------- type ---------- */
+
+  .eyebrow {
+    font-family: var(--font-data);
+    font-size: clamp(0.66rem, 1.35vmin, 0.85rem);
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--accent); margin: 0;
+  }
+
+  h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.4rem, 7.4vmin, 5rem);
+    line-height: 1.02; letter-spacing: -0.03em; font-weight: 700;
+    margin: 0; text-wrap: balance;
+  }
+
+  h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.7rem, 4.9vmin, 3.2rem);
+    line-height: 1.1; letter-spacing: -0.022em; font-weight: 700;
+    margin: 0; text-wrap: balance;
+  }
+
+  h3 {
+    font-size: clamp(1.05rem, 2.5vmin, 1.5rem);
+    line-height: 1.2; font-weight: 650; margin: 0; letter-spacing: -0.01em;
+  }
+
+  p { margin: 0; font-size: clamp(1rem, 2.15vmin, 1.35rem); }
+  .lede { color: var(--ink-muted); max-width: 44ch; }
+  .tight { max-width: 40ch; }
+
+  .display-sub {
+    font-family: var(--font-evidence);
+    font-size: clamp(1.15rem, 2.9vmin, 1.85rem);
+    line-height: 1.3; color: var(--ink-muted); margin: 0; text-wrap: balance;
+    max-width: 34ch;
+  }
+
+  .huge {
+    font-family: var(--font-evidence);
+    font-size: clamp(1.9rem, 6.2vmin, 4rem);
+    line-height: 1.14; letter-spacing: -0.015em; margin: 0; text-wrap: balance;
+    max-width: 22ch;
+  }
+
+  .credit {
+    font-family: var(--font-data);
+    font-size: clamp(0.7rem, 1.5vmin, 0.92rem);
+    letter-spacing: 0.05em; color: var(--ink-faint); margin: 0;
+  }
+
+  strong { font-weight: 650; }
+  em { font-style: italic; }
+
+  a { color: var(--accent); text-underline-offset: 3px; }
+  a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+  /* ---------- components ---------- */
+
+  .rule { height: 3px; width: 4rem; background: var(--accent); border: none; margin: 0; }
+
+  .stack { display: flex; flex-direction: column; gap: clamp(0.6rem, 1.5vmin, 1rem); }
+
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: clamp(0.6rem, 1.5vmin, 1rem); }
+
+  .card {
+    background: var(--panel); border: 1px solid var(--rule);
+    border-radius: 4px; padding: clamp(0.9rem, 2.1vmin, 1.4rem);
+    display: flex; flex-direction: column; gap: 0.45rem;
+  }
+  .card p { font-size: clamp(0.88rem, 1.75vmin, 1.08rem); color: var(--ink-muted); }
+  .card--protect { border-left: 5px solid var(--protect); }
+  .card--reduce  { border-left: 5px solid var(--reduce); }
+  .card--accent  { border-left: 5px solid var(--accent); }
+
+  .tagline {
+    font-family: var(--font-data);
+    font-size: clamp(0.62rem, 1.3vmin, 0.8rem);
+    letter-spacing: 0.13em; text-transform: uppercase;
+    padding: 0.2rem 0.5rem; border-radius: 2px; align-self: flex-start;
+  }
+  .tagline--protect { background: var(--protect-soft); color: var(--protect); }
+  .tagline--reduce  { background: var(--reduce-soft);  color: var(--reduce); }
+  .tagline--accent  { background: var(--accent-soft);  color: var(--accent); }
+
+  ol.numbered, ul.plain {
+    margin: 0; padding-left: 1.6rem;
+    display: flex; flex-direction: column; gap: clamp(0.5rem, 1.3vmin, 0.85rem);
+    font-size: clamp(0.98rem, 2.1vmin, 1.3rem);
+  }
+  ul.plain { list-style: none; padding-left: 0; }
+  ol.numbered li::marker { color: var(--accent); font-weight: 700; }
+  ol.numbered li span, ul.plain li span {
+    display: block; color: var(--ink-muted);
+    font-size: clamp(0.85rem, 1.7vmin, 1.02rem); margin-top: 0.15rem;
+  }
+  ul.plain li { display: flex; gap: 0.8rem; align-items: baseline; }
+  ul.plain .bullet { color: var(--accent); font-weight: 700; flex: 0 0 auto; }
+
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1rem, 3vmin, 2.2rem); align-items: start; }
+  @media (max-width: 46rem) { .split, .cards { grid-template-columns: 1fr; } }
+
+  .quiet {
+    background: var(--panel-alt); border-radius: 4px;
+    padding: clamp(0.9rem, 2.2vmin, 1.5rem);
+    font-size: clamp(0.92rem, 1.9vmin, 1.15rem); color: var(--ink-muted);
+  }
+  .quiet strong { color: var(--ink); }
+
+  .vendor-grid { display: flex; flex-direction: column; gap: clamp(0.55rem, 1.4vmin, 0.95rem); }
+  .vendor-row {
+    display: grid; grid-template-columns: 9.5rem 1fr; gap: clamp(0.7rem, 2vmin, 1.4rem);
+    align-items: baseline; padding-bottom: clamp(0.55rem, 1.4vmin, 0.95rem);
+    border-bottom: 1px solid var(--rule-soft);
+  }
+  .vendor-row:last-child { border-bottom: none; padding-bottom: 0; }
+  .vendor-row .label {
+    font-family: var(--font-data); font-size: clamp(0.62rem, 1.3vmin, 0.79rem);
+    letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint);
+  }
+  .vendor-row .value { font-size: clamp(0.95rem, 2vmin, 1.22rem); }
+  @media (max-width: 46rem) { .vendor-row { grid-template-columns: 1fr; gap: 0.2rem; } }
+
+  /* ---------- chrome ---------- */
+
+  .progress {
+    position: fixed; top: 0; left: 0; height: 4px;
+    background: var(--accent); width: 0; z-index: 40;
+    transition: width 260ms ease;
+  }
+  @media (prefers-reduced-motion: reduce) { .progress { transition: none; } }
+
+  .chrome {
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 30;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 1rem; padding: 0.55rem clamp(0.8rem, 3vw, 2rem);
+    background: linear-gradient(to top, var(--ground) 60%, transparent);
+  }
+
+  .chrome-left { font-family: var(--font-data); font-size: 0.72rem; letter-spacing: 0.07em; color: var(--ink-faint); }
+
+  .controls { display: flex; gap: 0.4rem; align-items: center; }
+
+  button {
+    font-family: var(--font-data); font-size: 0.72rem; letter-spacing: 0.07em;
+    text-transform: uppercase; color: var(--ink-muted);
+    background: var(--panel); border: 1px solid var(--rule);
+    border-radius: 3px; padding: 0.38rem 0.7rem; cursor: pointer;
+    line-height: 1;
+  }
+  button:hover:not(:disabled) { color: var(--accent); border-color: var(--accent); }
+  button:disabled { opacity: 0.4; cursor: default; }
+  button:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+  .counter { font-variant-numeric: tabular-nums; min-width: 4.2rem; text-align: center; }
+
+  /* overview */
+  .overview {
+    position: fixed; inset: 0; z-index: 50; background: var(--ground);
+    padding: clamp(1rem, 4vmin, 2.5rem); overflow-y: auto; display: none;
+  }
+  .overview.is-open { display: block; }
+  .overview h2 { margin-bottom: 1.2rem; }
+  .thumbs { display: grid; grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr)); gap: 0.6rem; }
+  .thumb {
+    text-align: left; text-transform: none; letter-spacing: 0; font-family: var(--font-body);
+    font-size: 0.85rem; padding: 0.7rem 0.8rem; line-height: 1.3; color: var(--ink);
+    display: flex; flex-direction: column; gap: 0.25rem; min-height: 4.5rem;
+  }
+  .thumb .n { font-family: var(--font-data); font-size: 0.65rem; color: var(--ink-faint); letter-spacing: 0.1em; }
+  .thumb.is-current { border-color: var(--accent); background: var(--accent-soft); }
+
+  /* speaker notes */
+  .notes {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 35;
+    background: var(--panel); border-top: 2px solid var(--accent);
+    padding: 1rem clamp(0.8rem, 3vw, 2rem) 3rem;
+    font-size: 0.94rem; color: var(--ink-muted); display: none;
+    max-height: 42vh; overflow-y: auto;
+  }
+  .notes.is-open { display: block; }
+  .notes .label {
+    font-family: var(--font-data); font-size: 0.63rem; letter-spacing: 0.13em;
+    text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 0.4rem;
+  }
+
+  .sr-only {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+  }
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<main class="deck" id="deck" aria-live="polite">
+
+  <!-- 1 -->
+  <section class="scene" data-notes="Open here while people are still settling. Do not start talking over the room. Wait for quiet.">
+    <div class="inner">
+      <p class="eyebrow">IL Future Ready Student Summit &middot; October 6, 2026</p>
+      <h1>Future Ready, Not Just AI Ready</h1>
+      <p class="display-sub">Screen time, pedagogical friction, and the decisions only district leaders can make.</p>
+      <hr class="rule">
+      <p class="credit">Micah Miner &middot; Director of Innovation and Technology, Beach Park CCSD 3</p>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section class="scene" data-notes="Do not advance yet. Ask for hands or table talk. Give it real time. Thirty seconds feels long from the stage and is right from the floor.">
+    <div class="inner">
+      <p class="eyebrow">Before we start</p>
+      <h2>Two questions.</h2>
+      <p class="lede">Talk to the people at your table. I want honest answers, not impressive ones.</p>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section class="scene" data-notes="Hands go up fast on this one. Take two or three out loud. Scheduling, translation, IEP paperwork, first drafts, lesson planning.">
+    <div class="inner">
+      <p class="eyebrow">Question one</p>
+      <p class="huge">Name one thing that got <em>easier</em> in your district this year because of AI.</p>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section class="scene" data-notes="This is the most important silence in the hour. Do not rescue it. Do not fill it. Let it sit, then move on quietly. The room just proved the premise to itself.">
+    <div class="inner">
+      <p class="eyebrow">Question two</p>
+      <p class="huge">Now name one thing your students got <em>better</em> at because of AI.</p>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section class="scene" data-notes="Name what just happened without scolding anyone. Everyone in this room is working hard. The gap is structural, not a failure of effort.">
+    <div class="inner">
+      <p class="eyebrow">The gap</p>
+      <h2>Those are not the same question.</h2>
+      <p class="lede">The first one is about adults and workload. The second one is about students and learning. Most districts have been answering the first while believing they answered the second.</p>
+    </div>
+  </section>
+
+  <!-- 6 -->
+  <section class="scene" data-notes="Keep this short. It is a definition slide, not an argument slide.">
+    <div class="inner">
+      <p class="eyebrow">The distinction</p>
+      <div class="split">
+        <div class="card card--accent">
+          <span class="tagline tagline--accent">Procurement question</span>
+          <h3>AI ready</h3>
+          <p>Do we have the tools, the policy, the training, the data agreements? Necessary work. Answerable in a year.</p>
+        </div>
+        <div class="card card--protect">
+          <span class="tagline tagline--protect">Graduate question</span>
+          <h3>Future ready</h3>
+          <p>Can our students think, judge, and make themselves understood when the tool is not there? Answerable in a decade.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 -->
+  <section class="scene" data-notes="Read the six out loud slowly. These are the ones the Summit brief names, and they are the right ones.">
+    <div class="inner">
+      <p class="eyebrow">What future ready means</p>
+      <h2>The durable six</h2>
+      <p class="lede">The capacities AI should amplify rather than absorb.</p>
+      <div class="cards">
+        <div class="card"><h3>Critical thinking</h3></div>
+        <div class="card"><h3>Communication</h3></div>
+        <div class="card"><h3>Creativity</h3></div>
+        <div class="card"><h3>Collaboration</h3></div>
+        <div class="card"><h3>Judgment</h3></div>
+        <div class="card"><h3>Learner agency</h3></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8 -->
+  <section class="scene" data-notes="Ask for hands on both. Expect many hands on the first and almost none on the second. Do not move on until you have actually counted.">
+    <div class="inner">
+      <p class="eyebrow">Show of hands</p>
+      <h2>Two questions about your Portrait of a Graduate.</h2>
+      <ol class="numbered">
+        <li>Who has one?</li>
+        <li>Who has mapped their AI guidance against it?<span>Not their acceptable use policy. Their guidance about what AI should and should not do for a student.</span></li>
+      </ol>
+      <p class="lede">That second gap is what the rest of this hour is about.</p>
+    </div>
+  </section>
+
+  <!-- 9 -->
+  <section class="scene" data-notes="Transition. We now have to fix the measurement problem before the lens will work.">
+    <div class="inner">
+      <p class="eyebrow">First, a measurement problem</p>
+      <h2>Screen time is the wrong question.</h2>
+      <p class="lede">Every district I know has argued about minutes. Almost none have argued about what the minutes were doing.</p>
+    </div>
+  </section>
+
+  <!-- 10 -->
+  <section class="scene" data-notes="This is the hinge of the whole talk. If they take one thing home, make it this. Two students, identical dashboards, opposite learning.">
+    <div class="inner">
+      <p class="eyebrow">Why the metric fails</p>
+      <h2>Two students. Forty-five minutes each.</h2>
+      <div class="split">
+        <div class="card card--protect">
+          <h3>Student A</h3>
+          <p>Read four conflicting sources, argued with a partner, threw out a first draft, wrote something she could defend.</p>
+        </div>
+        <div class="card card--reduce">
+          <h3>Student B</h3>
+          <p>Typed the prompt into a chatbot, skimmed the output, changed three words, submitted.</p>
+        </div>
+      </div>
+      <p class="lede"><strong>Your dashboard reports these identically.</strong> Same device, same minutes, same completion. One of them learned something.</p>
+    </div>
+  </section>
+
+  <!-- 11 -->
+  <section class="scene" data-notes="Give them the replacement question explicitly. This is the pivot from screen time into the friction framework.">
+    <div class="inner">
+      <p class="eyebrow">The better question</p>
+      <p class="huge">Not how long the screen was on. <em>What the screen made easy.</em></p>
+    </div>
+  </section>
+
+  <!-- 12 -->
+  <section class="scene" data-notes="Define friction before splitting it. Say plainly: I am not arguing for making school harder. I am arguing that some difficulty is the point and some is just a barrier.">
+    <div class="inner">
+      <p class="eyebrow">The reframe</p>
+      <h2>Friction is not one thing.</h2>
+      <p class="lede">Pedagogical friction is the productive resistance learning requires. The work, slowness, and struggle that make development possible. It is not a single quantity to minimize, and it is not an argument for making school harder.</p>
+      <p class="lede">It comes in layers, and only one of them is the layer technology should be reducing.</p>
+    </div>
+  </section>
+
+  <!-- 13 -->
+  <section class="scene" data-notes="Be generous here. Leaders who apply blanket AI caution end up restricting the safest use while permitting the riskiest. Say that.">
+    <div class="inner">
+      <span class="tagline tagline--reduce">Reduce this layer</span>
+      <h2>Infrastructural friction</h2>
+      <p class="lede">The conditions that enable or constrain learning. Time, access, technology, policy, physical environment.</p>
+      <div class="quiet">
+        A student who cannot reach an archive. A family who cannot read the notice. A teacher who loses an evening to scheduling. These are barriers to learning, not the learning itself. <strong>Removing them expands who gets to do the work.</strong> This is where educational technology has always earned its place.
+      </div>
+    </div>
+  </section>
+
+  <!-- 14 -->
+  <section class="scene" data-notes="Three protect slides in a row, deliberately. The repetition is the point. Keep each one to about forty seconds.">
+    <div class="inner">
+      <span class="tagline tagline--protect">Protect this layer</span>
+      <h2>Noetic friction</h2>
+      <p class="lede">The cognitive work of thinking, reasoning, and knowing. Forming ideas, holding contradictions, reaching understanding.</p>
+      <div class="quiet">When a tool does this work, the answer still appears. <strong>The thinking moved from the learner to the system.</strong></div>
+    </div>
+  </section>
+
+  <!-- 15 -->
+  <section class="scene" data-notes="Rhetorical friction is the one people underestimate. Writing is not transcription of finished thought. Writing is how the thought gets finished.">
+    <div class="inner">
+      <span class="tagline tagline--protect">Protect this layer</span>
+      <h2>Rhetorical friction</h2>
+      <p class="lede">The work of articulation. Making thought communicable through language, structure, and audience awareness.</p>
+      <div class="quiet">Writing is not the transcription of a finished thought. <strong>Writing is how the thought gets finished.</strong> Fluent prose the student did not construct skips the part where the understanding forms.</div>
+    </div>
+  </section>
+
+  <!-- 16 -->
+  <section class="scene" data-notes="This is the one that lands with people who have taught a long time. Slow down.">
+    <div class="inner">
+      <span class="tagline tagline--protect">Protect this layer</span>
+      <h2>Existential friction</h2>
+      <p class="lede">The work of becoming. The identity formation that happens through sustained engagement with difficulty.</p>
+      <div class="quiet">A student who has never finished something hard does not know she can. <strong>That knowledge is not information. It is formation,</strong> and it only comes from the struggle.</div>
+    </div>
+  </section>
+
+  <!-- 17 -->
+  <section class="scene" data-notes="Name the diagnostic. This is the phrase you want repeated in cabinet meetings.">
+    <div class="inner">
+      <p class="eyebrow">The diagnostic</p>
+      <h2>Unproductive success</h2>
+      <p class="huge">The output looks right. The learning did not happen.</p>
+      <p class="lede">This is what makes the problem so hard to govern. Nothing looks broken. Grades hold. Completion rises. The dashboard is green. The formation that should have occurred did not, and it will be two years before it shows up in a writing sample.</p>
+    </div>
+  </section>
+
+  <!-- 18 -->
+  <section class="scene" data-notes="Critical framing slide. This is NOT an anti-vendor point. Say it warmly. It is the reason the room has a job.">
+    <div class="inner">
+      <p class="eyebrow">The part that is nobody's fault</p>
+      <h2>A tool cannot tell these layers apart.</h2>
+      <p class="lede">Reducing friction is what the category exists to do. Resistance registers to a product as a problem to solve, not as a dimension with a purpose. That is structural, not a defect in anyone's software.</p>
+      <div class="quiet"><strong>Which means the discernment can only live with the adults.</strong> No procurement process, no setting, and no vendor assurance moves that responsibility off your desk.</div>
+    </div>
+  </section>
+
+  <!-- 19 -->
+  <section class="scene" data-notes="Hand out the card here if there is a leave-behind. Read all four aloud. Question four is the one that changes procurement conversations.">
+    <div class="inner">
+      <p class="eyebrow">The lens</p>
+      <h2>Four questions. Any tool, any vendor.</h2>
+      <ol class="numbered">
+        <li><strong>What does this make easier?</strong><span>Be specific. "Saves teachers time" is not an answer.</span></li>
+        <li><strong>Which friction is it reducing?</strong><span>Infrastructural, or noetic, rhetorical, or existential?</span></li>
+        <li><strong>What is the student no longer doing, and was that the standard?</strong><span>If the removed step was the objective, the tool did not help with the objective.</span></li>
+        <li><strong>What signal would tell us it went wrong, and who is watching it?</strong><span>Most districts have no answer here at all.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 20 -->
+  <section class="scene" data-notes="Four minutes at tables. Walk the room. Do not use an Imagine Learning product for this one. Neutral ground first.">
+    <div class="inner">
+      <p class="eyebrow">At your table &middot; four minutes</p>
+      <h2>Run one of your own tools through it.</h2>
+      <p class="lede">Something already in your buildings. Something you renewed without much discussion. Take it through all four questions and see where you get stuck.</p>
+      <p class="lede tight">Most tables get stuck on number four.</p>
+    </div>
+  </section>
+
+  <!-- 21 -->
+  <section class="scene" data-notes="Say this plainly and do not rush it. Disclosure before the vendor examples is what makes the vendor examples credible. Look at Marla and Liz when you say the first line.">
+    <div class="inner">
+      <p class="eyebrow">Before the examples, some disclosure</p>
+      <h2>Why I am using our hosts as the worked example.</h2>
+      <ul class="plain">
+        <li><span class="bullet">1.</span><span><strong>They are hosting and I am being paid to be here.</strong> You should know that before I show you anything.</span></li>
+        <li><span class="bullet">2.</span><span><strong>Their products were in my district before I was.</strong> I inherited them. I did not select them.</span></li>
+        <li><span class="bullet">3.</span><span><strong>A real example beats a hypothetical,</strong> because vendors face this balance from the other side. Someone in a product meeting had to decide what to make easy. So do you.</span></li>
+        <li><span class="bullet">4.</span><span><strong>Every question I ask here, I would ask of any product in these categories,</strong> including the ones in your buildings.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 22 -->
+  <section class="scene" data-notes="Traverse first because it is the cleanest case. Show the source repository live if the room and wifi allow.">
+    <div class="inner">
+      <p class="eyebrow">Worked example &middot; social studies</p>
+      <h2>Traverse</h2>
+      <div class="vendor-grid">
+        <div class="vendor-row"><span class="label">Design choice</span><span class="value">Give students the sources. Keep the interpretation.</span></div>
+        <div class="vendor-row"><span class="label">The balance</span><span class="value">Removes an infrastructural barrier, which is archive access most schools never had. Leaves the noetic work intact, because someone still has to decide what a conflicting source is worth.</span></div>
+        <div class="vendor-row"><span class="label">Stays yours</span><span class="value">Whether your schedule gives students time to actually sit in the ambiguity, or whether the pacing guide quietly resolves it for them.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 23 -->
+  <section class="scene" data-notes="Point out that the assistant is teacher-facing. That is a deliberate design decision and worth naming as one.">
+    <div class="inner">
+      <p class="eyebrow">Worked example &middot; mathematics</p>
+      <h2>Imagine IM and ClassMate</h2>
+      <div class="vendor-grid">
+        <div class="vendor-row"><span class="label">Design choice</span><span class="value">Put the assistant where it touches planning, not learning. It sits inside the curriculum and faces the teacher.</span></div>
+        <div class="vendor-row"><span class="label">The balance</span><span class="value">Reduces infrastructural load on the scarcest resource in any district, which is teacher time, without touching student cognition. This is the safest category of AI use in a school, and blanket caution often restricts it while permitting riskier things.</span></div>
+        <div class="vendor-row"><span class="label">Stays yours</span><span class="value">Where your teachers draw the line between clerical help and instructional judgment. Assembling a warm-up is clerical. Choosing which misconception to target on Tuesday is judgment, and judgment is on the durable six.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 24 -->
+  <section class="scene" data-notes="The honest one. Make the case FOR fast feedback seriously before raising the question. Do not pivot too quickly, or it sounds like a gotcha.">
+    <div class="inner">
+      <p class="eyebrow">Worked example &middot; courseware</p>
+      <h2>EdgeEX</h2>
+      <div class="vendor-grid">
+        <div class="vendor-row"><span class="label">Design choice</span><span class="value">Compress feedback latency in asynchronous settings, where the realistic alternative is often no timely feedback at all.</span></div>
+        <div class="vendor-row"><span class="label">The balance</span><span class="value">Turnaround time is a genuine infrastructural barrier. A student who waits eight days for comments has effectively received none, because the moment for revision has passed. For alternative pathways this is real value, not a convenience.</span></div>
+        <div class="vendor-row"><span class="label">Stays yours</span><span class="value">What you do with the time it returns. Grading is also how a teacher discovers what a class does not understand. Redirect that time toward looking at student work and you have strengthened your practice. Absorb it into the schedule and you have quietly removed a teacher's main way of knowing a class.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 25 -->
+  <section class="scene" data-notes="Reducing load to the point where a student can engage is NOT a bypass. Say that clearly. It is the precondition for productive friction.">
+    <div class="inner">
+      <p class="eyebrow">Worked example &middot; intervention</p>
+      <h2>MyPath</h2>
+      <div class="vendor-grid">
+        <div class="vendor-row"><span class="label">Design choice</span><span class="value">Hold cognitive load in a band where a struggling student can actually engage.</span></div>
+        <div class="vendor-row"><span class="label">The balance</span><span class="value">A student working three grade levels below placement will not learn from grade-level text, and will not learn from repeated failure either. Reducing load enough to make engagement possible is the precondition for productive friction, not a bypass of it.</span></div>
+        <div class="vendor-row"><span class="label">Stays yours</span><span class="value">The exit ramp. Scaffolds that never come down become ceilings, and an adaptive system optimizing for steady success has no internal reason to route a student toward difficulty. Deciding when the student meets the hard version is a district decision.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 26 -->
+  <section class="scene" data-notes="Pull the four examples together. The pattern is the payload, not any individual product.">
+    <div class="inner">
+      <p class="eyebrow">The pattern across all four</p>
+      <h2>Every one of those ended in the same place.</h2>
+      <p class="huge">The vendor decides what the tool makes easy. <em>You decide what it means.</em></p>
+      <p class="lede">Two districts can run identical software and get opposite outcomes. That difference is not in the product. It is in whether anyone decided, on purpose, what to keep hard.</p>
+    </div>
+  </section>
+
+  <!-- 27 -->
+  <section class="scene" data-notes="Ninety seconds of silent writing. Enforce the silence. Then two or three share out, and keep it short.">
+    <div class="inner">
+      <p class="eyebrow">The Monday move &middot; ninety seconds, silent</p>
+      <h2>One competency. One protection. One owner.</h2>
+      <p class="lede">Take your Portrait of a Graduate. Pick a single competency. Ask what in your current AI guidance protects it, and write down who is responsible for watching it.</p>
+      <div class="quiet">Most of you will find nothing protecting it. <strong>That is the most useful thing you will learn today,</strong> and it is fixable by Friday.</div>
+    </div>
+  </section>
+
+  <!-- 28 -->
+  <section class="scene" data-notes="Return to the silence from question two. Land it and stop. Do not add anything after this line.">
+    <div class="inner">
+      <p class="eyebrow">Where we started</p>
+      <p class="huge">The districts that will be future ready are not the ones that adopted fastest.</p>
+      <h2>They are the ones that decided, on purpose, what to keep hard.</h2>
+    </div>
+  </section>
+
+  <!-- 29 -->
+  <section class="scene" data-notes="Leave this up during questions. The primer is the single best takeaway for this audience.">
+    <div class="inner">
+      <p class="eyebrow">Take one thing with you</p>
+      <h2>Resources</h2>
+      <ul class="plain">
+        <li><span class="bullet">&rarr;</span><span><a href="https://minerclass.github.io/technoskepticism-primer/">Technoskepticism Primer</a><span>Five questions to ask of any technology, and where they came from.</span></span></li>
+        <li><span class="bullet">&rarr;</span><span><a href="https://minerclass.github.io/screen-time-wrong-question/">Screen Time Is the Wrong Question</a><span>The longer version of the argument in the middle of this talk.</span></span></li>
+        <li><span class="bullet">&rarr;</span><span><a href="https://minerclass.github.io/friction-game/">Friction Lab</a><span>Calibrate friction in your own assignment design.</span></span></li>
+        <li><span class="bullet">&rarr;</span><span><a href="https://minerclass.github.io/">All projects and research</a><span>minerclass.github.io</span></span></li>
+      </ul>
+      <hr class="rule">
+      <p class="credit">Micah Miner &middot; micahminer.com &middot; Beach Park CCSD 3</p>
+    </div>
+  </section>
+
+</main>
+
+<div class="chrome">
+  <span class="chrome-left" id="sceneTitle"></span>
+  <div class="controls">
+    <button id="btnOverview" aria-label="Toggle slide overview">Overview</button>
+    <button id="btnNotes" aria-label="Toggle speaker notes">Notes</button>
+    <button id="btnPrev" aria-label="Previous slide">Prev</button>
+    <span class="chrome-left counter" id="counter">1 / 29</span>
+    <button id="btnNext" aria-label="Next slide">Next</button>
+  </div>
+</div>
+
+<div class="notes" id="notes" role="region" aria-label="Speaker notes">
+  <span class="label">Speaker notes</span>
+  <p id="notesBody"></p>
+</div>
+
+<div class="overview" id="overview" role="dialog" aria-modal="true" aria-label="Slide overview">
+  <h2>Overview</h2>
+  <div class="thumbs" id="thumbs"></div>
+</div>
+
+<p class="sr-only" id="liveRegion" aria-live="polite"></p>
+
+<script>
+(function () {
+  var scenes = Array.prototype.slice.call(document.querySelectorAll('.scene'));
+  var total = scenes.length;
+  var i = 0;
+
+  var progress   = document.getElementById('progress');
+  var counter    = document.getElementById('counter');
+  var sceneTitle = document.getElementById('sceneTitle');
+  var notes      = document.getElementById('notes');
+  var notesBody  = document.getElementById('notesBody');
+  var overview   = document.getElementById('overview');
+  var thumbs     = document.getElementById('thumbs');
+  var live       = document.getElementById('liveRegion');
+  var btnPrev    = document.getElementById('btnPrev');
+  var btnNext    = document.getElementById('btnNext');
+
+  function labelFor(s) {
+    var h = s.querySelector('h1, h2, .huge');
+    return h ? h.textContent.trim().replace(/\s+/g, ' ').slice(0, 64) : 'Slide';
+  }
+
+  function render() {
+    scenes.forEach(function (s, n) { s.classList.toggle('is-active', n === i); });
+    progress.style.width = (total < 2 ? 100 : (i / (total - 1)) * 100) + '%';
+    counter.textContent = (i + 1) + ' / ' + total;
+    sceneTitle.textContent = labelFor(scenes[i]);
+    notesBody.textContent = scenes[i].getAttribute('data-notes') || 'No notes for this slide.';
+    btnPrev.disabled = (i === 0);
+    btnNext.disabled = (i === total - 1);
+    Array.prototype.forEach.call(thumbs.children, function (t, n) {
+      t.classList.toggle('is-current', n === i);
+    });
+    live.textContent = 'Slide ' + (i + 1) + ' of ' + total + '. ' + labelFor(scenes[i]);
+    if (history.replaceState) history.replaceState(null, '', '#' + (i + 1));
+  }
+
+  function go(n) {
+    i = Math.max(0, Math.min(total - 1, n));
+    render();
+  }
+
+  scenes.forEach(function (s, n) {
+    var b = document.createElement('button');
+    b.className = 'thumb';
+    b.innerHTML = '<span class="n">' + (n + 1) + '</span>';
+    b.appendChild(document.createTextNode(labelFor(s)));
+    b.addEventListener('click', function () {
+      go(n);
+      overview.classList.remove('is-open');
+    });
+    thumbs.appendChild(b);
+  });
+
+  btnPrev.addEventListener('click', function () { go(i - 1); });
+  btnNext.addEventListener('click', function () { go(i + 1); });
+  document.getElementById('btnNotes').addEventListener('click', function () {
+    notes.classList.toggle('is-open');
+  });
+  document.getElementById('btnOverview').addEventListener('click', function () {
+    overview.classList.toggle('is-open');
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    var tag = (e.target.tagName || '').toLowerCase();
+    if (tag === 'input' || tag === 'textarea') return;
+
+    switch (e.key) {
+      case 'ArrowRight': case 'PageDown': case ' ': e.preventDefault(); go(i + 1); break;
+      case 'ArrowLeft':  case 'PageUp':           e.preventDefault(); go(i - 1); break;
+      case 'Home': e.preventDefault(); go(0); break;
+      case 'End':  e.preventDefault(); go(total - 1); break;
+      case 'n': case 'N': notes.classList.toggle('is-open'); break;
+      case 'o': case 'O': overview.classList.toggle('is-open'); break;
+      case 'Escape': overview.classList.remove('is-open'); notes.classList.remove('is-open'); break;
+    }
+  });
+
+  var start = parseInt((location.hash || '').replace('#', ''), 10);
+  go(isNaN(start) ? 0 : start - 1);
+})();
+</script>
+
+</body>
+</html>
