@@ -73,19 +73,22 @@
     @keyframes rise { from{opacity:0;transform:translateY(11px);} to{opacity:1;transform:none;} }
   }
 
-  .inner { max-width:58rem; width:100%; margin:0 auto; display:flex; flex-direction:column; gap:clamp(0.7rem,1.8vmin,1.35rem); }
-  .inner.wide { max-width:70rem; }
+  /* Scale ceilings are deliberately high. The vmin term governs on laptops and
+     projectors; the max only engages on large displays, where the old caps left
+     the deck marooned in dead space. */
+  .inner { max-width:68rem; width:100%; margin:0 auto; display:flex; flex-direction:column; gap:clamp(0.7rem,2.3vmin,1.9rem); }
+  .inner.wide { max-width:82rem; }
 
   /* ---------- type ---------- */
-  .eyebrow { font-family:var(--font-data); font-size:clamp(0.62rem,1.25vmin,0.82rem); letter-spacing:0.18em; text-transform:uppercase; color:var(--signal); margin:0; }
-  h1 { font-family:var(--font-display); font-size:clamp(2.2rem,7.2vmin,5rem); line-height:1.0; letter-spacing:-0.035em; font-weight:700; margin:0; text-wrap:balance; }
-  h2 { font-family:var(--font-display); font-size:clamp(1.5rem,4.6vmin,3.1rem); line-height:1.08; letter-spacing:-0.025em; font-weight:700; margin:0; text-wrap:balance; }
-  h3 { font-size:clamp(0.98rem,2.3vmin,1.4rem); line-height:1.2; font-weight:650; margin:0; letter-spacing:-0.01em; }
-  p { margin:0; font-size:clamp(0.94rem,1.95vmin,1.25rem); }
-  .lede { color:var(--ink-soft); max-width:46ch; }
+  .eyebrow { font-family:var(--font-data); font-size:clamp(0.62rem,1.25vmin,1rem); letter-spacing:0.18em; text-transform:uppercase; color:var(--signal); margin:0; }
+  h1 { font-family:var(--font-display); font-size:clamp(2.2rem,7.2vmin,6.4rem); line-height:1.0; letter-spacing:-0.035em; font-weight:700; margin:0; text-wrap:balance; }
+  h2 { font-family:var(--font-display); font-size:clamp(1.5rem,5.5vmin,4.1rem); line-height:1.06; letter-spacing:-0.028em; font-weight:700; margin:0; text-wrap:balance; }
+  h3 { font-size:clamp(0.98rem,2.6vmin,1.8rem); line-height:1.18; font-weight:650; margin:0; letter-spacing:-0.012em; }
+  p { margin:0; font-size:clamp(0.94rem,2.25vmin,1.5rem); }
+  .lede { color:var(--ink-soft); max-width:48ch; }
   .tight { max-width:38ch; }
-  .display-sub { font-family:var(--font-human); font-size:clamp(1.05rem,2.8vmin,1.85rem); line-height:1.28; color:var(--ink-soft); margin:0; text-wrap:balance; max-width:34ch; }
-  .huge { font-family:var(--font-human); font-size:clamp(1.8rem,6.2vmin,4.1rem); line-height:1.12; letter-spacing:-0.02em; margin:0; text-wrap:balance; max-width:21ch; }
+  .display-sub { font-family:var(--font-human); font-size:clamp(1.05rem,2.8vmin,2.3rem); line-height:1.26; color:var(--ink-soft); margin:0; text-wrap:balance; max-width:34ch; }
+  .huge { font-family:var(--font-human); font-size:clamp(1.8rem,6.2vmin,5.4rem); line-height:1.1; letter-spacing:-0.022em; margin:0; text-wrap:balance; max-width:21ch; }
   .huge em { font-style:italic; color:var(--clay); }
   .scene.dark .huge em { color:var(--clay-lit); }
   .credit { font-family:var(--font-data); font-size:clamp(0.66rem,1.4vmin,0.88rem); letter-spacing:0.05em; color:var(--ink-faint); margin:0; }
@@ -97,9 +100,50 @@
   .scene.dark :focus-visible { outline-color:var(--signal-lit); }
 
   /* ---------- static components ---------- */
-  .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(11rem,1fr)); gap:clamp(0.45rem,1.3vmin,0.9rem); }
-  .card { background:var(--stone-lift); border:1px solid var(--rule); border-radius:3px; padding:clamp(0.7rem,1.9vmin,1.2rem); display:flex; flex-direction:column; gap:0.35rem; }
-  .card p { font-size:clamp(0.83rem,1.65vmin,1.02rem); color:var(--ink-soft); }
+  /* Six items, so three columns rather than auto-fit, which orphaned the sixth
+     on a wide display. */
+  .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(0.45rem,1.7vmin,1.15rem); }
+  @media (max-width:56rem){ .cards{grid-template-columns:repeat(2,1fr);} }
+  .card { background:var(--stone-lift); border:1px solid var(--rule); border-radius:3px; padding:clamp(0.7rem,2.4vmin,1.6rem); display:flex; flex-direction:column; gap:0.35rem; }
+  .card p { font-size:clamp(0.83rem,1.65vmin,1.15rem); color:var(--ink-soft); }
+
+  /* --- clickable capacity cards (the durable six) --- */
+  .cap {
+    text-align:left; font-family:var(--font-body); text-transform:none; letter-spacing:0;
+    cursor:pointer; color:var(--ink); border-left:5px solid var(--clay);
+    transition:background 150ms ease, transform 150ms ease;
+  }
+  @media (prefers-reduced-motion:reduce){ .cap{transition:none;} }
+  .cap:hover { background:var(--clay-wash); }
+  .cap[aria-pressed="true"] { background:var(--clay); border-color:var(--clay-deep); transform:translateY(-2px); }
+  .cap[aria-pressed="true"] .cap-name { color:#FFFFFF; }
+  .cap[aria-pressed="true"] .cap-sub { color:var(--clay-wash); }
+  .cap-name { font-family:var(--font-display); font-weight:700; letter-spacing:-0.015em; font-size:clamp(1rem,2.8vmin,1.85rem); line-height:1.12; }
+  .cap-sub { font-family:var(--font-data); font-size:clamp(0.56rem,1.15vmin,0.82rem); letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-faint); }
+
+  .cap-detail {
+    display:none; background:var(--stone-lift); border-left:5px solid var(--clay);
+    border-radius:3px; padding:clamp(0.8rem,2.1vmin,1.4rem);
+    flex-direction:column; gap:0.4rem;
+  }
+  .cap-detail.is-shown { display:flex; }
+  .cap-detail .cd-label { font-family:var(--font-data); font-size:clamp(0.56rem,1.15vmin,0.8rem); letter-spacing:0.13em; text-transform:uppercase; color:var(--clay); }
+  .cap-detail p { font-size:clamp(0.95rem,2.4vmin,1.6rem); line-height:1.3; }
+
+  /* --- two-column contrast panel --- */
+  .contrast { display:grid; grid-template-columns:1fr 1fr; gap:clamp(0.6rem,1.8vmin,1.3rem); }
+  @media (max-width:48rem){ .contrast{grid-template-columns:1fr;} }
+  .col {
+    background:var(--stone-lift); border:1px solid var(--rule); border-radius:3px;
+    padding:clamp(0.8rem,2.1vmin,1.4rem); display:flex; flex-direction:column; gap:0.55rem;
+  }
+  .col--counts { border-top:5px solid var(--signal); }
+  .col--blind { border-top:5px solid var(--clay); }
+  .col h3 { font-size:clamp(0.98rem,2.5vmin,1.6rem); }
+  .col ul { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:0.4rem; }
+  .col li { display:flex; gap:0.6rem; align-items:baseline; font-size:clamp(0.88rem,2.1vmin,1.3rem); color:var(--ink-soft); }
+  .col li::before { content:"—"; color:var(--ink-faint); flex:0 0 auto; }
+  .col--blind li::before { content:"?"; color:var(--clay); font-weight:700; }
   .card--protect { border-left:5px solid var(--clay); }
   .card--reduce { border-left:5px solid var(--ochre); }
   .card--cool { border-left:5px solid var(--signal); }
@@ -366,11 +410,31 @@
     </div>
   </section>
 
-  <!-- 5 --><section class="scene" data-sec="Opening" data-notes="Name what just happened without scolding anyone. Everyone here is working hard. The gap is structural, not a failure of effort.">
-    <div class="inner">
+  <!-- 5 --><section class="scene" data-sec="Opening" data-notes="Name what just happened without scolding anyone. Everyone here is working hard. The gap is structural, not a failure of effort. Point at the two columns as you say 'answering the first while believing they answered the second.'">
+    <div class="inner wide">
       <p class="eyebrow">The gap</p>
       <h2>Those are not the same question.</h2>
-      <p class="lede">The first is about adults and workload. The second is about students and learning. Most districts have been answering the first while believing they answered the second.</p>
+      <div class="contrast">
+        <div class="col col--counts">
+          <h3>"Got easier"</h3>
+          <ul>
+            <li>About adults</li>
+            <li>Measured in workload</li>
+            <li>Visible this year</li>
+            <li>Easy to point to</li>
+          </ul>
+        </div>
+        <div class="col col--blind">
+          <h3>"Got better"</h3>
+          <ul>
+            <li>About students</li>
+            <li>Measured in capability</li>
+            <li>Visible in a decade</li>
+            <li>Hard to point to at all</li>
+          </ul>
+        </div>
+      </div>
+      <p class="lede">Most districts have been answering the first while believing they answered the second.</p>
     </div>
   </section>
 
@@ -392,39 +456,92 @@
     </div>
   </section>
 
-  <!-- 7 --><section class="scene" data-sec="Framing" data-notes="Read the six slowly. These are the ones the Summit brief names, and they are the right ones.">
-    <div class="inner">
+  <!-- 7 --><section class="scene" data-sec="Framing" data-notes="INTERACTIVE. Do not read all six. Ask the room which one they are most worried about, then click that one. Two or three is plenty. Each reveal is a concrete classroom picture, not a definition.">
+    <div class="inner wide">
       <p class="eyebrow">What future ready means</p>
       <h2>The durable six</h2>
-      <p class="lede">The capacities AI should amplify rather than absorb.</p>
+      <p class="lede">The capacities AI should amplify rather than absorb. Which one are you most worried about?</p>
+      <p class="hint">Click one and I will show you what absorbing it looks like</p>
       <div class="cards">
-        <div class="card card--protect"><h3>Critical thinking</h3></div>
-        <div class="card card--protect"><h3>Communication</h3></div>
-        <div class="card card--protect"><h3>Creativity</h3></div>
-        <div class="card card--protect"><h3>Collaboration</h3></div>
-        <div class="card card--protect"><h3>Judgment</h3></div>
-        <div class="card card--protect"><h3>Learner agency</h3></div>
+        <button class="card cap" type="button" data-cap="crit" aria-pressed="false">
+          <span class="cap-name">Critical thinking</span><span class="cap-sub">weighing it</span>
+        </button>
+        <button class="card cap" type="button" data-cap="comm" aria-pressed="false">
+          <span class="cap-name">Communication</span><span class="cap-sub">being understood</span>
+        </button>
+        <button class="card cap" type="button" data-cap="create" aria-pressed="false">
+          <span class="cap-name">Creativity</span><span class="cap-sub">making something new</span>
+        </button>
+        <button class="card cap" type="button" data-cap="collab" aria-pressed="false">
+          <span class="cap-name">Collaboration</span><span class="cap-sub">working it out together</span>
+        </button>
+        <button class="card cap" type="button" data-cap="judge" aria-pressed="false">
+          <span class="cap-name">Judgment</span><span class="cap-sub">deciding under uncertainty</span>
+        </button>
+        <button class="card cap" type="button" data-cap="agency" aria-pressed="false">
+          <span class="cap-name">Learner agency</span><span class="cap-sub">choosing the path</span>
+        </button>
       </div>
+      <div class="cap-detail" id="cap-crit"><span class="cd-label">When a tool absorbs it</span>
+        <p>A defensible answer arrives without the student ever weighing the evidence that produced it.</p></div>
+      <div class="cap-detail" id="cap-comm"><span class="cd-label">When a tool absorbs it</span>
+        <p>Fluent prose appears without the student ever having to find the words.</p></div>
+      <div class="cap-detail" id="cap-create"><span class="cd-label">When a tool absorbs it</span>
+        <p>Novel output, and none of the false starts that teach a student what their own taste is.</p></div>
+      <div class="cap-detail" id="cap-collab"><span class="cd-label">When a tool absorbs it</span>
+        <p>The group divides up the prompt instead of the problem. Four outputs, no negotiation.</p></div>
+      <div class="cap-detail" id="cap-judge"><span class="cd-label">When a tool absorbs it</span>
+        <p>A recommendation arrives with its tradeoffs already resolved, so nobody practices resolving them.</p></div>
+      <div class="cap-detail" id="cap-agency"><span class="cd-label">When a tool absorbs it</span>
+        <p>The path gets chosen for the student. Efficiently. Every time.</p></div>
     </div>
   </section>
 
-  <!-- 8 --><section class="scene" data-sec="Framing" data-notes="Ask for hands on both. Expect many on the first, almost none on the second. Actually count before moving on.">
-    <div class="inner">
+  <!-- 8 --><section class="scene" data-sec="Framing" data-notes="INTERACTIVE. Ask for hands and ACTUALLY COUNT before you click each reveal. The reveal is the pattern across rooms, not a prediction of this one. If this room breaks the pattern, say so out loud, it is a good sign.">
+    <div class="inner wide">
       <p class="eyebrow">Show of hands</p>
       <h2>Two questions about your Portrait of a Graduate.</h2>
-      <ol class="numbered">
-        <li>Who has one?</li>
-        <li>Who has mapped their AI guidance against it?<span>Not your acceptable use policy. Your guidance about what AI should and should not do for a student.</span></li>
-      </ol>
-      <p class="lede">That second gap is what the rest of this hour is about.</p>
+      <div class="qlist">
+        <button class="qrow" type="button" aria-expanded="false">
+          <span class="qn">01</span>
+          <span class="qbody"><span class="qq">Who has one?</span>
+          <span class="qwhy">Nearly every hand in the room. Districts have done this work, and most of them did it well.</span></span>
+        </button>
+        <button class="qrow" type="button" aria-expanded="false">
+          <span class="qn">02</span>
+          <span class="qbody"><span class="qq">Who has mapped their AI guidance against it?</span>
+          <span class="qwhy">Almost none. Not your acceptable use policy, which is about safety and conduct. Your guidance about what AI should and should not do <em>for a student</em>. In most districts that document does not exist yet.</span></span>
+        </button>
+      </div>
+      <p class="lede">Two documents, written by the same district, that have never been in the same room. <strong>That gap is what the rest of this hour is about.</strong></p>
     </div>
   </section>
 
-  <!-- 9 --><section class="scene" data-sec="Screen time" data-notes="Transition. Fix the measurement problem before the lens will work.">
-    <div class="inner">
+  <!-- 9 --><section class="scene" data-sec="Screen time" data-notes="Walk the left column fast, it is familiar. Slow down on the right. Ask the room to add to the right column before you move on. Somebody always says 'whether they were thinking.'">
+    <div class="inner wide">
       <p class="eyebrow">First, a measurement problem</p>
       <h2>Screen time is the wrong question.</h2>
       <p class="lede">Every district I know has argued about minutes. Almost none have argued about what the minutes were doing.</p>
+      <div class="contrast">
+        <div class="col col--counts">
+          <h3>What the report counts</h3>
+          <ul>
+            <li>Minutes on the device</li>
+            <li>Apps opened, tabs visited</li>
+            <li>Assignments marked complete</li>
+            <li>Time on task, flagged green</li>
+          </ul>
+        </div>
+        <div class="col col--blind">
+          <h3>What it cannot see</h3>
+          <ul>
+            <li>Whether the student did the thinking</li>
+            <li>Whether the words were theirs</li>
+            <li>Whether anything got harder, then got easier</li>
+            <li>Whether they could do it again on Monday</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1006,6 +1123,25 @@
       if (!open) {
         btn.setAttribute('aria-pressed', 'true');
         var panel = $('nd-' + key);
+        if (panel) panel.classList.add('is-shown');
+      }
+    });
+  });
+
+  /* ---------- interactive: the durable six ---------- */
+  Array.prototype.forEach.call(document.querySelectorAll('.cap'), function (btn) {
+    btn.addEventListener('click', function () {
+      var key = btn.getAttribute('data-cap');
+      var open = btn.getAttribute('aria-pressed') === 'true';
+      Array.prototype.forEach.call(document.querySelectorAll('.cap'), function (b) {
+        b.setAttribute('aria-pressed', 'false');
+      });
+      Array.prototype.forEach.call(document.querySelectorAll('.cap-detail'), function (d) {
+        d.classList.remove('is-shown');
+      });
+      if (!open) {
+        btn.setAttribute('aria-pressed', 'true');
+        var panel = $('cap-' + key);
         if (panel) panel.classList.add('is-shown');
       }
     });

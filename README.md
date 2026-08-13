@@ -71,8 +71,11 @@ Open `index.html` in a modern browser, or visit the published site:
 
 `https://minerclass.github.io/future-ready-not-just-ai-ready/`
 
-Landscape on a laptop or projector is recommended. The deck has been checked at
-1280x720 and 1024x768 with no clipped content.
+Landscape on a laptop or projector is recommended. Checked at 1920x1200,
+1280x720, and 1024x768 with every panel expanded and no clipped content.
+
+Type scales on `vmin`, so the deck fills a large display rather than sitting in
+the middle of it. The `clamp()` ceilings only engage above roughly 1600px.
 
 ## Plain language, on purpose
 
@@ -94,6 +97,10 @@ The deck is built to be clicked during the session, not read past.
 
 | Slide | Element | What it does |
 |---|---|---|
+| 5 | The gap, side by side | "Got easier" against "got better": adults vs students, workload vs capability, this year vs a decade |
+| 7 | The durable six | Ask which capacity worries them, click it, and show what absorbing it looks like in a classroom |
+| 8 | Portrait show of hands | Count the room first, then reveal the pattern across every room this has been asked in |
+| 9 | What screen time counts | Two columns: what the report measures against what it cannot see |
 | 10 | Dashboard reveal | Ask the room what their data says about the two students, then reveal that it cannot tell them apart |
 | 14 | Head / Room / World nodes | Click each layer to open what it is and what it looks like when a tool absorbs it |
 | 15 | Formation line reveal | Show the rising line first, let the room read it as good news, then add the flat line and the gap |
@@ -129,7 +136,7 @@ on slide 27, not as a district showcase.
 
 ## Structure
 
-29 scenes, roughly a 60 minute session with two audience exercises and seven interactive moments.
+29 scenes, roughly a 60 minute session with two audience exercises and eleven interactive moments.
 
 1. **Opening** (1 to 5). Two questions to the room. The second lands quiet, and
    that silence is the session's premise.
