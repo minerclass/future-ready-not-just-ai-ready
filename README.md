@@ -100,6 +100,7 @@ The deck is built to be clicked during the session, not read past.
 | 17 | The four questions | Click any question to open why it matters |
 | 18 | Tool sorter | Click a real tool and see which layer it touches. Text to speech is the payoff: same feature, opposite call depending on the objective |
 | 21 to 24 | Vendor rows | Open design choice, balance, and what stays yours one at a time to control pacing |
+| 26 | The speaker's own Portrait | Three mapped lines, then reveal the gap he could not answer in his own district |
 
 ## Presenter controls
 
@@ -122,9 +123,13 @@ parts of the talk, and a **presenter timer** you start with a click.
 Every slide carries speaker notes. The URL tracks the slide number, so `#20`
 deep-links to the disclosure slide.
 
+Slide 26 references the Beach Park CCSD 3 Portrait of a Learner, which was
+adopted before the speaker joined the district. It is used to model the ask made
+on slide 27, not as a district showcase.
+
 ## Structure
 
-28 scenes, roughly a 60 minute session with two audience exercises and six interactive moments.
+29 scenes, roughly a 60 minute session with two audience exercises and seven interactive moments.
 
 1. **Opening** (1 to 5). Two questions to the room. The second lands quiet, and
    that silence is the session's premise.
@@ -136,7 +141,8 @@ deep-links to the disclosure slide.
 5. **The lens** (17 to 19). Four questions, the tool sorter, then a table
    exercise on the audience's own tools.
 6. **Examples** (20 to 25). Disclosure, four worked examples, and the pattern.
-7. **Close** (26 to 28). The Monday move and resources.
+7. **Close** (26 to 29). The speaker models the ask on his own district, then the
+   Monday move, the close, and resources.
 
 These seven names are the section rail at the bottom of the deck.
 

@@ -246,6 +246,24 @@
   .sv-tag.depends { background:var(--signal-wash); color:var(--signal); }
   .sv-text { font-size:clamp(0.9rem,1.9vmin,1.15rem); }
 
+  /* --- portrait mapping rows --- */
+  .maprows { display:flex; flex-direction:column; gap:0.4rem; }
+  .maprow {
+    display:grid; grid-template-columns:1fr 1.6rem 7.5rem; gap:clamp(0.4rem,1.4vmin,0.9rem);
+    align-items:center; background:var(--stone-lift); border:1px solid var(--rule);
+    border-left:5px solid var(--ochre); border-radius:3px;
+    padding:clamp(0.5rem,1.4vmin,0.85rem) clamp(0.65rem,1.8vmin,1rem);
+  }
+  .maprow .src { font-size:clamp(0.88rem,1.85vmin,1.12rem); }
+  .maprow .src small { display:block; font-size:clamp(0.72rem,1.45vmin,0.88rem); color:var(--ink-soft); font-style:italic; }
+  .maprow .arrow { font-family:var(--font-data); color:var(--ink-faint); text-align:center; }
+  .maprow .dst { font-family:var(--font-display); font-weight:700; color:var(--clay-deep); text-align:right; font-size:clamp(1rem,2.2vmin,1.35rem); }
+  @media (max-width:44rem){
+    .maprow { grid-template-columns:1fr; gap:0.2rem; }
+    .maprow .arrow { display:none; }
+    .maprow .dst { text-align:left; }
+  }
+
   /* --- vendor progressive rows --- */
   .vrows { display:flex; flex-direction:column; gap:0.4rem; }
   .vrow {
@@ -808,7 +826,38 @@
     </div>
   </section>
 
-  <!-- 26 --><section class="scene" data-sec="Close" data-notes="Ninety seconds of silent writing. Enforce the silence. Then two or three share out, kept short.">
+  <!-- 26 --><section class="scene" data-sec="Close" data-notes="NINETY SECONDS, NOT MORE. This is not a district show and tell. Say the design is not a design award and move on, then walk the three rows. Click the reveal only after you have said you asked yourself question four. The admission is the point, not the Portrait.">
+    <div class="inner wide">
+      <p class="eyebrow">Before I ask you to do this</p>
+      <h2>Ours. Written before I got here.</h2>
+      <p class="lede">Beach Park District 3 adopted a Portrait of a Learner while I was still somewhere else. Nobody in that room was thinking about AI. Look at what they wrote anyway.</p>
+      <div class="maprows">
+        <div class="maprow">
+          <span class="src">Critical Thinking</span>
+          <span class="arrow">&rarr;</span>
+          <span class="dst">Head</span>
+        </div>
+        <div class="maprow">
+          <span class="src">Clear Communication</span>
+          <span class="arrow">&rarr;</span>
+          <span class="dst">Room</span>
+        </div>
+        <div class="maprow">
+          <span class="src">Resilience<small>"persists in the face of setbacks, sees effort as a path to mastery"</small></span>
+          <span class="arrow">&rarr;</span>
+          <span class="dst">World</span>
+        </div>
+      </div>
+      <p class="lede">They got there without the vocabulary, and without any of this being about technology. Most of your Portraits say something close to the same thing.</p>
+      <button class="reveal-btn" type="button" data-reveal="ownGap" aria-expanded="false">So I asked myself question four</button>
+      <div class="revealable verdict-strip" id="ownGap">
+        <span class="vs-small">What in our AI guidance protects Resilience?</span>
+        I did not have an answer.
+      </div>
+    </div>
+  </section>
+
+  <!-- 27 --><section class="scene" data-sec="Close" data-notes="Ninety seconds of silent writing. Enforce the silence. Then two or three share out, kept short.">
     <div class="inner">
       <p class="eyebrow">The Monday move &middot; ninety seconds, silent</p>
       <h2>One competency. One protection. One owner.</h2>
@@ -817,7 +866,7 @@
     </div>
   </section>
 
-  <!-- 27 --><section class="scene dark" data-sec="Close" data-notes="Return to the silence from question two. Land it and stop. Do not add anything after this line.">
+  <!-- 28 --><section class="scene dark" data-sec="Close" data-notes="Return to the silence from question two. Land it and stop. Do not add anything after this line.">
     <div class="inner">
       <p class="eyebrow">Where we started</p>
       <p class="huge">The districts that will be future ready are not the ones that adopted fastest.</p>
@@ -825,7 +874,7 @@
     </div>
   </section>
 
-  <!-- 28 --><section class="scene" data-sec="Close" data-notes="Leave this up during questions. The primer is the single best takeaway for this audience.">
+  <!-- 29 --><section class="scene" data-sec="Close" data-notes="Leave this up during questions. The primer is the single best takeaway for this audience.">
     <div class="inner">
       <p class="eyebrow">Take one thing with you</p>
       <h2>Resources</h2>
@@ -852,7 +901,7 @@
     <button class="ctl" id="btnOverview" type="button" aria-label="Toggle slide overview">Overview</button>
     <button class="ctl" id="btnNotes" type="button" aria-label="Toggle speaker notes">Notes</button>
     <button class="ctl" id="btnPrev" type="button" aria-label="Previous slide">Prev</button>
-    <span class="chrome-left counter" id="counter">1 / 28</span>
+    <span class="chrome-left counter" id="counter">1 / 29</span>
     <button class="ctl" id="btnNext" type="button" aria-label="Next slide">Next</button>
   </div>
 </div>
