@@ -39,6 +39,32 @@ The speaker's relationship to the host is disclosed on slide 21, before any
 product appears. Imagine Learning products were adopted in Beach Park CCSD 3
 before the speaker joined the district.
 
+## How the deck is designed
+
+The color system carries the argument instead of decorating it.
+
+**Warm** tones, clay and ochre, mark the human layers: friction, effort,
+formation, the things a district protects. **Cool** signal teal marks the
+algorithmic: smooth, fast, frictionless, the things a tool does. Once the
+audience has seen the friction diagram on slide 12, every later slide can be read
+at a glance by its color alone.
+
+Grounds alternate. Most content sits on stone. Eight scenes drop to graphite for
+the moments where the room should go quiet: the two opening questions, the pivot,
+unproductive success, the disclosure, the pattern, and the close.
+
+Seven diagrams do work the prose cannot:
+
+| Slide | Figure | What it shows |
+|---|---|---|
+| 10 | Two students, forty-five minutes | Identical bars, opposite internal composition, identical dashboard row |
+| 12 | The friction strata | Three co-equal learner-facing layers resting on one wide infrastructural base |
+| 17 | Unproductive success | Output rising while formation stays flat, and the widening gap between them |
+| 22 to 25 | Tool locators | Which layer each platform acts on, drawn on the same strata shape each time |
+
+The locator diagram repeats across all four vendor slides on purpose. It becomes
+a visual grammar the audience learns once and then reads without help.
+
 ## View the deck
 
 Open `index.html` in a modern browser, or visit the published site:
