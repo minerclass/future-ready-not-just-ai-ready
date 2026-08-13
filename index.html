@@ -4,319 +4,329 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Future Ready, Not Just AI Ready</title>
-<meta name="description" content="Keynote for the Imagine Learning IL Future Ready Student Summit. Screen time, pedagogical friction, and AI: a district leader's lens for deciding what should stay hard.">
+<meta name="description" content="Interactive keynote for the Imagine Learning IL Future Ready Student Summit. Screen time, friction, and AI: a district leader's lens for deciding what should stay hard.">
 <style>
   /* ------------------------------------------------------------------
-     PALETTE
+     PALETTE. The color system carries the argument, it does not decorate.
 
-     The color system carries the argument rather than decorating it.
+       WARM (clay, ochre) = the human layers. Head, Room, World.
+                            What a district protects.
+       COOL (signal teal) = the algorithmic. Smooth, fast, frictionless.
+                            What the tool does.
 
-       WARM  (clay, ochre)  = the human layers. Friction, effort, formation.
-                              What a district protects.
-       COOL  (signal teal)  = the algorithmic. Smooth, fast, frictionless.
-                              What the tool does.
-
-     Grounds alternate between stone (most content) and graphite (the four
-     moments where the room should go quiet). Committed single look: a
-     projected deck must not change with the room machine's OS theme, so
-     every color is painted explicitly and there is no dark-mode swap.
+     Committed single look. A projected deck must not change with the room
+     machine's OS theme, so every color is painted explicitly.
      ------------------------------------------------------------------ */
   :root {
-    --stone:       #E9E5DB;
-    --stone-lift:  #F3F0E9;
-    --stone-sink:  #DBD6C9;
-    --graphite:    #1E2328;
-    --graphite-lift:#2A3037;
-    --ink:         #191D21;
-    --ink-soft:    #4A5158;
-    --ink-faint:   #525A61;
-    --on-dark:     #EFEBE2;
-    --on-dark-soft:#AFB6BC;
+    --stone:#E9E5DB; --stone-lift:#F3F0E9; --stone-sink:#DBD6C9;
+    --graphite:#1E2328; --graphite-lift:#2A3037;
+    --ink:#191D21; --ink-soft:#4A5158; --ink-faint:#525A61;
+    --on-dark:#EFEBE2; --on-dark-soft:#AFB6BC;
 
-    --clay:        #A63D26;   /* protect / human friction, on stone */
-    --clay-lit:    #E8825F;   /* same role, on graphite */
-    --clay-wash:   #F2DFD7;
+    --clay:#A63D26; --clay-lit:#E8825F; --clay-wash:#F2DFD7; --clay-deep:#7A2C1B;
+    --ochre:#78540F; --ochre-lit:#E0AC4A; --ochre-wash:#F1E7CF; --ochre-deep:#5E410B;
+    --signal:#0E6E78; --signal-lit:#56C7D2; --signal-wash:#D8EBED;
 
-    --ochre:       #78540F;   /* reduce / infrastructural, on stone */
-    --ochre-lit:   #E0AC4A;   /* same role, on graphite */
-    --ochre-wash:  #F1E7CF;
+    --rule:#C6C0B2; --rule-dark:#3A4148;
 
-    --signal:      #0E6E78;   /* the algorithmic / the lens, on stone */
-    --signal-lit:  #56C7D2;   /* same role, on graphite */
-    --signal-wash: #D8EBED;
-
-    --rule:        #C6C0B2;
-    --rule-dark:   #3A4148;
-
-    --font-display: "Segoe UI Variable Display", ui-sans-serif, -apple-system, "Segoe UI", Roboto, system-ui, sans-serif;
-    --font-body: ui-sans-serif, -apple-system, "Segoe UI", Roboto, system-ui, sans-serif;
-    --font-human: Georgia, "Iowan Old Style", "Times New Roman", serif;
-    --font-data: ui-monospace, "Cascadia Mono", Consolas, "SF Mono", Menlo, monospace;
+    --font-display:"Segoe UI Variable Display",ui-sans-serif,-apple-system,"Segoe UI",Roboto,system-ui,sans-serif;
+    --font-body:ui-sans-serif,-apple-system,"Segoe UI",Roboto,system-ui,sans-serif;
+    --font-human:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --font-data:ui-monospace,"Cascadia Mono",Consolas,"SF Mono",Menlo,monospace;
   }
 
   * { box-sizing: border-box; }
   html, body { height: 100%; }
-
   body {
-    margin: 0;
-    background: var(--stone);
-    color: var(--ink);
-    font-family: var(--font-body);
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
-    overflow: hidden;
+    margin:0; background:var(--stone); color:var(--ink);
+    font-family:var(--font-body); line-height:1.5;
+    -webkit-font-smoothing:antialiased; overflow:hidden;
   }
 
-  /* ---------- scene system ---------- */
-
-  .deck { position: relative; height: 100%; width: 100%; }
-
+  /* ---------- scenes ---------- */
+  .deck { position:relative; height:100%; width:100%; }
   .scene {
-    position: absolute; inset: 0;
-    display: none;
-    flex-direction: column; justify-content: center;
-    padding: clamp(1.6rem, 5vmin, 4.5rem) clamp(1.4rem, 7vw, 6rem) clamp(3.6rem, 8vmin, 5rem);
-    overflow-y: auto;
-    background: var(--stone);
-    color: var(--ink);
+    position:absolute; inset:0; display:none;
+    flex-direction:column; justify-content:center;
+    padding:clamp(1.5rem,4.4vmin,4rem) clamp(1.3rem,6.5vw,5.5rem) clamp(4.2rem,9vmin,5.4rem);
+    overflow-y:auto; background:var(--stone); color:var(--ink);
   }
-  .scene.is-active { display: flex; }
+  .scene.is-active { display:flex; }
 
-  /* the quiet moments */
-  .scene.dark {
-    background: var(--graphite);
-    color: var(--on-dark);
-  }
-  .scene.dark .eyebrow { color: var(--signal-lit); }
-  .scene.dark .lede,
-  .scene.dark .display-sub,
-  .scene.dark .credit { color: var(--on-dark-soft); }
-  .scene.dark .rule { background: var(--clay-lit); }
-  .scene.dark .quiet { background: var(--graphite-lift); color: var(--on-dark-soft); }
-  .scene.dark .quiet strong { color: var(--on-dark); }
-  .scene.dark .card { background: var(--graphite-lift); border-color: var(--rule-dark); }
-  .scene.dark .card p { color: var(--on-dark-soft); }
-  .scene.dark figcaption { color: var(--on-dark-soft); }
-  .scene.dark a { color: var(--signal-lit); }
+  .scene.dark { background:var(--graphite); color:var(--on-dark); }
+  .scene.dark .eyebrow { color:var(--signal-lit); }
+  .scene.dark .lede, .scene.dark .display-sub, .scene.dark .credit { color:var(--on-dark-soft); }
+  .scene.dark .rule { background:var(--clay-lit); }
+  .scene.dark .quiet { background:var(--graphite-lift); color:var(--on-dark-soft); }
+  .scene.dark .quiet strong { color:var(--on-dark); }
+  .scene.dark .card { background:var(--graphite-lift); border-color:var(--rule-dark); }
+  .scene.dark .card p { color:var(--on-dark-soft); }
+  .scene.dark figcaption { color:var(--on-dark-soft); }
+  .scene.dark a { color:var(--signal-lit); }
+  .scene.dark ol.numbered li span, .scene.dark ul.plain li span span { color:var(--on-dark-soft); }
+  .scene.dark ul.plain .bullet { color:var(--clay-lit); }
 
   @media (prefers-reduced-motion: no-preference) {
-    .scene.is-active > * { animation: rise 420ms cubic-bezier(.22,.9,.3,1) both; }
-    .scene.is-active > *:nth-child(2) { animation-delay: 70ms; }
-    .scene.is-active > *:nth-child(3) { animation-delay: 125ms; }
-    @keyframes rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+    .scene.is-active > * { animation:rise 400ms cubic-bezier(.22,.9,.3,1) both; }
+    .scene.is-active > *:nth-child(2) { animation-delay:65ms; }
+    .scene.is-active > *:nth-child(3) { animation-delay:115ms; }
+    @keyframes rise { from{opacity:0;transform:translateY(11px);} to{opacity:1;transform:none;} }
   }
 
-  .inner {
-    max-width: 58rem; width: 100%; margin: 0 auto;
-    display: flex; flex-direction: column;
-    gap: clamp(0.8rem, 2vmin, 1.5rem);
-  }
-  .inner.wide { max-width: 68rem; }
+  .inner { max-width:58rem; width:100%; margin:0 auto; display:flex; flex-direction:column; gap:clamp(0.7rem,1.8vmin,1.35rem); }
+  .inner.wide { max-width:70rem; }
 
   /* ---------- type ---------- */
+  .eyebrow { font-family:var(--font-data); font-size:clamp(0.62rem,1.25vmin,0.82rem); letter-spacing:0.18em; text-transform:uppercase; color:var(--signal); margin:0; }
+  h1 { font-family:var(--font-display); font-size:clamp(2.2rem,7.2vmin,5rem); line-height:1.0; letter-spacing:-0.035em; font-weight:700; margin:0; text-wrap:balance; }
+  h2 { font-family:var(--font-display); font-size:clamp(1.5rem,4.6vmin,3.1rem); line-height:1.08; letter-spacing:-0.025em; font-weight:700; margin:0; text-wrap:balance; }
+  h3 { font-size:clamp(0.98rem,2.3vmin,1.4rem); line-height:1.2; font-weight:650; margin:0; letter-spacing:-0.01em; }
+  p { margin:0; font-size:clamp(0.94rem,1.95vmin,1.25rem); }
+  .lede { color:var(--ink-soft); max-width:46ch; }
+  .tight { max-width:38ch; }
+  .display-sub { font-family:var(--font-human); font-size:clamp(1.05rem,2.8vmin,1.85rem); line-height:1.28; color:var(--ink-soft); margin:0; text-wrap:balance; max-width:34ch; }
+  .huge { font-family:var(--font-human); font-size:clamp(1.8rem,6.2vmin,4.1rem); line-height:1.12; letter-spacing:-0.02em; margin:0; text-wrap:balance; max-width:21ch; }
+  .huge em { font-style:italic; color:var(--clay); }
+  .scene.dark .huge em { color:var(--clay-lit); }
+  .credit { font-family:var(--font-data); font-size:clamp(0.66rem,1.4vmin,0.88rem); letter-spacing:0.05em; color:var(--ink-faint); margin:0; }
+  strong { font-weight:650; }
+  a { color:var(--signal); text-underline-offset:3px; }
+  .rule { height:4px; width:4.5rem; background:var(--clay); border:none; margin:0; }
 
-  .eyebrow {
-    font-family: var(--font-data);
-    font-size: clamp(0.64rem, 1.3vmin, 0.84rem);
-    letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--signal); margin: 0;
+  :focus-visible { outline:3px solid var(--signal); outline-offset:3px; border-radius:3px; }
+  .scene.dark :focus-visible { outline-color:var(--signal-lit); }
+
+  /* ---------- static components ---------- */
+  .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(11rem,1fr)); gap:clamp(0.45rem,1.3vmin,0.9rem); }
+  .card { background:var(--stone-lift); border:1px solid var(--rule); border-radius:3px; padding:clamp(0.7rem,1.9vmin,1.2rem); display:flex; flex-direction:column; gap:0.35rem; }
+  .card p { font-size:clamp(0.83rem,1.65vmin,1.02rem); color:var(--ink-soft); }
+  .card--protect { border-left:5px solid var(--clay); }
+  .card--reduce { border-left:5px solid var(--ochre); }
+  .card--cool { border-left:5px solid var(--signal); }
+  .scene.dark .card--protect { border-left-color:var(--clay-lit); }
+  .scene.dark .card--cool { border-left-color:var(--signal-lit); }
+
+  .tagline { font-family:var(--font-data); font-size:clamp(0.58rem,1.2vmin,0.76rem); letter-spacing:0.14em; text-transform:uppercase; padding:0.22rem 0.55rem; border-radius:2px; align-self:flex-start; }
+  .tagline--protect { background:var(--clay-wash); color:var(--clay); }
+  .tagline--reduce { background:var(--ochre-wash); color:var(--ochre); }
+  .tagline--cool { background:var(--signal-wash); color:var(--signal); }
+
+  ol.numbered, ul.plain { margin:0; padding-left:1.5rem; display:flex; flex-direction:column; gap:clamp(0.38rem,1.1vmin,0.75rem); font-size:clamp(0.93rem,1.95vmin,1.22rem); }
+  ul.plain { list-style:none; padding-left:0; }
+  ol.numbered li::marker { color:var(--clay); font-weight:700; }
+  ol.numbered li span, ul.plain li span span { display:block; color:var(--ink-soft); font-size:clamp(0.8rem,1.6vmin,0.98rem); margin-top:0.1rem; }
+  ul.plain li { display:flex; gap:0.75rem; align-items:baseline; }
+  ul.plain .bullet { color:var(--clay); font-weight:700; flex:0 0 auto; font-family:var(--font-data); }
+
+  .split { display:grid; grid-template-columns:1fr 1fr; gap:clamp(0.7rem,2.4vmin,1.9rem); align-items:start; }
+  .split--fig { grid-template-columns:1.05fr 1fr; align-items:center; }
+  @media (max-width:48rem){ .split,.split--fig,.cards{grid-template-columns:1fr;} }
+
+  .quiet { background:var(--stone-sink); border-radius:3px; padding:clamp(0.7rem,1.9vmin,1.2rem); font-size:clamp(0.86rem,1.8vmin,1.1rem); color:var(--ink-soft); }
+  .quiet strong { color:var(--ink); }
+
+  figure { margin:0; display:flex; flex-direction:column; gap:0.45rem; }
+  figure svg { width:100%; height:auto; max-height:44vh; display:block; }
+  figcaption { font-family:var(--font-data); font-size:clamp(0.58rem,1.2vmin,0.74rem); letter-spacing:0.06em; color:var(--ink-faint); line-height:1.45; }
+  .fig-sm svg { max-height:25vh; }
+
+  /* ================= INTERACTIVE ================= */
+
+  .hint {
+    font-family:var(--font-data); font-size:clamp(0.58rem,1.2vmin,0.74rem);
+    letter-spacing:0.1em; text-transform:uppercase; color:var(--signal);
+    display:flex; align-items:center; gap:0.4rem;
+  }
+  .hint::before { content:"▸"; font-size:0.8em; }
+  .scene.dark .hint { color:var(--signal-lit); }
+
+  /* --- Head / Room / World nodes --- */
+  .nodes { display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(0.5rem,1.4vmin,0.9rem); }
+  @media (max-width:44rem){ .nodes{grid-template-columns:1fr;} }
+
+  .node {
+    text-align:left; font-family:var(--font-body); text-transform:none; letter-spacing:0;
+    background:var(--stone-lift); border:2px solid var(--clay); border-radius:4px;
+    padding:clamp(0.7rem,1.9vmin,1.15rem); cursor:pointer;
+    display:flex; flex-direction:column; gap:0.28rem; color:var(--ink);
+    transition:background 160ms ease, transform 160ms ease;
+  }
+  @media (prefers-reduced-motion:reduce){ .node{transition:none;} }
+  .node:hover { background:var(--clay-wash); }
+  .node[aria-pressed="true"] { background:var(--clay); border-color:var(--clay-deep); transform:translateY(-2px); }
+  .node[aria-pressed="true"] .node-name,
+  .node[aria-pressed="true"] .node-term,
+  .node[aria-pressed="true"] .node-line { color:#FFFFFF; }
+  .node-name { font-family:var(--font-display); font-size:clamp(1.15rem,2.9vmin,1.8rem); font-weight:700; letter-spacing:-0.02em; color:var(--clay-deep); }
+  .node-term { font-family:var(--font-data); font-size:clamp(0.56rem,1.15vmin,0.7rem); letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-faint); }
+  .node-line { font-size:clamp(0.83rem,1.65vmin,1rem); color:var(--ink-soft); }
+
+  .node-detail {
+    display:none; flex-direction:column; gap:0.5rem;
+    background:var(--stone-lift); border-left:5px solid var(--clay);
+    border-radius:3px; padding:clamp(0.75rem,2vmin,1.25rem);
+  }
+  .node-detail.is-shown { display:flex; }
+  .node-detail .dl-label { font-family:var(--font-data); font-size:clamp(0.56rem,1.15vmin,0.7rem); letter-spacing:0.13em; text-transform:uppercase; color:var(--clay); }
+  .node-detail p { font-size:clamp(0.88rem,1.8vmin,1.1rem); }
+  .node-detail .bypass { color:var(--clay-deep); font-weight:650; }
+
+  /* --- generic reveal --- */
+  .reveal-btn {
+    align-self:flex-start; font-family:var(--font-data); font-size:clamp(0.6rem,1.25vmin,0.78rem);
+    letter-spacing:0.12em; text-transform:uppercase;
+    background:var(--signal); color:#FFFFFF; border:2px solid var(--signal);
+    border-radius:3px; padding:0.42rem 0.85rem; cursor:pointer;
+  }
+  .reveal-btn:hover { background:#0B5B63; border-color:#0B5B63; }
+  .scene.dark .reveal-btn { background:var(--signal-lit); border-color:var(--signal-lit); color:#12262A; }
+  .scene.dark .reveal-btn:hover { background:#7FD8E1; border-color:#7FD8E1; }
+
+  .verdict-strip {
+    background:var(--clay); color:#FFFFFF; border-radius:3px;
+    padding:clamp(0.65rem,1.8vmin,1.1rem);
+    font-size:clamp(1rem,2.3vmin,1.45rem); font-weight:650;
+    align-items:center; gap:0.8rem; flex-wrap:wrap;
   }
 
-  h1 {
-    font-family: var(--font-display);
-    font-size: clamp(2.3rem, 7.6vmin, 5.2rem);
-    line-height: 1.0; letter-spacing: -0.035em; font-weight: 700;
-    margin: 0; text-wrap: balance;
+  /* Declared after .verdict-strip so the hidden state wins the cascade;
+     both rules are single-class, so source order decides. */
+  .revealable { display:none; }
+  .revealable.is-shown { display:flex; }
+  .verdict-strip .vs-small { font-family:var(--font-data); font-size:clamp(0.58rem,1.2vmin,0.74rem); letter-spacing:0.12em; text-transform:uppercase; opacity:0.9; }
+
+  /* --- expandable question list --- */
+  .qlist { display:flex; flex-direction:column; gap:0.42rem; }
+  .qrow {
+    text-align:left; font-family:var(--font-body); text-transform:none; letter-spacing:0;
+    background:var(--stone-lift); border:1px solid var(--rule); border-left:5px solid var(--signal);
+    border-radius:3px; padding:clamp(0.6rem,1.6vmin,1rem) clamp(0.75rem,2vmin,1.15rem);
+    cursor:pointer; color:var(--ink); display:flex; gap:0.9rem; align-items:baseline;
   }
+  .qrow:hover { background:var(--signal-wash); }
+  .qrow .qn { font-family:var(--font-data); font-weight:700; color:var(--signal); flex:0 0 auto; font-size:clamp(0.8rem,1.7vmin,1rem); }
+  .qrow .qbody { display:flex; flex-direction:column; gap:0.3rem; }
+  .qrow .qq { font-size:clamp(0.95rem,2vmin,1.24rem); font-weight:650; }
+  .qrow .qwhy { display:none; font-size:clamp(0.82rem,1.65vmin,1rem); color:var(--ink-soft); }
+  .qrow[aria-expanded="true"] { border-left-color:var(--clay); background:var(--stone-lift); }
+  .qrow[aria-expanded="true"] .qwhy { display:block; }
+  .qrow[aria-expanded="true"] .qn { color:var(--clay); }
 
-  h2 {
-    font-family: var(--font-display);
-    font-size: clamp(1.6rem, 4.9vmin, 3.3rem);
-    line-height: 1.08; letter-spacing: -0.025em; font-weight: 700;
-    margin: 0; text-wrap: balance;
+  /* --- tool sorter --- */
+  .sorter { display:flex; flex-direction:column; gap:clamp(0.55rem,1.5vmin,0.95rem); }
+  .chips { display:flex; flex-wrap:wrap; gap:0.4rem; }
+  .chip {
+    font-family:var(--font-body); text-transform:none; letter-spacing:0;
+    background:var(--stone-lift); border:1px solid var(--rule); border-radius:999px;
+    padding:0.4rem 0.85rem; cursor:pointer; color:var(--ink);
+    font-size:clamp(0.8rem,1.6vmin,0.98rem);
   }
+  .chip:hover { border-color:var(--signal); color:var(--signal); }
+  .chip[aria-pressed="true"] { background:var(--ink); border-color:var(--ink); color:var(--stone); }
 
-  h3 { font-size: clamp(1rem, 2.4vmin, 1.45rem); line-height: 1.2; font-weight: 650; margin: 0; letter-spacing: -0.01em; }
+  .sorter-stage { display:grid; grid-template-columns:1.1fr 1fr; gap:clamp(0.7rem,2vmin,1.4rem); align-items:center; }
+  @media (max-width:48rem){ .sorter-stage{grid-template-columns:1fr;} }
 
-  p { margin: 0; font-size: clamp(0.96rem, 2.05vmin, 1.3rem); }
-  .lede { color: var(--ink-soft); max-width: 46ch; }
-  .tight { max-width: 38ch; }
-
-  .display-sub {
-    font-family: var(--font-human);
-    font-size: clamp(1.1rem, 2.9vmin, 1.9rem);
-    line-height: 1.28; color: var(--ink-soft); margin: 0; text-wrap: balance; max-width: 34ch;
+  .mini { display:flex; flex-direction:column; gap:0.3rem; }
+  .mini-row { display:grid; grid-template-columns:repeat(3,1fr); gap:0.3rem; }
+  .mini-cell, .mini-base {
+    border:2px solid var(--rule); border-radius:3px; background:var(--stone-lift);
+    padding:clamp(0.4rem,1.2vmin,0.7rem) 0.4rem; text-align:center;
+    font-size:clamp(0.72rem,1.5vmin,0.92rem); font-weight:650; color:var(--ink-faint);
   }
+  .mini-cell.on { background:var(--clay); border-color:var(--clay-deep); color:#FFFFFF; }
+  .mini-base.on { background:var(--ochre); border-color:var(--ochre-deep); color:#FFFFFF; }
+  .mini-cell.maybe, .mini-base.maybe { background:var(--stone-sink); border-color:var(--ink-faint); border-style:dashed; color:var(--ink); }
+  .mini-base { text-align:center; }
 
-  /* the human voice: serif, for the moments about formation */
-  .huge {
-    font-family: var(--font-human);
-    font-size: clamp(1.85rem, 6.4vmin, 4.2rem);
-    line-height: 1.12; letter-spacing: -0.02em; margin: 0; text-wrap: balance; max-width: 21ch;
+  .sorter-verdict { display:flex; flex-direction:column; gap:0.45rem; min-height:6.5rem; }
+  .sv-tag { font-family:var(--font-data); font-size:clamp(0.58rem,1.2vmin,0.74rem); letter-spacing:0.13em; text-transform:uppercase; align-self:flex-start; padding:0.2rem 0.5rem; border-radius:2px; }
+  .sv-tag.good { background:var(--ochre-wash); color:var(--ochre); }
+  .sv-tag.bypass { background:var(--clay-wash); color:var(--clay); }
+  .sv-tag.depends { background:var(--signal-wash); color:var(--signal); }
+  .sv-text { font-size:clamp(0.9rem,1.9vmin,1.15rem); }
+
+  /* --- vendor progressive rows --- */
+  .vrows { display:flex; flex-direction:column; gap:0.4rem; }
+  .vrow {
+    text-align:left; font-family:var(--font-body); text-transform:none; letter-spacing:0;
+    background:var(--stone-lift); border:1px solid var(--rule); border-radius:3px;
+    padding:clamp(0.55rem,1.5vmin,0.95rem) clamp(0.7rem,1.9vmin,1.1rem);
+    cursor:pointer; color:var(--ink); display:flex; flex-direction:column; gap:0.3rem;
   }
-  .huge em { font-style: italic; color: var(--clay); }
-  .scene.dark .huge em { color: var(--clay-lit); }
-
-  .credit { font-family: var(--font-data); font-size: clamp(0.68rem, 1.45vmin, 0.9rem); letter-spacing: 0.05em; color: var(--ink-faint); margin: 0; }
-
-  strong { font-weight: 650; }
-  a { color: var(--signal); text-underline-offset: 3px; }
-  a:focus-visible { outline: 3px solid currentColor; outline-offset: 3px; border-radius: 2px; }
-
-  .rule { height: 4px; width: 4.5rem; background: var(--clay); border: none; margin: 0; }
-
-  /* ---------- components ---------- */
-
-  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: clamp(0.5rem, 1.4vmin, 0.95rem); }
-
-  .card {
-    background: var(--stone-lift); border: 1px solid var(--rule);
-    border-radius: 3px; padding: clamp(0.8rem, 2vmin, 1.3rem);
-    display: flex; flex-direction: column; gap: 0.4rem;
-  }
-  .card p { font-size: clamp(0.85rem, 1.7vmin, 1.05rem); color: var(--ink-soft); }
-  .card--protect { border-left: 5px solid var(--clay); }
-  .card--reduce  { border-left: 5px solid var(--ochre); }
-  .card--cool    { border-left: 5px solid var(--signal); }
-  .scene.dark .card--protect { border-left-color: var(--clay-lit); }
-  .scene.dark .card--reduce  { border-left-color: var(--ochre-lit); }
-  .scene.dark .card--cool    { border-left-color: var(--signal-lit); }
-
-  .tagline {
-    font-family: var(--font-data);
-    font-size: clamp(0.6rem, 1.25vmin, 0.78rem);
-    letter-spacing: 0.14em; text-transform: uppercase;
-    padding: 0.22rem 0.55rem; border-radius: 2px; align-self: flex-start;
-  }
-  .tagline--protect { background: var(--clay-wash);   color: var(--clay); }
-  .tagline--reduce  { background: var(--ochre-wash);  color: var(--ochre); }
-  .tagline--cool    { background: var(--signal-wash); color: var(--signal); }
-
-  ol.numbered, ul.plain {
-    margin: 0; padding-left: 1.5rem;
-    display: flex; flex-direction: column; gap: clamp(0.42rem, 1.2vmin, 0.8rem);
-    font-size: clamp(0.95rem, 2vmin, 1.25rem);
-  }
-  ul.plain { list-style: none; padding-left: 0; }
-  ol.numbered li::marker { color: var(--clay); font-weight: 700; }
-  ol.numbered li span, ul.plain li span span {
-    display: block; color: var(--ink-soft);
-    font-size: clamp(0.82rem, 1.65vmin, 1rem); margin-top: 0.1rem;
-  }
-  .scene.dark ol.numbered li span, .scene.dark ul.plain li span span { color: var(--on-dark-soft); }
-  ul.plain li { display: flex; gap: 0.75rem; align-items: baseline; }
-  ul.plain .bullet { color: var(--clay); font-weight: 700; flex: 0 0 auto; font-family: var(--font-data); }
-  .scene.dark ul.plain .bullet, .scene.dark ol.numbered li::marker { color: var(--clay-lit); }
-
-  .split { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(0.8rem, 2.6vmin, 2rem); align-items: start; }
-  .split--fig { grid-template-columns: 1.05fr 1fr; align-items: center; }
-  @media (max-width: 48rem) { .split, .split--fig, .cards { grid-template-columns: 1fr; } }
-
-  .quiet {
-    background: var(--stone-sink); border-radius: 3px;
-    padding: clamp(0.75rem, 2vmin, 1.3rem);
-    font-size: clamp(0.88rem, 1.85vmin, 1.12rem); color: var(--ink-soft);
-  }
-  .quiet strong { color: var(--ink); }
-
-  .vendor-grid { display: flex; flex-direction: column; gap: clamp(0.45rem, 1.2vmin, 0.85rem); }
-  .vendor-row {
-    display: grid; grid-template-columns: 8.5rem 1fr; gap: clamp(0.6rem, 1.8vmin, 1.2rem);
-    align-items: baseline; padding-bottom: clamp(0.45rem, 1.2vmin, 0.85rem);
-    border-bottom: 1px solid var(--rule);
-  }
-  .vendor-row:last-child { border-bottom: none; padding-bottom: 0; }
-  .vendor-row .label {
-    font-family: var(--font-data); font-size: clamp(0.58rem, 1.2vmin, 0.74rem);
-    letter-spacing: 0.13em; text-transform: uppercase; color: var(--ink-faint);
-  }
-  .vendor-row .value { font-size: clamp(0.9rem, 1.9vmin, 1.15rem); }
-  .vendor-row--keep .label { color: var(--clay); }
-  @media (max-width: 48rem) { .vendor-row { grid-template-columns: 1fr; gap: 0.15rem; } }
-
-  /* ---------- figures ---------- */
-
-  figure { margin: 0; display: flex; flex-direction: column; gap: 0.5rem; }
-  figure svg { width: 100%; height: auto; max-height: 46vh; display: block; }
-  figcaption {
-    font-family: var(--font-data); font-size: clamp(0.6rem, 1.25vmin, 0.76rem);
-    letter-spacing: 0.06em; color: var(--ink-faint); line-height: 1.45;
-  }
-  .fig-sm svg { max-height: 26vh; }
+  .vrow:hover { background:var(--stone-sink); }
+  .vrow .vlabel { font-family:var(--font-data); font-size:clamp(0.56rem,1.15vmin,0.72rem); letter-spacing:0.13em; text-transform:uppercase; color:var(--ink-faint); display:flex; align-items:center; gap:0.5rem; }
+  .vrow .vlabel::after { content:"+"; font-size:1.1em; color:var(--signal); }
+  .vrow[aria-expanded="true"] .vlabel::after { content:"−"; }
+  .vrow .vvalue { display:none; font-size:clamp(0.88rem,1.85vmin,1.12rem); }
+  .vrow[aria-expanded="true"] .vvalue { display:block; }
+  .vrow--keep { border-left:5px solid var(--clay); }
+  .vrow--keep .vlabel { color:var(--clay); }
 
   /* ---------- chrome ---------- */
+  .progress { position:fixed; top:0; left:0; height:4px; background:var(--clay); width:0; z-index:40; transition:width 260ms ease; }
+  @media (prefers-reduced-motion:reduce){ .progress{transition:none;} }
 
-  .progress { position: fixed; top: 0; left: 0; height: 4px; background: var(--clay); width: 0; z-index: 40; transition: width 280ms ease; }
-  @media (prefers-reduced-motion: reduce) { .progress { transition: none; } }
-
-  .chrome {
-    position: fixed; bottom: 0; left: 0; right: 0; z-index: 30;
-    display: flex; align-items: center; justify-content: space-between;
-    gap: 1rem; padding: 0.5rem clamp(0.7rem, 3vw, 1.8rem);
+  .rail { position:fixed; bottom:2.35rem; left:0; right:0; z-index:29; display:flex; gap:2px; padding:0 clamp(0.6rem,3vw,1.6rem); }
+  .rail-seg {
+    flex:1; font-family:var(--font-data); font-size:0.58rem; letter-spacing:0.09em; text-transform:uppercase;
+    background:transparent; border:none; border-top:3px solid var(--rule);
+    padding:0.3rem 0 0; cursor:pointer; color:var(--ink-faint); text-align:left;
   }
-  .chrome-left { font-family: var(--font-data); font-size: 0.7rem; letter-spacing: 0.07em; color: var(--ink-faint); }
-  .scene-dark-active .chrome-left { color: var(--on-dark-soft); }
+  .rail-seg:hover { color:var(--signal); border-top-color:var(--signal); }
+  .rail-seg.is-current { color:var(--clay); border-top-color:var(--clay); font-weight:700; }
+  .scene-dark-active .rail-seg { color:var(--on-dark-soft); border-top-color:var(--rule-dark); }
+  .scene-dark-active .rail-seg.is-current { color:var(--clay-lit); border-top-color:var(--clay-lit); }
+  @media (max-width:44rem){ .rail{display:none;} }
 
-  .controls { display: flex; gap: 0.35rem; align-items: center; }
+  .chrome { position:fixed; bottom:0; left:0; right:0; z-index:30; display:flex; align-items:center; justify-content:space-between; gap:0.8rem; padding:0.4rem clamp(0.6rem,3vw,1.6rem); }
+  .chrome-left { font-family:var(--font-data); font-size:0.68rem; letter-spacing:0.06em; color:var(--ink-faint); }
+  .scene-dark-active .chrome-left { color:var(--on-dark-soft); }
+  .controls { display:flex; gap:0.3rem; align-items:center; }
 
-  button {
-    font-family: var(--font-data); font-size: 0.7rem; letter-spacing: 0.08em;
-    text-transform: uppercase; color: var(--ink-soft);
-    background: var(--stone-lift); border: 1px solid var(--rule);
-    border-radius: 3px; padding: 0.36rem 0.66rem; cursor: pointer; line-height: 1;
+  button.ctl {
+    font-family:var(--font-data); font-size:0.67rem; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--ink-soft); background:var(--stone-lift); border:1px solid var(--rule);
+    border-radius:3px; padding:0.34rem 0.6rem; cursor:pointer; line-height:1;
   }
-  button:hover:not(:disabled) { color: var(--signal); border-color: var(--signal); }
-  button:disabled { opacity: 0.38; cursor: default; }
-  button:focus-visible { outline: 3px solid var(--signal); outline-offset: 2px; }
-  .scene-dark-active button { background: var(--graphite-lift); border-color: var(--rule-dark); color: var(--on-dark-soft); }
-  .scene-dark-active button:hover:not(:disabled) { color: var(--signal-lit); border-color: var(--signal-lit); }
+  button.ctl:hover:not(:disabled) { color:var(--signal); border-color:var(--signal); }
+  button.ctl:disabled { opacity:0.36; cursor:default; }
+  .scene-dark-active button.ctl { background:var(--graphite-lift); border-color:var(--rule-dark); color:var(--on-dark-soft); }
+  .scene-dark-active button.ctl:hover:not(:disabled) { color:var(--signal-lit); border-color:var(--signal-lit); }
+  .ctl.running { color:var(--clay); border-color:var(--clay); }
+  .counter { font-variant-numeric:tabular-nums; min-width:3.8rem; text-align:center; }
 
-  .counter { font-variant-numeric: tabular-nums; min-width: 4rem; text-align: center; }
+  .overview { position:fixed; inset:0; z-index:50; background:var(--stone); padding:clamp(1rem,4vmin,2.4rem); overflow-y:auto; display:none; }
+  .overview.is-open { display:block; }
+  .thumbs { display:grid; grid-template-columns:repeat(auto-fill,minmax(10rem,1fr)); gap:0.5rem; margin-top:1rem; }
+  .thumb { text-align:left; font-family:var(--font-body); font-size:0.8rem; text-transform:none; letter-spacing:0; padding:0.6rem 0.7rem; line-height:1.3; color:var(--ink); background:var(--stone-lift); border:1px solid var(--rule); border-radius:3px; cursor:pointer; display:flex; flex-direction:column; gap:0.2rem; min-height:4rem; }
+  .thumb .n { font-family:var(--font-data); font-size:0.6rem; color:var(--ink-faint); letter-spacing:0.1em; }
+  .thumb.is-current { border-color:var(--clay); background:var(--clay-wash); }
 
-  .overview { position: fixed; inset: 0; z-index: 50; background: var(--stone); padding: clamp(1rem, 4vmin, 2.4rem); overflow-y: auto; display: none; }
-  .overview.is-open { display: block; }
-  .overview h2 { margin-bottom: 1.1rem; }
-  .thumbs { display: grid; grid-template-columns: repeat(auto-fill, minmax(10.5rem, 1fr)); gap: 0.55rem; }
-  .thumb {
-    text-align: left; text-transform: none; letter-spacing: 0; font-family: var(--font-body);
-    font-size: 0.82rem; padding: 0.65rem 0.75rem; line-height: 1.3; color: var(--ink);
-    display: flex; flex-direction: column; gap: 0.22rem; min-height: 4.2rem;
-  }
-  .thumb .n { font-family: var(--font-data); font-size: 0.63rem; color: var(--ink-faint); letter-spacing: 0.1em; }
-  .thumb.is-current { border-color: var(--clay); background: var(--clay-wash); }
+  .notes { position:fixed; left:0; right:0; bottom:0; z-index:35; background:var(--stone-lift); border-top:3px solid var(--clay); padding:0.85rem clamp(0.6rem,3vw,1.6rem) 2.6rem; font-size:0.9rem; color:var(--ink-soft); display:none; max-height:40vh; overflow-y:auto; }
+  .notes.is-open { display:block; }
+  .notes .label { font-family:var(--font-data); font-size:0.6rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--clay); display:block; margin-bottom:0.3rem; }
 
-  .notes {
-    position: fixed; left: 0; right: 0; bottom: 0; z-index: 35;
-    background: var(--stone-lift); border-top: 3px solid var(--clay);
-    padding: 0.9rem clamp(0.7rem, 3vw, 1.8rem) 2.8rem;
-    font-size: 0.92rem; color: var(--ink-soft); display: none;
-    max-height: 42vh; overflow-y: auto;
-  }
-  .notes.is-open { display: block; }
-  .notes .label { font-family: var(--font-data); font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--clay); display: block; margin-bottom: 0.35rem; }
-
-  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+  .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
 </style>
 </head>
 <body>
 
 <div class="progress" id="progress"></div>
 
-<main class="deck" id="deck" aria-live="polite">
+<main class="deck" id="deck">
 
-  <!-- 1 -->
-  <section class="scene dark" data-notes="Open here while people settle. Do not talk over the room. Wait for quiet.">
+  <!-- 1 --><section class="scene dark" data-sec="Opening" data-notes="Open here while people settle. Do not talk over the room. Wait for quiet.">
     <div class="inner">
       <p class="eyebrow">IL Future Ready Student Summit &middot; October 6, 2026</p>
       <h1>Future Ready,<br>Not Just AI Ready</h1>
-      <p class="display-sub">Screen time, pedagogical friction, and the decisions only district leaders can make.</p>
+      <p class="display-sub">Screen time, friction, and the decisions only district leaders can make.</p>
       <hr class="rule">
       <p class="credit">Micah Miner &middot; Director of Innovation and Technology, Beach Park CCSD 3</p>
     </div>
   </section>
 
-  <!-- 2 -->
-  <section class="scene" data-notes="Do not advance yet. Ask for hands or table talk. Thirty seconds feels long from the stage and is right from the floor.">
+  <!-- 2 --><section class="scene" data-sec="Opening" data-notes="Do not advance yet. Ask for hands or table talk. Thirty seconds feels long from the stage and is right from the floor.">
     <div class="inner">
       <p class="eyebrow">Before we start</p>
       <h2>Two questions.</h2>
@@ -324,24 +334,21 @@
     </div>
   </section>
 
-  <!-- 3 -->
-  <section class="scene dark" data-notes="Hands go up fast. Take two or three out loud. Scheduling, translation, IEP paperwork, first drafts, lesson planning.">
+  <!-- 3 --><section class="scene dark" data-sec="Opening" data-notes="Hands go up fast. Take two or three out loud. Scheduling, translation, IEP paperwork, first drafts, lesson planning.">
     <div class="inner">
       <p class="eyebrow">Question one</p>
       <p class="huge">Name one thing that got <em>easier</em> in your district this year because of AI.</p>
     </div>
   </section>
 
-  <!-- 4 -->
-  <section class="scene dark" data-notes="The most important silence in the hour. Do not rescue it. Do not fill it. Let it sit, then move on quietly. The room just proved the premise to itself.">
+  <!-- 4 --><section class="scene dark" data-sec="Opening" data-notes="The most important silence in the hour. Do not rescue it. Do not fill it. Let it sit, then move on quietly.">
     <div class="inner">
       <p class="eyebrow">Question two</p>
       <p class="huge">Now name one thing your students got <em>better</em> at because of AI.</p>
     </div>
   </section>
 
-  <!-- 5 -->
-  <section class="scene" data-notes="Name what just happened without scolding anyone. Everyone here is working hard. The gap is structural, not a failure of effort.">
+  <!-- 5 --><section class="scene" data-sec="Opening" data-notes="Name what just happened without scolding anyone. Everyone here is working hard. The gap is structural, not a failure of effort.">
     <div class="inner">
       <p class="eyebrow">The gap</p>
       <h2>Those are not the same question.</h2>
@@ -349,8 +356,7 @@
     </div>
   </section>
 
-  <!-- 6 -->
-  <section class="scene" data-notes="Definition slide. Keep it short.">
+  <!-- 6 --><section class="scene" data-sec="Framing" data-notes="Definition slide. Keep it short.">
     <div class="inner">
       <p class="eyebrow">The distinction</p>
       <div class="split">
@@ -368,8 +374,7 @@
     </div>
   </section>
 
-  <!-- 7 -->
-  <section class="scene" data-notes="Read the six slowly. These are the ones the Summit brief names, and they are the right ones.">
+  <!-- 7 --><section class="scene" data-sec="Framing" data-notes="Read the six slowly. These are the ones the Summit brief names, and they are the right ones.">
     <div class="inner">
       <p class="eyebrow">What future ready means</p>
       <h2>The durable six</h2>
@@ -385,8 +390,7 @@
     </div>
   </section>
 
-  <!-- 8 -->
-  <section class="scene" data-notes="Ask for hands on both. Expect many on the first, almost none on the second. Actually count before moving on.">
+  <!-- 8 --><section class="scene" data-sec="Framing" data-notes="Ask for hands on both. Expect many on the first, almost none on the second. Actually count before moving on.">
     <div class="inner">
       <p class="eyebrow">Show of hands</p>
       <h2>Two questions about your Portrait of a Graduate.</h2>
@@ -398,8 +402,7 @@
     </div>
   </section>
 
-  <!-- 9 -->
-  <section class="scene" data-notes="Transition. Fix the measurement problem before the lens will work.">
+  <!-- 9 --><section class="scene" data-sec="Screen time" data-notes="Transition. Fix the measurement problem before the lens will work.">
     <div class="inner">
       <p class="eyebrow">First, a measurement problem</p>
       <h2>Screen time is the wrong question.</h2>
@@ -407,227 +410,256 @@
     </div>
   </section>
 
-  <!-- 10 -->
-  <section class="scene" data-notes="THE HINGE OF THE TALK. Walk the two bars slowly. Same length, opposite insides. Then point at the dashboard row and let it sit.">
+  <!-- 10 --><section class="scene" data-sec="Screen time" data-notes="THE HINGE. Walk both bars slowly BEFORE clicking reveal. Ask the room what the dashboard says. Then click. Let the word Identical sit.">
     <div class="inner wide">
       <p class="eyebrow">Why the metric fails</p>
       <h2>Two students. Forty-five minutes each.</h2>
       <figure>
-        <svg viewBox="0 0 900 300" role="img" aria-label="Two students each spend forty-five minutes on a device. Student A's time is composed of reading sources, arguing, drafting and revising. Student B's is composed of prompting, waiting, and light editing. The screen time dashboard reports both as forty-five minutes complete.">
-          <defs>
-            <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-              <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
-            </marker>
-          </defs>
+        <svg viewBox="0 0 900 210" role="img" aria-label="Two students each spend forty-five minutes on a device. Student A's time is composed of reading conflicting sources, arguing, drafting and rewriting. Student B's is composed of prompting, waiting and light editing.">
+          <text x="0" y="26" font-size="17" font-weight="700" fill="currentColor">Student A</text>
+          <rect x="0" y="40" width="248" height="46" fill="#A63D26"/>
+          <rect x="250" y="40" width="180" height="46" fill="#B04E36"/>
+          <rect x="432" y="40" width="196" height="46" fill="#78540F"/>
+          <rect x="630" y="40" width="170" height="46" fill="#A63D26"/>
+          <text x="10" y="69" font-size="13" fill="#FFFFFF">Read 4 conflicting sources</text>
+          <text x="260" y="69" font-size="13" fill="#FFFFFF">Argued with a partner</text>
+          <text x="442" y="69" font-size="13" fill="#FFFFFF">Threw out a draft</text>
+          <text x="640" y="69" font-size="13" fill="#FFFFFF">Rewrote it</text>
+          <text x="812" y="69" font-size="14" font-weight="700" fill="currentColor">45 min</text>
 
-          <!-- Student A -->
-          <text x="0" y="30" font-size="17" font-weight="700" fill="currentColor">Student A</text>
-          <rect x="0"   y="46" width="248" height="46" fill="#A63D26"/>
-          <rect x="250" y="46" width="180" height="46" fill="#B04E36"/>
-          <rect x="432" y="46" width="196" height="46" fill="#78540F"/>
-          <rect x="630" y="46" width="170" height="46" fill="#A63D26"/>
-          <text x="10"  y="75" font-size="13" fill="#FFFFFF">Read 4 conflicting sources</text>
-          <text x="260" y="75" font-size="13" fill="#FFFFFF">Argued with a partner</text>
-          <text x="442" y="75" font-size="13" fill="#FFFFFF">Threw out a draft</text>
-          <text x="640" y="75" font-size="13" fill="#FFFFFF">Rewrote it</text>
-          <text x="812" y="75" font-size="14" font-weight="700" fill="currentColor">45 min</text>
-
-          <!-- Student B -->
-          <text x="0" y="140" font-size="17" font-weight="700" fill="currentColor">Student B</text>
-          <rect x="0"   y="156" width="86"  height="46" fill="#0E6E78"/>
-          <rect x="88"  y="156" width="618" height="46" fill="#9FBEC2"/>
-          <rect x="708" y="156" width="92"  height="46" fill="#0E6E78"/>
-          <text x="8"   y="185" font-size="13" fill="#FFFFFF">Prompt</text>
-          <text x="98"  y="185" font-size="13" fill="#1E2328">Waited, scrolled, skimmed the output</text>
-          <text x="716" y="185" font-size="13" fill="#FFFFFF">Edited 3 words</text>
-          <text x="812" y="185" font-size="14" font-weight="700" fill="currentColor">45 min</text>
-
-          <!-- dashboard -->
-          <line x1="0" y1="228" x2="900" y2="228" stroke="currentColor" stroke-width="1" opacity="0.3"/>
-          <text x="0" y="256" font-size="13" font-weight="700" letter-spacing="1.5" fill="currentColor">YOUR DASHBOARD REPORTS</text>
-          <text x="0" y="282" font-size="15" fill="currentColor">Student A: 45 min, complete</text>
-          <text x="300" y="282" font-size="15" fill="currentColor">Student B: 45 min, complete</text>
-          <line x1="640" y1="276" x2="690" y2="276" stroke="currentColor" stroke-width="2" marker-end="url(#ar)"/>
-          <text x="700" y="282" font-size="15" font-weight="700" fill="#A63D26">Identical.</text>
+          <text x="0" y="132" font-size="17" font-weight="700" fill="currentColor">Student B</text>
+          <rect x="0" y="146" width="86" height="46" fill="#0E6E78"/>
+          <rect x="88" y="146" width="618" height="46" fill="#9FBEC2"/>
+          <rect x="708" y="146" width="92" height="46" fill="#0E6E78"/>
+          <text x="8" y="175" font-size="13" fill="#FFFFFF">Prompt</text>
+          <text x="98" y="175" font-size="13" fill="#1E2328">Waited, scrolled, skimmed the output</text>
+          <text x="716" y="175" font-size="13" fill="#FFFFFF">Edited 3 words</text>
+          <text x="812" y="175" font-size="14" font-weight="700" fill="currentColor">45 min</text>
         </svg>
-        <figcaption>Same device, same minutes, same completion flag. One of them learned something.</figcaption>
+        <figcaption>Same device, same minutes, same completion flag.</figcaption>
       </figure>
+      <button class="reveal-btn" type="button" data-reveal="dash10" aria-expanded="false">What does your dashboard say?</button>
+      <div class="revealable verdict-strip" id="dash10">
+        <span class="vs-small">Both students</span> 45 min &middot; complete &middot; on task
+        <span class="vs-small">Your data cannot tell them apart.</span>
+      </div>
     </div>
   </section>
 
-  <!-- 11 -->
-  <section class="scene dark" data-notes="The pivot from screen time into friction. Say it once, cleanly, and let the slide hold.">
+  <!-- 11 --><section class="scene dark" data-sec="Screen time" data-notes="The pivot from screen time into friction. Say it once, cleanly, and let the slide hold.">
     <div class="inner">
       <p class="eyebrow">The better question</p>
       <p class="huge">Not how long the screen was on. <em>What the screen made easy.</em></p>
     </div>
   </section>
 
-  <!-- 12 -->
-  <section class="scene" data-notes="Say plainly: I am not arguing for making school harder. I am arguing that some difficulty is the point and some is just a barrier. The diagram does the structural work, so do not over-explain it.">
+  <!-- 12 --><section class="scene" data-sec="Friction" data-notes="Say plainly: I am not arguing for making school harder. Some difficulty is the point, some is just a barrier. The diagram does the structural work, do not over-explain.">
     <div class="inner wide">
       <p class="eyebrow">The reframe</p>
       <h2>Friction is not one thing.</h2>
       <div class="split split--fig">
         <figure>
-          <svg viewBox="0 0 520 330" role="img" aria-label="Pedagogical friction has three learner-facing dimensions, noetic, rhetorical and existential, which sit side by side as co-equal layers. All three rest on infrastructural friction, a single wide conditioning base of time, access, policy and environment.">
-            <text x="260" y="20" font-size="12" letter-spacing="2" text-anchor="middle" font-weight="700" fill="#A63D26">PROTECT THESE</text>
+          <svg viewBox="0 0 520 320" role="img" aria-label="Learning friction has three parts, Head, Room and World, which sit side by side as equal layers. All three rest on a single wide base layer of time, access, technology and policy.">
+            <text x="260" y="18" font-size="12" letter-spacing="2" text-anchor="middle" font-weight="700" fill="#A63D26">PROTECT THESE THREE</text>
+            <rect x="8" y="32" width="160" height="92" rx="3" fill="#F2DFD7" stroke="#A63D26" stroke-width="2"/>
+            <rect x="180" y="32" width="160" height="92" rx="3" fill="#F2DFD7" stroke="#A63D26" stroke-width="2"/>
+            <rect x="352" y="32" width="160" height="92" rx="3" fill="#F2DFD7" stroke="#A63D26" stroke-width="2"/>
+            <text x="88" y="66" font-size="19" font-weight="700" text-anchor="middle" fill="#7A2C1B">Head</text>
+            <text x="88" y="90" font-size="12" text-anchor="middle" fill="#7A2C1B">working it out</text>
+            <text x="88" y="108" font-size="12" text-anchor="middle" fill="#7A2C1B">for yourself</text>
+            <text x="260" y="66" font-size="19" font-weight="700" text-anchor="middle" fill="#7A2C1B">Room</text>
+            <text x="260" y="90" font-size="12" text-anchor="middle" fill="#7A2C1B">saying it so</text>
+            <text x="260" y="108" font-size="12" text-anchor="middle" fill="#7A2C1B">others understand</text>
+            <text x="432" y="66" font-size="19" font-weight="700" text-anchor="middle" fill="#7A2C1B">World</text>
+            <text x="432" y="90" font-size="12" text-anchor="middle" fill="#7A2C1B">becoming someone</text>
+            <text x="432" y="108" font-size="12" text-anchor="middle" fill="#7A2C1B">who can do hard things</text>
 
-            <rect x="8"   y="34" width="160" height="96" rx="3" fill="#F2DFD7" stroke="#A63D26" stroke-width="2"/>
-            <rect x="180" y="34" width="160" height="96" rx="3" fill="#F2DFD7" stroke="#A63D26" stroke-width="2"/>
-            <rect x="352" y="34" width="160" height="96" rx="3" fill="#F2DFD7" stroke="#A63D26" stroke-width="2"/>
+            <line x1="88" y1="124" x2="88" y2="168" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+            <line x1="260" y1="124" x2="260" y2="168" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+            <line x1="432" y1="124" x2="432" y2="168" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+            <text x="260" y="146" font-size="11.5" text-anchor="middle" fill="currentColor">all three rest on</text>
 
-            <text x="88"  y="66"  font-size="15" font-weight="700" text-anchor="middle" fill="#7A2C1B">Noetic</text>
-            <text x="88"  y="92"  font-size="12" text-anchor="middle" fill="#7A2C1B">the work of</text>
-            <text x="88"  y="110" font-size="12" text-anchor="middle" fill="#7A2C1B">thinking</text>
+            <rect x="8" y="170" width="504" height="82" rx="3" fill="#F1E7CF" stroke="#78540F" stroke-width="2"/>
+            <text x="260" y="200" font-size="17" font-weight="700" text-anchor="middle" fill="#5E410B">The base</text>
+            <text x="260" y="223" font-size="12" text-anchor="middle" fill="#5E410B">time &middot; access &middot; technology &middot; policy &middot; the building</text>
+            <text x="260" y="242" font-size="12" text-anchor="middle" font-style="italic" fill="#5E410B">what makes the other three possible at all</text>
 
-            <text x="260" y="66"  font-size="15" font-weight="700" text-anchor="middle" fill="#7A2C1B">Rhetorical</text>
-            <text x="260" y="92"  font-size="12" text-anchor="middle" fill="#7A2C1B">the work of</text>
-            <text x="260" y="110" font-size="12" text-anchor="middle" fill="#7A2C1B">articulating</text>
-
-            <text x="432" y="66"  font-size="15" font-weight="700" text-anchor="middle" fill="#7A2C1B">Existential</text>
-            <text x="432" y="92"  font-size="12" text-anchor="middle" fill="#7A2C1B">the work of</text>
-            <text x="432" y="110" font-size="12" text-anchor="middle" fill="#7A2C1B">becoming</text>
-
-            <line x1="88"  y1="130" x2="88"  y2="176" stroke="currentColor" stroke-width="1.5" opacity="0.55"/>
-            <line x1="260" y1="130" x2="260" y2="176" stroke="currentColor" stroke-width="1.5" opacity="0.55"/>
-            <line x1="432" y1="130" x2="432" y2="176" stroke="currentColor" stroke-width="1.5" opacity="0.55"/>
-            <text x="260" y="152" font-size="11.5" text-anchor="middle" fill="currentColor" letter-spacing="0.5">all three rest on</text>
-
-            <rect x="8" y="178" width="504" height="88" rx="3" fill="#F1E7CF" stroke="#78540F" stroke-width="2"/>
-            <text x="260" y="210" font-size="15" font-weight="700" text-anchor="middle" fill="#6B4C0E">Infrastructural friction</text>
-            <text x="260" y="234" font-size="12" text-anchor="middle" fill="#6B4C0E">time &middot; access &middot; technology &middot; policy &middot; environment</text>
-            <text x="260" y="253" font-size="12" text-anchor="middle" font-style="italic" fill="#6B4C0E">the conditioning base, not a fourth dimension</text>
-
-            <text x="260" y="292" font-size="12" letter-spacing="2" text-anchor="middle" font-weight="700" fill="#78540F">REDUCE THIS ONE</text>
-            <text x="260" y="316" font-size="12" text-anchor="middle" fill="currentColor">This is where educational technology has always earned its place.</text>
+            <text x="260" y="282" font-size="12" letter-spacing="2" text-anchor="middle" font-weight="700" fill="#78540F">REDUCE THIS ONE</text>
+            <text x="260" y="306" font-size="12" text-anchor="middle" fill="currentColor">This is where educational technology has always earned its place.</text>
           </svg>
-          <figcaption>The three learner-facing dimensions are separable in analysis and entangled in practice. Infrastructural friction conditions all of them.</figcaption>
+          <figcaption>Head, Room, and World are separable on paper and tangled in practice. The base holds all three up.</figcaption>
         </figure>
         <div>
-          <p class="lede">Pedagogical friction is the productive resistance learning requires. The work, slowness, and struggle that make development possible.</p>
-          <p class="lede" style="margin-top:0.8rem;">It is not a single quantity to minimize, and it is not an argument for making school harder. It comes in layers, and only one of them is the layer technology should be reducing.</p>
+          <p class="lede">Friction is the productive resistance learning requires. The work, slowness, and struggle that make growth possible.</p>
+          <p class="lede" style="margin-top:0.7rem;">It is not one quantity to minimize, and this is not an argument for making school harder. It comes in layers, and only one of them is the layer technology should be reducing.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 13 -->
-  <section class="scene" data-notes="Be generous here. Leaders who apply blanket AI caution end up restricting the safest use while permitting the riskiest. Say that out loud.">
+  <!-- 13 --><section class="scene" data-sec="Friction" data-notes="Be generous here. Leaders who apply blanket AI caution end up restricting the safest use while permitting the riskiest. Say that out loud.">
     <div class="inner">
       <span class="tagline tagline--reduce">Reduce this layer</span>
-      <h2>Infrastructural friction</h2>
-      <p class="lede">The conditions that enable or constrain learning. Time, access, technology, policy, physical environment.</p>
+      <h2>The base</h2>
+      <p class="lede">The conditions that make learning possible at all. Time, access, technology, policy, the building itself.</p>
       <div class="quiet">
         A student who cannot reach an archive. A family who cannot read the notice. A teacher who loses an evening to scheduling. These are barriers to learning, not the learning itself. <strong>Removing them expands who gets to do the work.</strong>
       </div>
     </div>
   </section>
 
-  <!-- 14 -->
-  <section class="scene" data-notes="Three protect slides in a row, deliberately. The repetition is the point. About forty seconds each.">
-    <div class="inner">
-      <span class="tagline tagline--protect">Protect this layer</span>
-      <h2>Noetic friction</h2>
-      <p class="lede">The cognitive work of thinking, reasoning, and knowing. Forming ideas, holding contradictions, reaching understanding.</p>
-      <div class="quiet">When a tool does this work, the answer still appears. <strong>The thinking moved from the learner to the system.</strong></div>
+  <!-- 14 --><section class="scene" data-sec="Friction" data-notes="INTERACTIVE. Click each one as you talk through it. Head, Room, World. Roughly forty seconds each. The panel names what it looks like when a tool absorbs that layer.">
+    <div class="inner wide">
+      <p class="eyebrow">The three you protect</p>
+      <h2>Head, Room, and World.</h2>
+      <p class="hint">Click each one</p>
+      <div class="nodes">
+        <button class="node" type="button" data-node="head" aria-pressed="false">
+          <span class="node-name">Head</span>
+          <span class="node-term">the thinking</span>
+          <span class="node-line">Working it out for yourself.</span>
+        </button>
+        <button class="node" type="button" data-node="room" aria-pressed="false">
+          <span class="node-name">Room</span>
+          <span class="node-term">the saying</span>
+          <span class="node-line">Making others understand it.</span>
+        </button>
+        <button class="node" type="button" data-node="world" aria-pressed="false">
+          <span class="node-name">World</span>
+          <span class="node-term">the becoming</span>
+          <span class="node-line">Turning into someone who can.</span>
+        </button>
+      </div>
+
+      <div class="node-detail" id="nd-head">
+        <span class="dl-label">Head &middot; the cognitive work</span>
+        <p>Forming an idea, holding two things that contradict each other, staying in not-knowing long enough to get somewhere.</p>
+        <p class="bypass">When a tool does this: the answer still appears. The thinking moved from the student to the system.</p>
+      </div>
+      <div class="node-detail" id="nd-room">
+        <span class="dl-label">Room &middot; the work of being understood</span>
+        <p>Finding the words, ordering them, imagining a reader who does not already agree with you.</p>
+        <p class="bypass">When a tool does this: writing is not the transcription of a finished thought. Writing is how the thought gets finished. Fluent prose a student did not build skips the part where understanding forms.</p>
+      </div>
+      <div class="node-detail" id="nd-world">
+        <span class="dl-label">World &middot; the work of becoming</span>
+        <p>Who the student turns into by staying with something difficult until it is done.</p>
+        <p class="bypass">When a tool does this: a student who has never finished something hard does not know she can. That is not information. It is formation, and it only comes from the struggle.</p>
+      </div>
     </div>
   </section>
 
-  <!-- 15 -->
-  <section class="scene" data-notes="The one people underestimate. Writing is not transcription of finished thought.">
-    <div class="inner">
-      <span class="tagline tagline--protect">Protect this layer</span>
-      <h2>Rhetorical friction</h2>
-      <p class="lede">The work of articulation. Making thought communicable through language, structure, and audience awareness.</p>
-      <div class="quiet">Writing is not the transcription of a finished thought. <strong>Writing is how the thought gets finished.</strong> Fluent prose the student did not construct skips the part where understanding forms.</div>
-    </div>
-  </section>
-
-  <!-- 16 -->
-  <section class="scene" data-notes="This lands with people who have taught a long time. Slow down.">
-    <div class="inner">
-      <span class="tagline tagline--protect">Protect this layer</span>
-      <h2>Existential friction</h2>
-      <p class="lede">The work of becoming. The identity formation that happens through sustained engagement with difficulty.</p>
-      <div class="quiet">A student who has never finished something hard does not know she can. <strong>That knowledge is not information. It is formation,</strong> and it only comes from the struggle.</div>
-    </div>
-  </section>
-
-  <!-- 17 -->
-  <section class="scene dark" data-notes="Name the diagnostic. This is the phrase you want repeated in cabinet meetings. Trace the widening gap with your hand.">
+  <!-- 15 --><section class="scene dark" data-sec="Friction" data-notes="INTERACTIVE. Show the rising line first and ask what it means. Most rooms read it as good news. THEN click to add the flat line. Trace the gap with your hand.">
     <div class="inner wide">
       <p class="eyebrow">The diagnostic</p>
       <h2>Unproductive success</h2>
       <figure>
-        <svg viewBox="0 0 900 300" role="img" aria-label="Over a school year, visible output quality rises steadily while actual formation stays flat. The widening gap between the two lines is unproductive success. Every dashboard indicator stays green throughout.">
-          <line x1="70" y1="240" x2="860" y2="240" stroke="#AFB6BC" stroke-width="1.5"/>
-          <line x1="70" y1="30"  x2="70"  y2="240" stroke="#AFB6BC" stroke-width="1.5"/>
-
-          <text x="78" y="258" font-size="13" fill="#AFB6BC">Sept</text>
-          <text x="420" y="258" font-size="13" fill="#AFB6BC">January</text>
-          <text x="820" y="258" font-size="13" fill="#AFB6BC">May</text>
-
-          <!-- visible output: rises -->
-          <polyline points="70,205 220,170 380,132 540,104 700,84 850,72"
-                    fill="none" stroke="#56C7D2" stroke-width="4"/>
-          <circle cx="850" cy="72" r="6" fill="#56C7D2"/>
-          <text x="640" y="60" font-size="14" font-weight="700" fill="#56C7D2">Visible output quality</text>
-
-          <!-- formation: flat -->
-          <polyline points="70,208 220,204 380,206 540,201 700,205 850,202"
-                    fill="none" stroke="#E8825F" stroke-width="4"/>
-          <circle cx="850" cy="202" r="6" fill="#E8825F"/>
-          <text x="676" y="228" font-size="14" font-weight="700" fill="#E8825F">Formation</text>
-
-          <!-- the gap -->
-          <line x1="850" y1="78" x2="850" y2="196" stroke="#EFEBE2" stroke-width="1.5" stroke-dasharray="5 4"/>
-          <text x="440" y="150" font-size="14" font-style="italic" fill="#EFEBE2">the gap nobody is measuring</text>
-
-          <text x="70" y="20" font-size="12" letter-spacing="1.5" font-weight="700" fill="#AFB6BC">DASHBOARD STATUS ALL YEAR: GREEN</text>
+        <svg viewBox="0 0 900 260" role="img" aria-label="Over a school year visible output quality rises steadily. Actual formation stays flat. The widening gap between them is unproductive success, and every dashboard indicator stays green throughout.">
+          <line x1="70" y1="210" x2="860" y2="210" stroke="#AFB6BC" stroke-width="1.5"/>
+          <line x1="70" y1="24" x2="70" y2="210" stroke="#AFB6BC" stroke-width="1.5"/>
+          <text x="78" y="230" font-size="13" fill="#AFB6BC">Sept</text>
+          <text x="420" y="230" font-size="13" fill="#AFB6BC">January</text>
+          <text x="820" y="230" font-size="13" fill="#AFB6BC">May</text>
+          <polyline points="70,180 220,150 380,118 540,94 700,76 850,66" fill="none" stroke="#56C7D2" stroke-width="4"/>
+          <circle cx="850" cy="66" r="6" fill="#56C7D2"/>
+          <text x="612" y="54" font-size="14" font-weight="700" fill="#56C7D2">What you can see</text>
+          <text x="70" y="16" font-size="12" letter-spacing="1.5" font-weight="700" fill="#AFB6BC">DASHBOARD STATUS ALL YEAR: GREEN</text>
+          <g id="formationLayer" style="display:none">
+            <polyline points="70,182 220,178 380,180 540,175 700,179 850,176" fill="none" stroke="#E8825F" stroke-width="4"/>
+            <circle cx="850" cy="176" r="6" fill="#E8825F"/>
+            <text x="686" y="202" font-size="14" font-weight="700" fill="#E8825F">What actually formed</text>
+            <line x1="850" y1="72" x2="850" y2="170" stroke="#EFEBE2" stroke-width="1.5" stroke-dasharray="5 4"/>
+            <text x="404" y="130" font-size="14" font-style="italic" fill="#EFEBE2">the gap nobody is measuring</text>
+          </g>
         </svg>
         <figcaption>Grades hold. Completion rises. Nothing looks broken, which is exactly what makes it hard to govern.</figcaption>
       </figure>
-      <p class="huge" style="font-size:clamp(1.3rem,3.1vmin,2rem);max-width:46ch;">The output looks right. <em>The learning did not happen.</em></p>
+      <button class="reveal-btn" type="button" data-svg-reveal="formationLayer" aria-expanded="false">Now add what actually formed</button>
     </div>
   </section>
 
-  <!-- 18 -->
-  <section class="scene" data-notes="Critical framing. NOT an anti-vendor point. Say it warmly. It is the reason this room has a job.">
+  <!-- 16 --><section class="scene" data-sec="Friction" data-notes="Critical framing. NOT an anti-vendor point. Say it warmly. It is the reason this room has a job.">
     <div class="inner">
       <p class="eyebrow">The part that is nobody's fault</p>
       <h2>A tool cannot tell these layers apart.</h2>
-      <p class="lede">Reducing friction is what the category exists to do. Resistance registers to a product as a problem to solve, not as a dimension with a purpose. That is structural, not a defect in anyone's software.</p>
+      <p class="lede">Reducing friction is what the category exists to do. Resistance registers to a product as a problem to solve, not as a layer with a purpose. That is structural, not a defect in anyone's software.</p>
       <div class="quiet"><strong>Which means the discernment can only live with the adults.</strong> No procurement process, no setting, and no vendor assurance moves that responsibility off your desk.</div>
     </div>
   </section>
 
-  <!-- 19 -->
-  <section class="scene" data-notes="Hand out the card here if there is a leave-behind. Read all four aloud. Four is the one that changes procurement conversations.">
+  <!-- 17 --><section class="scene" data-sec="The lens" data-notes="INTERACTIVE. Click each question to open the why. Four is the one that changes procurement conversations. Leave four open when you move on.">
     <div class="inner">
       <p class="eyebrow">The lens</p>
       <h2>Four questions. Any tool, any vendor.</h2>
-      <ol class="numbered">
-        <li><strong>What does this make easier?</strong><span>Be specific. "Saves teachers time" is not an answer.</span></li>
-        <li><strong>Which friction is it reducing?</strong><span>Infrastructural, or noetic, rhetorical, or existential?</span></li>
-        <li><strong>What is the student no longer doing, and was that the standard?</strong><span>If the removed step was the objective, the tool did not help with the objective.</span></li>
-        <li><strong>What signal would tell us it went wrong, and who is watching it?</strong><span>Most districts have no answer here at all.</span></li>
-      </ol>
+      <p class="hint">Click a question to open it</p>
+      <div class="qlist">
+        <button class="qrow" type="button" aria-expanded="false">
+          <span class="qn">01</span>
+          <span class="qbody"><span class="qq">What does this make easier?</span>
+          <span class="qwhy">Be specific. "Saves teachers time" is not an answer. Saves them what, at which step?</span></span>
+        </button>
+        <button class="qrow" type="button" aria-expanded="false">
+          <span class="qn">02</span>
+          <span class="qbody"><span class="qq">Which layer is it easing?</span>
+          <span class="qwhy">The base, or Head, Room, or World? If you cannot say, you cannot govern it.</span></span>
+        </button>
+        <button class="qrow" type="button" aria-expanded="false">
+          <span class="qn">03</span>
+          <span class="qbody"><span class="qq">What is the student no longer doing, and was that the standard?</span>
+          <span class="qwhy">If the removed step was the objective, the tool did not help with the objective. It replaced it.</span></span>
+        </button>
+        <button class="qrow" type="button" aria-expanded="false">
+          <span class="qn">04</span>
+          <span class="qbody"><span class="qq">What signal would tell us it went wrong, and who is watching it?</span>
+          <span class="qwhy">Most districts have no answer here at all. Unproductive success is invisible by design, so if you have not decided in advance what evidence would reveal it, you will not see it.</span></span>
+        </button>
+      </div>
     </div>
   </section>
 
-  <!-- 20 -->
-  <section class="scene" data-notes="Four minutes at tables. Walk the room. Do NOT use an Imagine Learning product here. Neutral ground first.">
+  <!-- 18 --><section class="scene" data-sec="The lens" data-notes="INTERACTIVE. Do 3 or 4, not all seven. SAVE TEXT TO SPEECH FOR LAST. It is the one that shows the same feature can be either, depending on the objective. That is the whole lens in one example.">
+    <div class="inner wide">
+      <p class="eyebrow">Try the lens &middot; pick one</p>
+      <h2>Which layer does it ease?</h2>
+      <p class="hint">Click a tool</p>
+      <div class="sorter">
+        <div class="chips">
+          <button class="chip" type="button" aria-pressed="false" data-layers="base" data-verdict="good" data-text="Pure access. This was never the learning. Do it, and do not feel conflicted about it.">Translate a family notice</button>
+          <button class="chip" type="button" aria-pressed="false" data-layers="base" data-verdict="good" data-text="Adult logistics. Nothing student facing at all. This is the safest AI use in your district.">Auto-schedule IEP meetings</button>
+          <button class="chip" type="button" aria-pressed="false" data-layers="room" data-verdict="bypass" data-text="The articulation was the assignment. This is the bypass, and it is the most common one in your buildings right now.">Chatbot writes the first draft</button>
+          <button class="chip" type="button" aria-pressed="false" data-layers="head" data-verdict="bypass" data-text="If comprehension was the objective, the objective just left the building. If the reading was background for something else, this may be fine.">AI summarizes the reading</button>
+          <button class="chip" type="button" aria-pressed="false" data-layers="head" data-verdict="depends" data-text="Load management, not load removal. Good, as long as somebody owns the exit ramp. Scaffolds that never come down become ceilings.">Adaptive practice set</button>
+          <button class="chip" type="button" aria-pressed="false" data-layers="base" data-verdict="depends" data-text="Speeds feedback, which is real value. It also takes the teacher's read of the class. Decide on purpose who keeps that.">Auto-grade short answers</button>
+          <button class="chip" type="button" aria-pressed="false" data-layers="maybe" data-verdict="depends" data-text="Same feature, opposite call. If decoding is the objective, this is a bypass. If the objective is historical reasoning and decoding is the barrier, this is pure access. The tool cannot tell. You can.">Text to speech for a struggling reader</button>
+        </div>
+        <div class="sorter-stage">
+          <div class="mini" id="miniStrata" role="img" aria-label="A small version of the friction layers. Head, Room and World sit above a wide base layer. The layer affected by the selected tool is highlighted.">
+            <div class="mini-row">
+              <div class="mini-cell" data-cell="head">Head</div>
+              <div class="mini-cell" data-cell="room">Room</div>
+              <div class="mini-cell" data-cell="world">World</div>
+            </div>
+            <div class="mini-base" data-cell="base">The base</div>
+          </div>
+          <div class="sorter-verdict">
+            <span class="sv-tag depends" id="svTag">Pick one</span>
+            <p class="sv-text" id="svText">Every one of these is in somebody's district already. The question is never whether to use it. The question is which layer it touches.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 19 --><section class="scene" data-sec="The lens" data-notes="Four minutes at tables. Walk the room. Do NOT use an Imagine Learning product here. Neutral ground first.">
     <div class="inner">
       <p class="eyebrow">At your table &middot; four minutes</p>
-      <h2>Run one of your own tools through it.</h2>
+      <h2>Now run one of your own.</h2>
       <p class="lede">Something already in your buildings. Something you renewed without much discussion. Take it through all four questions and see where you get stuck.</p>
       <p class="lede tight">Most tables get stuck on number four.</p>
     </div>
   </section>
 
-  <!-- 21 -->
-  <section class="scene dark" data-notes="Say this plainly, do not rush. Disclosure before the examples is what makes the examples credible. Look at Marla and Liz on the first line.">
+  <!-- 20 --><section class="scene dark" data-sec="Examples" data-notes="Say this plainly, do not rush. Disclosure before the examples is what makes the examples credible. Look at Marla and Liz on the first line.">
     <div class="inner">
       <p class="eyebrow">Before the examples, some disclosure</p>
       <h2>Why I am using our hosts as the worked example.</h2>
@@ -635,39 +667,39 @@
         <li><span class="bullet">01</span><span><strong>They are hosting and I am being paid to be here.</strong><span>You should know that before I show you anything.</span></span></li>
         <li><span class="bullet">02</span><span><strong>Their products were in my district before I was.</strong><span>I inherited them. I did not select them.</span></span></li>
         <li><span class="bullet">03</span><span><strong>A real example beats a hypothetical.</strong><span>Vendors face this balance from the other side. Someone in a product meeting had to decide what to make easy. So do you.</span></span></li>
-        <li><span class="bullet">04</span><span><strong>Every question I ask here, I would ask of any product in these categories.</strong><span>Including the ones already in your buildings.</span></span></li>
+        <li><span class="bullet">04</span><span><strong>Every question I ask here I would ask of any product in these categories.</strong><span>Including the ones already in your buildings.</span></span></li>
       </ul>
     </div>
   </section>
 
-  <!-- 22 -->
-  <section class="scene" data-notes="Traverse first, the cleanest case. The locator diagram repeats on all four vendor slides. Point at it the first time, then let the audience read it themselves.">
+  <!-- 21 --><section class="scene" data-sec="Examples" data-notes="INTERACTIVE. Open the rows one at a time as you talk. Traverse first, the cleanest case. The locator repeats on all four, so point at it once here and let them read it after.">
     <div class="inner wide">
       <p class="eyebrow">Worked example &middot; social studies</p>
       <h2>Traverse</h2>
       <div class="split split--fig">
-        <div class="vendor-grid">
-          <div class="vendor-row"><span class="label">Design choice</span><span class="value">Give students the sources. Keep the interpretation.</span></div>
-          <div class="vendor-row"><span class="label">The balance</span><span class="value">Removes an infrastructural barrier, which is archive access most schools never had. Leaves the noetic work intact, because someone still has to decide what a conflicting source is worth.</span></div>
-          <div class="vendor-row vendor-row--keep"><span class="label">Stays yours</span><span class="value">Whether your schedule gives students time to sit in the ambiguity, or whether the pacing guide quietly resolves it for them.</span></div>
+        <div>
+          <p class="hint" style="margin-bottom:0.5rem;">Open each in turn</p>
+          <div class="vrows">
+            <button class="vrow" type="button" aria-expanded="false"><span class="vlabel">The design choice</span><span class="vvalue">Give students the sources. Keep the interpretation.</span></button>
+            <button class="vrow" type="button" aria-expanded="false"><span class="vlabel">The balance it strikes</span><span class="vvalue">Removes a base barrier, which is archive access most schools never had. Leaves the Head work intact, because someone still has to decide what a conflicting source is worth.</span></button>
+            <button class="vrow vrow--keep" type="button" aria-expanded="false"><span class="vlabel">What stays yours</span><span class="vvalue">Whether your schedule gives students time to sit in the ambiguity, or whether the pacing guide quietly resolves it for them.</span></button>
+          </div>
         </div>
         <figure class="fig-sm">
-          <svg viewBox="0 0 340 210" role="img" aria-label="Locator diagram: Traverse acts on the infrastructural base layer, leaving the noetic, rhetorical and existential layers untouched.">
-            <rect x="6"   y="10" width="102" height="62" rx="3" fill="#F2DFD7" stroke="#A63D26" stroke-width="2"/>
-            <rect x="118" y="10" width="102" height="62" rx="3" fill="#F2DFD7" stroke="#A63D26" stroke-width="2"/>
-            <rect x="230" y="10" width="102" height="62" rx="3" fill="#F2DFD7" stroke="#A63D26" stroke-width="2"/>
-            <text x="57"  y="38" font-size="12" font-weight="700" text-anchor="middle" fill="#7A2C1B">Noetic</text>
-            <text x="57"  y="56" font-size="10" text-anchor="middle" fill="#7A2C1B">untouched</text>
-            <text x="169" y="38" font-size="12" font-weight="700" text-anchor="middle" fill="#7A2C1B">Rhetorical</text>
-            <text x="169" y="56" font-size="10" text-anchor="middle" fill="#7A2C1B">untouched</text>
-            <text x="281" y="38" font-size="12" font-weight="700" text-anchor="middle" fill="#7A2C1B">Existential</text>
-            <text x="281" y="56" font-size="10" text-anchor="middle" fill="#7A2C1B">untouched</text>
-
-            <rect x="6" y="96" width="326" height="62" rx="3" fill="#78540F" stroke="#6B4C0E" stroke-width="2"/>
-            <text x="169" y="124" font-size="13" font-weight="700" text-anchor="middle" fill="#FFFFFF">Infrastructural</text>
-            <text x="169" y="144" font-size="11" text-anchor="middle" fill="#F1E7CF">source access, curation</text>
-
-            <text x="169" y="184" font-size="12" text-anchor="middle" font-weight="700" fill="#78540F">Acts on the base. Leaves the learning.</text>
+          <svg viewBox="0 0 340 200" role="img" aria-label="Locator: Traverse acts on the base layer, leaving Head, Room and World untouched.">
+            <rect x="6" y="8" width="102" height="58" rx="3" fill="#F2DFD7" stroke="#A63D26" stroke-width="2"/>
+            <rect x="118" y="8" width="102" height="58" rx="3" fill="#F2DFD7" stroke="#A63D26" stroke-width="2"/>
+            <rect x="230" y="8" width="102" height="58" rx="3" fill="#F2DFD7" stroke="#A63D26" stroke-width="2"/>
+            <text x="57" y="32" font-size="14" font-weight="700" text-anchor="middle" fill="#7A2C1B">Head</text>
+            <text x="57" y="52" font-size="10" text-anchor="middle" fill="#7A2C1B">untouched</text>
+            <text x="169" y="32" font-size="14" font-weight="700" text-anchor="middle" fill="#7A2C1B">Room</text>
+            <text x="169" y="52" font-size="10" text-anchor="middle" fill="#7A2C1B">untouched</text>
+            <text x="281" y="32" font-size="14" font-weight="700" text-anchor="middle" fill="#7A2C1B">World</text>
+            <text x="281" y="52" font-size="10" text-anchor="middle" fill="#7A2C1B">untouched</text>
+            <rect x="6" y="90" width="326" height="58" rx="3" fill="#78540F" stroke="#5E410B" stroke-width="2"/>
+            <text x="169" y="115" font-size="14" font-weight="700" text-anchor="middle" fill="#FFFFFF">The base</text>
+            <text x="169" y="135" font-size="11" text-anchor="middle" fill="#F1E7CF">source access and curation</text>
+            <text x="169" y="176" font-size="12" text-anchor="middle" font-weight="700" fill="#78540F">Eases the base. Leaves the learning.</text>
           </svg>
           <figcaption>Where the tool acts.</figcaption>
         </figure>
@@ -675,29 +707,27 @@
     </div>
   </section>
 
-  <!-- 23 -->
-  <section class="scene" data-notes="Point out the assistant is teacher-facing. That is a deliberate design decision and worth naming as one.">
+  <!-- 22 --><section class="scene" data-sec="Examples" data-notes="Point out the assistant is teacher facing. That is a deliberate design decision and worth naming as one.">
     <div class="inner wide">
       <p class="eyebrow">Worked example &middot; mathematics</p>
       <h2>Imagine IM and ClassMate</h2>
       <div class="split split--fig">
-        <div class="vendor-grid">
-          <div class="vendor-row"><span class="label">Design choice</span><span class="value">Put the assistant where it touches planning, not learning. It sits inside the curriculum and faces the teacher.</span></div>
-          <div class="vendor-row"><span class="label">The balance</span><span class="value">Reduces load on the scarcest resource in any district, teacher time, without touching student cognition. This is the safest category of AI use in a school, and blanket caution often restricts it while permitting riskier things.</span></div>
-          <div class="vendor-row vendor-row--keep"><span class="label">Stays yours</span><span class="value">Where teachers draw the line between clerical help and instructional judgment. Assembling a warm-up is clerical. Choosing which misconception to target Tuesday is judgment, and judgment is on the durable six.</span></div>
+        <div>
+          <div class="vrows">
+            <button class="vrow" type="button" aria-expanded="false"><span class="vlabel">The design choice</span><span class="vvalue">Put the assistant where it touches planning, not learning. It sits inside the curriculum and faces the teacher.</span></button>
+            <button class="vrow" type="button" aria-expanded="false"><span class="vlabel">The balance it strikes</span><span class="vvalue">Eases load on the scarcest resource in any district, teacher time, without touching student thinking. This is the safest category of AI use in a school, and blanket caution often restricts it while permitting riskier things.</span></button>
+            <button class="vrow vrow--keep" type="button" aria-expanded="false"><span class="vlabel">What stays yours</span><span class="vvalue">Where teachers draw the line between clerical help and instructional judgment. Assembling a warm-up is clerical. Choosing which misconception to target Tuesday is judgment, and judgment is on the durable six.</span></button>
+          </div>
         </div>
         <figure class="fig-sm">
-          <svg viewBox="0 0 340 210" role="img" aria-label="Locator diagram: ClassMate acts on the teacher-side infrastructural layer, outside the student-facing dimensions entirely.">
-            <rect x="6"   y="10" width="102" height="62" rx="3" fill="#F2DFD7" stroke="#A63D26" stroke-width="2"/>
-            <rect x="118" y="10" width="102" height="62" rx="3" fill="#F2DFD7" stroke="#A63D26" stroke-width="2"/>
-            <rect x="230" y="10" width="102" height="62" rx="3" fill="#F2DFD7" stroke="#A63D26" stroke-width="2"/>
-            <text x="169" y="45" font-size="12" font-weight="700" text-anchor="middle" fill="#7A2C1B">student-facing layers, not touched</text>
-
-            <rect x="6" y="96" width="326" height="62" rx="3" fill="#78540F" stroke="#6B4C0E" stroke-width="2"/>
-            <text x="169" y="124" font-size="13" font-weight="700" text-anchor="middle" fill="#FFFFFF">Infrastructural</text>
-            <text x="169" y="144" font-size="11" text-anchor="middle" fill="#F1E7CF">teacher planning time</text>
-
-            <text x="169" y="184" font-size="12" text-anchor="middle" font-weight="700" fill="#78540F">The safest place to put an assistant.</text>
+          <svg viewBox="0 0 340 200" role="img" aria-label="Locator: ClassMate acts on the base layer on the teacher side, outside the student-facing layers entirely.">
+            <rect x="6" y="8" width="326" height="58" rx="3" fill="#F2DFD7" stroke="#A63D26" stroke-width="2"/>
+            <text x="169" y="33" font-size="13" font-weight="700" text-anchor="middle" fill="#7A2C1B">Head &middot; Room &middot; World</text>
+            <text x="169" y="53" font-size="11" text-anchor="middle" fill="#7A2C1B">student facing, not touched</text>
+            <rect x="6" y="90" width="326" height="58" rx="3" fill="#78540F" stroke="#5E410B" stroke-width="2"/>
+            <text x="169" y="115" font-size="14" font-weight="700" text-anchor="middle" fill="#FFFFFF">The base</text>
+            <text x="169" y="135" font-size="11" text-anchor="middle" fill="#F1E7CF">teacher planning time</text>
+            <text x="169" y="176" font-size="12" text-anchor="middle" font-weight="700" fill="#78540F">The safest place to put an assistant.</text>
           </svg>
           <figcaption>Where the tool acts.</figcaption>
         </figure>
@@ -705,30 +735,28 @@
     </div>
   </section>
 
-  <!-- 24 -->
-  <section class="scene" data-notes="The honest one. Make the case FOR fast feedback seriously before raising the question, or it sounds like a gotcha.">
+  <!-- 23 --><section class="scene" data-sec="Examples" data-notes="The honest one. Make the case FOR fast feedback seriously before opening the third row, or it sounds like a gotcha.">
     <div class="inner wide">
       <p class="eyebrow">Worked example &middot; courseware</p>
       <h2>EdgeEX</h2>
       <div class="split split--fig">
-        <div class="vendor-grid">
-          <div class="vendor-row"><span class="label">Design choice</span><span class="value">Compress feedback latency in asynchronous settings, where the realistic alternative is often no timely feedback at all.</span></div>
-          <div class="vendor-row"><span class="label">The balance</span><span class="value">Turnaround time is a genuine barrier. A student who waits eight days has effectively received nothing, because the moment for revision passed. For alternative pathways this is real value, not convenience.</span></div>
-          <div class="vendor-row vendor-row--keep"><span class="label">Stays yours</span><span class="value">What you do with the time it returns. Grading is also how a teacher discovers what a class does not understand. Redirect that time toward student work and you have strengthened practice. Absorb it into the schedule and you have removed a teacher's main way of knowing a class.</span></div>
+        <div>
+          <div class="vrows">
+            <button class="vrow" type="button" aria-expanded="false"><span class="vlabel">The design choice</span><span class="vvalue">Compress feedback latency in asynchronous settings, where the realistic alternative is often no timely feedback at all.</span></button>
+            <button class="vrow" type="button" aria-expanded="false"><span class="vlabel">The balance it strikes</span><span class="vvalue">Turnaround time is a genuine barrier. A student who waits eight days has effectively received nothing, because the moment for revision passed. For alternative pathways this is real value, not convenience.</span></button>
+            <button class="vrow vrow--keep" type="button" aria-expanded="false"><span class="vlabel">What stays yours</span><span class="vvalue">What you do with the time it returns. Grading is also how a teacher discovers what a class does not understand. Redirect that time toward student work and you have strengthened practice. Absorb it into the schedule and you have removed a teacher's main way of knowing a class.</span></button>
+          </div>
         </div>
         <figure class="fig-sm">
-          <svg viewBox="0 0 340 210" role="img" aria-label="Locator diagram: the grading assistant acts on the infrastructural layer of feedback latency, but the teacher's diagnostic signal sits on the boundary and can be lost.">
-            <rect x="6"   y="10" width="102" height="62" rx="3" fill="#F2DFD7" stroke="#A63D26" stroke-width="2"/>
-            <rect x="118" y="10" width="102" height="62" rx="3" fill="#F2DFD7" stroke="#A63D26" stroke-width="2"/>
-            <rect x="230" y="10" width="102" height="62" rx="3" fill="#F2DFD7" stroke="#A63D26" stroke-width="2"/>
-            <text x="169" y="45" font-size="12" font-weight="700" text-anchor="middle" fill="#7A2C1B">student-facing layers</text>
-
-            <rect x="6" y="96" width="326" height="62" rx="3" fill="#78540F" stroke="#6B4C0E" stroke-width="2"/>
-            <text x="169" y="124" font-size="13" font-weight="700" text-anchor="middle" fill="#FFFFFF">Infrastructural</text>
-            <text x="169" y="144" font-size="11" text-anchor="middle" fill="#F1E7CF">feedback latency</text>
-
-            <line x1="6" y1="84" x2="332" y2="84" stroke="#0E6E78" stroke-width="3" stroke-dasharray="7 5"/>
-            <text x="169" y="184" font-size="12" text-anchor="middle" font-weight="700" fill="#0E6E78">The teacher's diagnostic signal lives on this line.</text>
+          <svg viewBox="0 0 340 200" role="img" aria-label="Locator: the grading assistant acts on the base layer of feedback latency, but the teacher's read of the class sits on the boundary between the base and the student-facing layers.">
+            <rect x="6" y="8" width="326" height="52" rx="3" fill="#F2DFD7" stroke="#A63D26" stroke-width="2"/>
+            <text x="169" y="40" font-size="13" font-weight="700" text-anchor="middle" fill="#7A2C1B">Head &middot; Room &middot; World</text>
+            <line x1="6" y1="76" x2="332" y2="76" stroke="#0E6E78" stroke-width="3" stroke-dasharray="7 5"/>
+            <rect x="6" y="92" width="326" height="52" rx="3" fill="#78540F" stroke="#5E410B" stroke-width="2"/>
+            <text x="169" y="114" font-size="14" font-weight="700" text-anchor="middle" fill="#FFFFFF">The base</text>
+            <text x="169" y="133" font-size="11" text-anchor="middle" fill="#F1E7CF">feedback latency</text>
+            <text x="169" y="172" font-size="11.5" text-anchor="middle" font-weight="700" fill="#0E6E78">The teacher's read of the class</text>
+            <text x="169" y="190" font-size="11.5" text-anchor="middle" font-weight="700" fill="#0E6E78">lives on this line.</text>
           </svg>
           <figcaption>Where the tool acts, and what sits on the boundary.</figcaption>
         </figure>
@@ -736,42 +764,35 @@
     </div>
   </section>
 
-  <!-- 25 -->
-  <section class="scene" data-notes="Reducing load so a student can engage is NOT a bypass. Say that clearly. It is the precondition for productive friction. Then trace the ceiling line.">
+  <!-- 24 --><section class="scene" data-sec="Examples" data-notes="Reducing load so a student can engage is NOT a bypass. Say that clearly before opening row three. Then trace the two diverging lines.">
     <div class="inner wide">
       <p class="eyebrow">Worked example &middot; intervention</p>
       <h2>MyPath</h2>
       <div class="split split--fig">
-        <div class="vendor-grid">
-          <div class="vendor-row"><span class="label">Design choice</span><span class="value">Hold cognitive load in a band where a struggling student can actually engage.</span></div>
-          <div class="vendor-row"><span class="label">The balance</span><span class="value">A student three grade levels below placement will not learn from grade-level text, and will not learn from repeated failure either. Reducing load enough to make engagement possible is the precondition for productive friction, not a bypass of it.</span></div>
-          <div class="vendor-row vendor-row--keep"><span class="label">Stays yours</span><span class="value">The exit ramp. Deciding when the student meets the hard version is a district decision, because the product has no internal reason to make it.</span></div>
+        <div>
+          <div class="vrows">
+            <button class="vrow" type="button" aria-expanded="false"><span class="vlabel">The design choice</span><span class="vvalue">Hold the work in a band where a struggling student can actually engage.</span></button>
+            <button class="vrow" type="button" aria-expanded="false"><span class="vlabel">The balance it strikes</span><span class="vvalue">A student three grade levels below placement will not learn from grade-level text, and will not learn from repeated failure either. Easing the work enough to make engagement possible is the precondition for productive struggle, not a bypass of it.</span></button>
+            <button class="vrow vrow--keep" type="button" aria-expanded="false"><span class="vlabel">What stays yours</span><span class="vvalue">The exit ramp. Deciding when the student meets the hard version is a district decision, because the product has no internal reason to make it.</span></button>
+          </div>
         </div>
         <figure class="fig-sm">
-          <svg viewBox="0 0 360 230" role="img" aria-label="An adaptive path holds a student inside the productive band all year, but the band drifts downward while grade-level demand rises, so the scaffold becomes a ceiling and the gap widens.">
-            <rect x="52" y="10"  width="300" height="46" fill="#DBD6C9"/>
-            <text x="202" y="38" font-size="11" text-anchor="middle" fill="#525A61">too hard: shutdown</text>
-
-            <rect x="52" y="58" width="300" height="74" fill="#F1E7CF"/>
-            <text x="202" y="80" font-size="11" text-anchor="middle" fill="#6B4C0E">the productive band</text>
-
-            <rect x="52" y="134" width="300" height="46" fill="#DBD6C9"/>
-            <text x="202" y="162" font-size="11" text-anchor="middle" fill="#525A61">too easy: disengagement</text>
-
-            <!-- grade level demand rises -->
-            <polyline points="52,72 150,58 250,44 350,30" fill="none" stroke="#0E6E78" stroke-width="3.5"/>
-            <text x="196" y="26" font-size="11" font-weight="700" fill="#0E6E78">grade-level demand</text>
-
-            <!-- adaptive path drifts down -->
-            <polyline points="52,92 150,104 250,116 350,126" fill="none" stroke="#A63D26" stroke-width="3.5"/>
-            <text x="150" y="146" font-size="11" font-weight="700" fill="#A63D26">the adaptive path</text>
-
-            <line x1="350" y1="34" x2="350" y2="122" stroke="#191D21" stroke-width="1.5" stroke-dasharray="4 3"/>
-            <text x="344" y="200" font-size="11" text-anchor="end" font-weight="700" fill="#191D21">the gap in May</text>
-
-            <text x="6" y="70"  font-size="10" fill="#525A61">Sept</text>
-            <text x="6" y="130" font-size="10" fill="#525A61">May</text>
-            <text x="180" y="222" font-size="11.5" text-anchor="middle" font-style="italic" fill="#191D21">Both lines stay green all year.</text>
+          <svg viewBox="0 0 360 220" role="img" aria-label="An adaptive path holds a student inside the productive band all year, but the path drifts downward while grade-level demand rises, so the scaffold becomes a ceiling and a gap opens by May.">
+            <rect x="52" y="8" width="300" height="42" fill="#DBD6C9"/>
+            <text x="202" y="34" font-size="11" text-anchor="middle" fill="#525A61">too hard: shutdown</text>
+            <rect x="52" y="54" width="300" height="70" fill="#F1E7CF"/>
+            <text x="202" y="74" font-size="11" text-anchor="middle" fill="#5E410B">the productive band</text>
+            <rect x="52" y="128" width="300" height="42" fill="#DBD6C9"/>
+            <text x="202" y="154" font-size="11" text-anchor="middle" fill="#525A61">too easy: disengagement</text>
+            <polyline points="52,68 150,54 250,40 350,28" fill="none" stroke="#0E6E78" stroke-width="3.5"/>
+            <text x="200" y="22" font-size="11" font-weight="700" fill="#0E6E78">grade-level demand</text>
+            <polyline points="52,88 150,100 250,110 350,120" fill="none" stroke="#A63D26" stroke-width="3.5"/>
+            <text x="146" y="140" font-size="11" font-weight="700" fill="#A63D26">the adaptive path</text>
+            <line x1="350" y1="32" x2="350" y2="116" stroke="#191D21" stroke-width="1.5" stroke-dasharray="4 3"/>
+            <text x="344" y="190" font-size="11" text-anchor="end" font-weight="700" fill="#191D21">the gap in May</text>
+            <text x="6" y="66" font-size="10" fill="#525A61">Sept</text>
+            <text x="6" y="122" font-size="10" fill="#525A61">May</text>
+            <text x="180" y="212" font-size="11.5" text-anchor="middle" font-style="italic" fill="#191D21">Both lines stay green all year.</text>
           </svg>
           <figcaption>Scaffolds that never come down become ceilings.</figcaption>
         </figure>
@@ -779,8 +800,7 @@
     </div>
   </section>
 
-  <!-- 26 -->
-  <section class="scene dark" data-notes="Pull the four together. The pattern is the payload, not any individual product.">
+  <!-- 25 --><section class="scene dark" data-sec="Examples" data-notes="Pull the four together. The pattern is the payload, not any individual product.">
     <div class="inner">
       <p class="eyebrow">The pattern across all four</p>
       <p class="huge">The vendor decides what the tool makes easy. <em>You decide what it means.</em></p>
@@ -788,8 +808,7 @@
     </div>
   </section>
 
-  <!-- 27 -->
-  <section class="scene" data-notes="Ninety seconds of silent writing. Enforce the silence. Then two or three share out, kept short.">
+  <!-- 26 --><section class="scene" data-sec="Close" data-notes="Ninety seconds of silent writing. Enforce the silence. Then two or three share out, kept short.">
     <div class="inner">
       <p class="eyebrow">The Monday move &middot; ninety seconds, silent</p>
       <h2>One competency. One protection. One owner.</h2>
@@ -798,17 +817,15 @@
     </div>
   </section>
 
-  <!-- 28 -->
-  <section class="scene dark" data-notes="Return to the silence from question two. Land it and stop. Do not add anything after this line.">
+  <!-- 27 --><section class="scene dark" data-sec="Close" data-notes="Return to the silence from question two. Land it and stop. Do not add anything after this line.">
     <div class="inner">
       <p class="eyebrow">Where we started</p>
       <p class="huge">The districts that will be future ready are not the ones that adopted fastest.</p>
-      <h2>They are the ones that decided, <em style="color:var(--clay-lit);font-style:normal;">on purpose</em>, what to keep hard.</h2>
+      <h2>They are the ones that decided, on purpose, what to keep hard.</h2>
     </div>
   </section>
 
-  <!-- 29 -->
-  <section class="scene" data-notes="Leave this up during questions. The primer is the single best takeaway for this audience.">
+  <!-- 28 --><section class="scene" data-sec="Close" data-notes="Leave this up during questions. The primer is the single best takeaway for this audience.">
     <div class="inner">
       <p class="eyebrow">Take one thing with you</p>
       <h2>Resources</h2>
@@ -825,14 +842,18 @@
 
 </main>
 
+<div class="rail" id="rail"></div>
+
 <div class="chrome">
   <span class="chrome-left" id="sceneTitle"></span>
   <div class="controls">
-    <button id="btnOverview" aria-label="Toggle slide overview">Overview</button>
-    <button id="btnNotes" aria-label="Toggle speaker notes">Notes</button>
-    <button id="btnPrev" aria-label="Previous slide">Prev</button>
-    <span class="chrome-left counter" id="counter">1 / 29</span>
-    <button id="btnNext" aria-label="Next slide">Next</button>
+    <button class="ctl" id="btnTimer" type="button" aria-label="Start or pause the presentation timer">00:00</button>
+    <button class="ctl" id="btnFull" type="button" aria-label="Toggle fullscreen">Full</button>
+    <button class="ctl" id="btnOverview" type="button" aria-label="Toggle slide overview">Overview</button>
+    <button class="ctl" id="btnNotes" type="button" aria-label="Toggle speaker notes">Notes</button>
+    <button class="ctl" id="btnPrev" type="button" aria-label="Previous slide">Prev</button>
+    <span class="chrome-left counter" id="counter">1 / 28</span>
+    <button class="ctl" id="btnNext" type="button" aria-label="Next slide">Next</button>
   </div>
 </div>
 
@@ -850,25 +871,52 @@
 
 <script>
 (function () {
+  'use strict';
   var scenes = Array.prototype.slice.call(document.querySelectorAll('.scene'));
   var total = scenes.length;
   var i = 0;
 
-  var progress   = document.getElementById('progress');
-  var counter    = document.getElementById('counter');
-  var sceneTitle = document.getElementById('sceneTitle');
-  var notes      = document.getElementById('notes');
-  var notesBody  = document.getElementById('notesBody');
-  var overview   = document.getElementById('overview');
-  var thumbs     = document.getElementById('thumbs');
-  var live       = document.getElementById('liveRegion');
-  var btnPrev    = document.getElementById('btnPrev');
-  var btnNext    = document.getElementById('btnNext');
+  var $ = function (id) { return document.getElementById(id); };
+  var progress = $('progress'), counter = $('counter'), sceneTitle = $('sceneTitle');
+  var notes = $('notes'), notesBody = $('notesBody');
+  var overview = $('overview'), thumbs = $('thumbs'), rail = $('rail');
+  var live = $('liveRegion'), btnPrev = $('btnPrev'), btnNext = $('btnNext');
 
   function labelFor(s) {
     var h = s.querySelector('h1, h2, .huge');
-    return h ? h.textContent.trim().replace(/\s+/g, ' ').slice(0, 64) : 'Slide';
+    return h ? h.textContent.trim().replace(/\s+/g, ' ').slice(0, 60) : 'Slide';
   }
+
+  /* ---------- section rail ---------- */
+  var sections = [];
+  scenes.forEach(function (s, n) {
+    var name = s.getAttribute('data-sec') || 'Slides';
+    if (!sections.length || sections[sections.length - 1].name !== name) {
+      sections.push({ name: name, start: n });
+    }
+  });
+  sections.forEach(function (sec) {
+    var b = document.createElement('button');
+    b.className = 'rail-seg';
+    b.type = 'button';
+    b.textContent = sec.name;
+    b.addEventListener('click', function () { go(sec.start); });
+    rail.appendChild(b);
+  });
+
+  /* ---------- overview thumbs ---------- */
+  scenes.forEach(function (s, n) {
+    var b = document.createElement('button');
+    b.className = 'thumb';
+    b.type = 'button';
+    var num = document.createElement('span');
+    num.className = 'n';
+    num.textContent = n + 1;
+    b.appendChild(num);
+    b.appendChild(document.createTextNode(labelFor(s)));
+    b.addEventListener('click', function () { go(n); overview.classList.remove('is-open'); });
+    thumbs.appendChild(b);
+  });
 
   function render() {
     scenes.forEach(function (s, n) { s.classList.toggle('is-active', n === i); });
@@ -879,42 +927,176 @@
     notesBody.textContent = scenes[i].getAttribute('data-notes') || 'No notes for this slide.';
     btnPrev.disabled = (i === 0);
     btnNext.disabled = (i === total - 1);
+
     Array.prototype.forEach.call(thumbs.children, function (t, n) {
       t.classList.toggle('is-current', n === i);
     });
+    var cur = 0;
+    sections.forEach(function (sec, k) { if (i >= sec.start) cur = k; });
+    Array.prototype.forEach.call(rail.children, function (r, k) {
+      r.classList.toggle('is-current', k === cur);
+    });
+
     live.textContent = 'Slide ' + (i + 1) + ' of ' + total + '. ' + labelFor(scenes[i]);
     if (history.replaceState) history.replaceState(null, '', '#' + (i + 1));
   }
 
   function go(n) { i = Math.max(0, Math.min(total - 1, n)); render(); }
 
-  scenes.forEach(function (s, n) {
-    var b = document.createElement('button');
-    b.className = 'thumb';
-    b.innerHTML = '<span class="n">' + (n + 1) + '</span>';
-    b.appendChild(document.createTextNode(labelFor(s)));
-    b.addEventListener('click', function () { go(n); overview.classList.remove('is-open'); });
-    thumbs.appendChild(b);
+  /* ---------- interactive: Head / Room / World nodes ---------- */
+  Array.prototype.forEach.call(document.querySelectorAll('.node'), function (btn) {
+    btn.addEventListener('click', function () {
+      var key = btn.getAttribute('data-node');
+      var open = btn.getAttribute('aria-pressed') === 'true';
+      Array.prototype.forEach.call(document.querySelectorAll('.node'), function (b) {
+        b.setAttribute('aria-pressed', 'false');
+      });
+      Array.prototype.forEach.call(document.querySelectorAll('.node-detail'), function (d) {
+        d.classList.remove('is-shown');
+      });
+      if (!open) {
+        btn.setAttribute('aria-pressed', 'true');
+        var panel = $('nd-' + key);
+        if (panel) panel.classList.add('is-shown');
+      }
+    });
   });
 
+  /* ---------- interactive: generic reveals ---------- */
+  Array.prototype.forEach.call(document.querySelectorAll('[data-reveal]'), function (btn) {
+    btn.addEventListener('click', function () {
+      var target = $(btn.getAttribute('data-reveal'));
+      if (!target) return;
+      var open = target.classList.toggle('is-shown');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  });
+
+  Array.prototype.forEach.call(document.querySelectorAll('[data-svg-reveal]'), function (btn) {
+    btn.addEventListener('click', function () {
+      var g = $(btn.getAttribute('data-svg-reveal'));
+      if (!g) return;
+      var open = g.style.display !== 'none';
+      g.style.display = open ? 'none' : '';
+      btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+    });
+  });
+
+  /* ---------- interactive: expandable rows ---------- */
+  Array.prototype.forEach.call(document.querySelectorAll('.qrow, .vrow'), function (row) {
+    row.addEventListener('click', function () {
+      var open = row.getAttribute('aria-expanded') === 'true';
+      row.setAttribute('aria-expanded', open ? 'false' : 'true');
+    });
+  });
+
+  /* ---------- interactive: tool sorter ---------- */
+  var miniCells = document.querySelectorAll('[data-cell]');
+  var svTag = $('svTag'), svText = $('svText');
+
+  function clearMini() {
+    Array.prototype.forEach.call(miniCells, function (c) {
+      c.classList.remove('on', 'maybe');
+    });
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll('.chip'), function (chip) {
+    chip.addEventListener('click', function () {
+      var was = chip.getAttribute('aria-pressed') === 'true';
+      Array.prototype.forEach.call(document.querySelectorAll('.chip'), function (c) {
+        c.setAttribute('aria-pressed', 'false');
+      });
+      clearMini();
+      if (was) {
+        svTag.className = 'sv-tag depends';
+        svTag.textContent = 'Pick one';
+        svText.textContent = 'Every one of these is in somebody’s district already. The question is never whether to use it. The question is which layer it touches.';
+        return;
+      }
+      chip.setAttribute('aria-pressed', 'true');
+
+      var layers = (chip.getAttribute('data-layers') || '').split(/\s+/);
+      if (layers.indexOf('maybe') > -1) {
+        Array.prototype.forEach.call(miniCells, function (c) { c.classList.add('maybe'); });
+      } else {
+        layers.forEach(function (L) {
+          var cell = document.querySelector('[data-cell="' + L + '"]');
+          if (cell) cell.classList.add('on');
+        });
+      }
+
+      var v = chip.getAttribute('data-verdict');
+      svTag.className = 'sv-tag ' + v;
+      svTag.textContent = v === 'good' ? 'Ease it' : (v === 'bypass' ? 'That was the learning' : 'It depends');
+      svText.textContent = chip.getAttribute('data-text') || '';
+    });
+  });
+
+  /* ---------- presenter timer ---------- */
+  var btnTimer = $('btnTimer'), tStart = null, tAccum = 0, tTick = null;
+  function fmt(ms) {
+    var s = Math.floor(ms / 1000);
+    return ('0' + Math.floor(s / 60)).slice(-2) + ':' + ('0' + (s % 60)).slice(-2);
+  }
+  function paint() { btnTimer.textContent = fmt(tAccum + (tStart ? Date.now() - tStart : 0)); }
+  btnTimer.addEventListener('click', function () {
+    if (tStart) {
+      tAccum += Date.now() - tStart; tStart = null;
+      clearInterval(tTick); tTick = null;
+      btnTimer.classList.remove('running');
+    } else {
+      tStart = Date.now();
+      tTick = setInterval(paint, 1000);
+      btnTimer.classList.add('running');
+    }
+    paint();
+  });
+
+  /* ---------- fullscreen ---------- */
+  $('btnFull').addEventListener('click', function () {
+    if (document.fullscreenElement) {
+      if (document.exitFullscreen) document.exitFullscreen();
+    } else if (document.documentElement.requestFullscreen) {
+      document.documentElement.requestFullscreen();
+    }
+  });
+
+  /* ---------- chrome buttons ---------- */
   btnPrev.addEventListener('click', function () { go(i - 1); });
   btnNext.addEventListener('click', function () { go(i + 1); });
-  document.getElementById('btnNotes').addEventListener('click', function () { notes.classList.toggle('is-open'); });
-  document.getElementById('btnOverview').addEventListener('click', function () { overview.classList.toggle('is-open'); });
+  $('btnNotes').addEventListener('click', function () { notes.classList.toggle('is-open'); });
+  $('btnOverview').addEventListener('click', function () { overview.classList.toggle('is-open'); });
 
+  /* ---------- keyboard ----------
+     Space and Enter belong to a focused in-slide control, so they are not
+     hijacked for navigation while the presenter is opening a panel. Arrows
+     always navigate. */
   document.addEventListener('keydown', function (e) {
     if (e.metaKey || e.ctrlKey || e.altKey) return;
-    var tag = (e.target.tagName || '').toLowerCase();
-    if (tag === 'input' || tag === 'textarea') return;
+    var t = e.target || {};
+    var tag = (t.tagName || '').toLowerCase();
+    if (tag === 'input' || tag === 'textarea' || t.isContentEditable) return;
+
+    var onControl = tag === 'button' || tag === 'a';
 
     switch (e.key) {
-      case 'ArrowRight': case 'PageDown': case ' ': e.preventDefault(); go(i + 1); break;
-      case 'ArrowLeft':  case 'PageUp':           e.preventDefault(); go(i - 1); break;
+      case 'ArrowRight': case 'PageDown': e.preventDefault(); go(i + 1); break;
+      case 'ArrowLeft': case 'PageUp': e.preventDefault(); go(i - 1); break;
+      case ' ':
+        if (onControl) return;          // let the control activate
+        e.preventDefault(); go(i + 1); break;
+      case 'Enter':
+        if (onControl) return;
+        break;
       case 'Home': e.preventDefault(); go(0); break;
-      case 'End':  e.preventDefault(); go(total - 1); break;
-      case 'n': case 'N': notes.classList.toggle('is-open'); break;
-      case 'o': case 'O': overview.classList.toggle('is-open'); break;
-      case 'Escape': overview.classList.remove('is-open'); notes.classList.remove('is-open'); break;
+      case 'End': e.preventDefault(); go(total - 1); break;
+      case 'n': case 'N': if (!onControl) notes.classList.toggle('is-open'); break;
+      case 'o': case 'O': if (!onControl) overview.classList.toggle('is-open'); break;
+      case 'f': case 'F': if (!onControl) $('btnFull').click(); break;
+      case 'Escape':
+        overview.classList.remove('is-open');
+        notes.classList.remove('is-open');
+        break;
     }
   });
 

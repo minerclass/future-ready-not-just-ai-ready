@@ -13,12 +13,12 @@ cannot tell the difference between a student who did all the thinking and a
 student who did none. The more useful question is not how long the screen was on
 but what the screen made easy.
 
-Pedagogical friction is the productive resistance learning requires. It comes in
-layers. Infrastructural friction, which is time, access, and logistics, is the
-layer technology can legitimately reduce, and reducing it expands who gets to do
-the work. Noetic, rhetorical, and existential friction are where the learning
-lives, and routing around them produces **unproductive success**: work that looks
-finished while the formation it should have produced did not happen.
+Friction is the productive resistance learning requires, and it comes in layers.
+**The base**, which is time, access, and logistics, is the layer technology can
+legitimately ease, and easing it expands who gets to do the work. **Head, Room,
+and World** are where the learning lives, and routing around them produces
+**unproductive success**: work that looks finished while the formation it should
+have produced did not happen.
 
 A tool cannot tell these layers apart, because reducing friction is what the
 category exists to do. That is structural rather than a defect in any product,
@@ -35,7 +35,7 @@ of the table: someone in a product meeting had to decide what to make easy. Each
 example names the design choice, the balance it strikes, and the decision that
 stays with the district.
 
-The speaker's relationship to the host is disclosed on slide 21, before any
+The speaker's relationship to the host is disclosed on slide 20, before any
 product appears. Imagine Learning products were adopted in Beach Park CCSD 3
 before the speaker joined the district.
 
@@ -58,9 +58,9 @@ Seven diagrams do work the prose cannot:
 | Slide | Figure | What it shows |
 |---|---|---|
 | 10 | Two students, forty-five minutes | Identical bars, opposite internal composition, identical dashboard row |
-| 12 | The friction strata | Three co-equal learner-facing layers resting on one wide infrastructural base |
-| 17 | Unproductive success | Output rising while formation stays flat, and the widening gap between them |
-| 22 to 25 | Tool locators | Which layer each platform acts on, drawn on the same strata shape each time |
+| 12 | The friction layers | Head, Room and World as equal layers resting on one wide base |
+| 15 | Unproductive success | Output rising while formation stays flat, and the widening gap between them |
+| 21 to 24 | Tool locators | Which layer each platform acts on, drawn on the same strata shape each time |
 
 The locator diagram repeats across all four vendor slides on purpose. It becomes
 a visual grammar the audience learns once and then reads without help.
@@ -74,6 +74,33 @@ Open `index.html` in a modern browser, or visit the published site:
 Landscape on a laptop or projector is recommended. The deck has been checked at
 1280x720 and 1024x768 with no clipped content.
 
+## Plain language, on purpose
+
+The three learner-facing layers are named **Head**, **Room**, and **World** for
+this audience rather than noetic, rhetorical, and existential. District leaders
+do not need the academic vocabulary to make the decision, and the plain words
+carry the same distinction:
+
+- **Head** &mdash; working it out for yourself
+- **Room** &mdash; saying it so others understand
+- **World** &mdash; becoming someone who can do hard things
+
+Everything they rest on is simply **the base**: time, access, technology, policy,
+the building. That is the layer technology should be easing.
+
+## Interactive elements
+
+The deck is built to be clicked during the session, not read past.
+
+| Slide | Element | What it does |
+|---|---|---|
+| 10 | Dashboard reveal | Ask the room what their data says about the two students, then reveal that it cannot tell them apart |
+| 14 | Head / Room / World nodes | Click each layer to open what it is and what it looks like when a tool absorbs it |
+| 15 | Formation line reveal | Show the rising line first, let the room read it as good news, then add the flat line and the gap |
+| 17 | The four questions | Click any question to open why it matters |
+| 18 | Tool sorter | Click a real tool and see which layer it touches. Text to speech is the payoff: same feature, opposite call depending on the objective |
+| 21 to 24 | Vendor rows | Open design choice, balance, and what stays yours one at a time to control pacing |
+
 ## Presenter controls
 
 | Key | Action |
@@ -83,27 +110,35 @@ Landscape on a laptop or projector is recommended. The deck has been checked at
 | Home, End | First or last slide |
 | `N` | Toggle speaker notes |
 | `O` | Toggle the slide overview grid |
+| `F` | Fullscreen |
 | `Esc` | Close notes and overview |
 
-Every slide carries speaker notes. The URL tracks the slide number, so
-`#21` deep-links to the disclosure slide.
+Space and Enter belong to a focused in-slide control, so opening a panel never
+also advances the slide. Arrow keys always navigate.
+
+The bottom bar also carries a **section rail** for jumping between the seven
+parts of the talk, and a **presenter timer** you start with a click.
+
+Every slide carries speaker notes. The URL tracks the slide number, so `#20`
+deep-links to the disclosure slide.
 
 ## Structure
 
-29 scenes, roughly a 60 minute session with two audience exercises.
+28 scenes, roughly a 60 minute session with two audience exercises and six interactive moments.
 
-1. Opening (slides 1 to 5). Two questions to the room. The second one lands
-   quiet, and that silence is the session's premise.
-2. Framing (6 to 8). Future ready is a graduate question, not a procurement
+1. **Opening** (1 to 5). Two questions to the room. The second lands quiet, and
+   that silence is the session's premise.
+2. **Framing** (6 to 8). Future ready is a graduate question, not a procurement
    question. The durable six. The Portrait of a Graduate gap.
-3. Screen time (9 to 11). Why the metric fails and what replaces it.
-4. Friction (12 to 18). The layers, unproductive success, and why no vendor can
-   solve this for you.
-5. The lens (19 to 20). Four questions, then a table exercise on the audience's
-   own tools.
-6. Vendor examples (21 to 26). Disclosure, four worked examples, and the pattern
-   across them.
-7. Close (27 to 29). The Monday move and resources.
+3. **Screen time** (9 to 11). Why the metric fails and what replaces it.
+4. **Friction** (12 to 16). The base, Head, Room, World, unproductive success,
+   and why no vendor can solve this for you.
+5. **The lens** (17 to 19). Four questions, the tool sorter, then a table
+   exercise on the audience's own tools.
+6. **Examples** (20 to 25). Disclosure, four worked examples, and the pattern.
+7. **Close** (26 to 28). The Monday move and resources.
+
+These seven names are the section rail at the bottom of the deck.
 
 ## Repository structure
 
@@ -128,7 +163,8 @@ The deck links to these public resources:
 
 ## Concepts
 
-Pedagogical friction, its noetic, rhetorical, and existential dimensions,
+Pedagogical friction and its three learner-facing dimensions (presented here as
+Head, Room, and World; noetic, rhetorical, and existential in the research),
 unproductive success, and the Great Bypass are original concepts from the
 author's doctoral research at National Louis University. They extend media
 ecology, an established field associated with Marshall McLuhan, Neil Postman, and
