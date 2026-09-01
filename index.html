@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-mjm-ground="light">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Future Ready, Not Just AI Ready</title>
 <meta name="description" content="Interactive keynote for the Imagine Learning IL Future Ready Student Summit. Screen time, friction, and AI: a district leader's lens for deciding what should stay hard.">
+<link rel="stylesheet" href="https://minerclass.github.io/tokens.css">
 <style>
   /* ------------------------------------------------------------------
      PALETTE. The color system carries the argument, it does not decorate.
@@ -18,9 +19,12 @@
      machine's OS theme, so every color is painted explicitly.
      ------------------------------------------------------------------ */
   :root {
-    --stone:#E9E5DB; --stone-lift:#F3F0E9; --stone-sink:#DBD6C9;
+    /* Ground and ink from the shared ecosystem tokens with pre-adoption
+       fallbacks. The clay/ochre/teal argument colours stay local. */
+    --stone:var(--mjm-bg,#E9E5DB); --stone-lift:var(--mjm-surface,#F3F0E9); --stone-sink:#DBD6C9;
     --graphite:#1E2328; --graphite-lift:#2A3037;
-    --ink:#191D21; --ink-soft:#4A5158; --ink-faint:#525A61;
+    --ink:var(--mjm-ink,#191D21); --ink-soft:var(--mjm-muted,#4A5158); --ink-faint:#525A61;
+    --mjm-accent:var(--mjm-rust,#A63D26);
     --on-dark:#EFEBE2; --on-dark-soft:#AFB6BC;
 
     --clay:#A63D26; --clay-lit:#E8825F; --clay-wash:#F2DFD7; --clay-deep:#7A2C1B;
