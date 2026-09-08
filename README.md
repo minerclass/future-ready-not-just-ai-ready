@@ -14,15 +14,13 @@ student who did none. The more useful question is not how long the screen was on
 but what the screen made easy.
 
 Friction is the productive resistance learning requires, and it comes in layers.
-**The base**, which is time, access, and logistics, is the layer technology can
-legitimately ease, and easing it expands who gets to do the work. **Head, Room,
-and World** are where the learning lives, and routing around them produces
-**unproductive success**: work that looks finished while the formation it should
-have produced did not happen.
+**The base** covers time, access, logistics, technology, policy, and institutional
+conditions. **Head, Room, and World** name learner-facing cognitive, dialogic, and
+developmental work. Technology may appropriately reduce barriers in any layer.
+The learning goal determines which work should remain with the learner.
 
-A tool cannot tell these layers apart, because reducing friction is what the
-category exists to do. That is structural rather than a defect in any product,
-and it is why the discernment has to live with the adults.
+A tool cannot decide which effort builds the target capability and which effort
+only restricts access. That judgment has to remain with educators and leaders.
 
 ## The vendor examples
 
@@ -176,13 +174,12 @@ The deck links to these public resources:
 
 ## Concepts
 
-Pedagogical friction and its three learner-facing dimensions (presented here as
-Head, Room, and World; noetic, rhetorical, and existential in the research),
-unproductive success, and the Great Bypass are original concepts from the
-author's doctoral research at National Louis University. They extend media
-ecology, an established field associated with Marshall McLuhan, Neil Postman, and
-Walter Ong. They are not established terms in the field and should not be cited
-as though they are.
+This keynote applies Kapur's (2016) concept of **unproductive success** to
+AI-supported schoolwork. **Pedagogical friction**, its Head, Room, and World
+translation, and **the Great Bypass** are Miner's proposed conceptual
+contributions from doctoral work at National Louis University. They extend media
+ecology and learning-science traditions; they are not established empirical
+findings.
 
 ## Privacy and maintenance
 
