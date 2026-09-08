@@ -104,6 +104,7 @@ The deck is built to be clicked during the session, not read past.
 | 15 | Formation line reveal | Show the rising line first, let the room read it as good news, then add the flat line and the gap |
 | 17 | The four questions | Click any question to open why it matters |
 | 18 | Tool sorter | Click a real tool and see which layer it touches. Text to speech is the payoff: same feature, opposite call depending on the objective |
+| 19 | Four-minute table audit | Choose one specific district use, anchor it to the goal, run the lens, and leave with a safeguard, signal, and owner |
 | 21 to 24 | Vendor rows | Open design choice, balance, and what stays yours one at a time to control pacing |
 | 26 | The speaker's own Portrait | Three mapped lines, then reveal the gap he could not answer in his own district |
 

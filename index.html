@@ -111,6 +111,19 @@
   .card { background:var(--stone-lift); border:1px solid var(--rule); border-radius:3px; padding:clamp(0.7rem,2.4vmin,1.6rem); display:flex; flex-direction:column; gap:0.35rem; }
   .card p { font-size:clamp(0.83rem,1.65vmin,1.15rem); color:var(--ink-soft); }
 
+  /* --- four-minute table audit --- */
+  .activity-steps { display:grid; grid-template-columns:repeat(2,1fr); gap:clamp(0.8rem,2vmin,1.25rem) clamp(1.2rem,3vmin,2rem); }
+  .activity-step {
+    min-width:0; border-top:4px solid var(--signal); padding:clamp(0.6rem,1.5vmin,1rem) 0 0;
+    display:grid; grid-template-columns:2.2rem 1fr; column-gap:clamp(0.5rem,1.2vmin,0.8rem); row-gap:0.2rem;
+  }
+  .activity-step .step-number { grid-row:1 / 3; font-family:var(--font-data); color:var(--signal); font-size:clamp(0.78rem,1.6vmin,1rem); font-weight:700; letter-spacing:0.12em; }
+  .activity-step h3 { font-size:clamp(1rem,2.4vmin,1.5rem); }
+  .activity-step p { color:var(--ink-soft); font-size:clamp(0.88rem,1.85vmin,1.12rem); line-height:1.4; }
+  .activity-output { border-left:5px solid var(--clay); }
+  .activity-output strong { color:var(--clay-deep); }
+  @media (max-width:48rem){ .activity-steps{grid-template-columns:1fr;} }
+
   /* --- clickable capacity cards (the durable six) --- */
   .cap {
     text-align:left; font-family:var(--font-body); text-transform:none; letter-spacing:0;
@@ -789,12 +802,18 @@
     </div>
   </section>
 
-  <!-- 19 --><section class="scene" data-sec="The lens" data-notes="Four minutes at tables. Walk the room. Do NOT use an Imagine Learning product here. Neutral ground first.">
-    <div class="inner">
-      <p class="eyebrow">At your table &middot; four minutes</p>
-      <h2>Now run one of your own.</h2>
-      <p class="lede">Something already in your buildings. Something you renewed without much discussion. Take it through all four questions and see where you get stuck.</p>
-      <p class="lede tight">Most tables get stuck on number four.</p>
+  <!-- 19 --><section class="scene" data-sec="The lens" data-notes="Four minutes at tables. Ask each table to name a recorder. Start the timer after everyone has chosen one specific use, not an entire product. Walk the room and listen for a learning goal, a signal, and an owner. Do not use an Imagine Learning product here. After four minutes, invite two tables to share their final sentence in 30 seconds each.">
+    <div class="inner wide">
+      <p class="eyebrow">Table audit &middot; four minutes</p>
+      <h2>One real district use</h2>
+      <p class="lede">Choose one specific way a tool is already used in your district. Name one recorder.</p>
+      <div class="activity-steps" aria-label="Four steps for the table activity">
+        <div class="activity-step"><span class="step-number">01</span><h3>Choose the use</h3><p>Name the exact task and who uses the tool.</p></div>
+        <div class="activity-step"><span class="step-number">02</span><h3>Anchor the goal</h3><p>What must the learner or educator still practice or decide?</p></div>
+        <div class="activity-step"><span class="step-number">03</span><h3>Run the lens</h3><p>What gets easier? Which layer? What work disappears?</p></div>
+        <div class="activity-step"><span class="step-number">04</span><h3>Make the call</h3><p>Keep, change, constrain, or stop the use. Name a signal and an owner.</p></div>
+      </div>
+      <div class="quiet activity-output"><strong>Your table leaves with one sentence:</strong> In this use, ______ must still ______. ______ will watch ______ for signs the support has become substitution.</div>
     </div>
   </section>
 
