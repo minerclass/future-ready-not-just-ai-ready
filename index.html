@@ -5,6 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Future Ready, Not Just AI Ready</title>
 <meta name="description" content="Interactive keynote for Turning Vision into Classroom Practice, an Imagine Learning summit for district leaders, October 6, 2026. Screen time, friction, and AI: a district leader's lens for deciding what should stay hard.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Future Ready, Not Just AI Ready | Micah Miner">
+<meta property="og:description" content="What should stay hard? A district leader's lens for deciding what AI should make easier.">
+<meta property="og:url" content="https://minerclass.github.io/future-ready-not-just-ai-ready/">
+<meta property="og:image" content="https://minerclass.github.io/future-ready-not-just-ai-ready/assets/social-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Future Ready, Not Just AI Ready. What should stay hard? Keynote by Micah Miner.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://minerclass.github.io/future-ready-not-just-ai-ready/assets/social-card.png">
 <link rel="stylesheet" href="https://minerclass.github.io/tokens.css">
 <style>
   /* ------------------------------------------------------------------
@@ -178,6 +188,15 @@
   ol.numbered li span, ul.plain li span span { display:block; color:var(--ink-soft); font-size:clamp(0.8rem,1.6vmin,0.98rem); margin-top:0.1rem; }
   ul.plain li { display:flex; gap:0.75rem; align-items:baseline; }
   ul.plain .bullet { color:var(--clay); font-weight:700; flex:0 0 auto; font-family:var(--font-data); }
+  .resource-grid { display:grid; grid-template-columns:minmax(0,1fr) clamp(11rem,22vw,15rem); gap:clamp(1rem,4vw,3rem); align-items:center; }
+  .resource-scan { text-align:center; }
+  .resource-scan img { display:block; width:min(100%,13rem); height:auto; margin:0 auto; background:#FFFFFF; border:1px solid var(--rule); }
+  .resource-scan p { margin-top:0.6rem; font-size:clamp(0.8rem,1.7vmin,1rem); color:var(--ink-soft); }
+  @media (max-width:48rem){
+    .resource-grid { grid-template-columns:1fr; }
+    .resource-scan { display:flex; align-items:center; gap:1rem; text-align:left; }
+    .resource-scan img { width:7rem; margin:0; }
+  }
 
   .split { display:grid; grid-template-columns:1fr 1fr; gap:clamp(0.7rem,2.4vmin,1.9rem); align-items:start; }
   .split--fig { grid-template-columns:1.05fr 1fr; align-items:center; }
@@ -190,6 +209,10 @@
   figure svg { width:100%; height:auto; max-height:44vh; display:block; }
   figcaption { font-family:var(--font-data); font-size:clamp(0.58rem,1.2vmin,0.74rem); letter-spacing:0.06em; color:var(--ink-faint); line-height:1.45; }
   .fig-sm svg { max-height:25vh; }
+  .fig-mypath svg { max-height:36vh; }
+  .figure-caveat { font-family:var(--font-data); font-size:clamp(0.72rem,1.55vmin,0.9rem); font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--clay-deep); }
+  .scene.dark .figure-caveat { color:var(--clay-lit); }
+  .chart-clarifier { font-size:clamp(0.88rem,1.8vmin,1.08rem); color:var(--on-dark-soft); margin-bottom:0.45rem; }
 
   /* ================= INTERACTIVE ================= */
 
@@ -446,8 +469,8 @@
           <ul>
             <li>About students</li>
             <li>Measured in capability</li>
-            <li>Visible over years</li>
-            <li>Hard to point to at all</li>
+            <li>Visible in independent work</li>
+            <li>Harder to infer from output alone</li>
           </ul>
         </div>
       </div>
@@ -455,7 +478,7 @@
     </div>
   </section>
 
-  <!-- 6 --><section class="scene" data-sec="Framing" data-notes="Definition slide. Keep it short.">
+  <!-- 6 --><section class="scene" data-sec="Framing" data-notes="Definition slide. Keep it short. A decade is the horizon for graduate outcomes, not permission to wait a decade to inspect learning. Look for early signs in independent work now.">
     <div class="inner">
       <p class="eyebrow">The distinction</p>
       <div class="split">
@@ -530,7 +553,7 @@
           <span class="qwhy">Check for guidance about what AI should and should not do <em>for a student</em>, beyond acceptable-use language about safety and conduct. If that guidance is missing, you have found a governance task.</span></span>
         </button>
       </div>
-      <p class="lede">In most districts, those are two documents that have never been in the same room. <strong>That gap is where the governance work starts.</strong></p>
+      <p class="lede">Put those two documents in the same room. <strong>That is where the governance work starts.</strong></p>
     </div>
   </section>
 
@@ -697,17 +720,18 @@
       <div class="node-detail" id="nd-world">
         <span class="dl-label">World &middot; the work of becoming</span>
         <p>Who the student turns into by staying with something difficult until it is done.</p>
-        <p class="bypass">When a tool does this: a student who has never finished something hard does not know she can. That is not information. It is formation, and it only comes from the struggle.</p>
+        <p class="bypass">When a tool does this: a student who never gets to finish something difficult may miss the chance to learn they can. That is formation, and it grows through supported, purposeful challenge.</p>
       </div>
     </div>
   </section>
 
-  <!-- 15 --><section class="scene dark" data-sec="Friction" data-notes="INTERACTIVE. Show the rising line first and ask what it means. Most rooms read it as good news. THEN click to add the flat line. Trace the gap with your hand.">
+  <!-- 15 --><section class="scene dark" data-sec="Friction" data-notes="INTERACTIVE. This is a conceptual illustration, not measured student data. Show the rising line first and ask what it means. Most rooms read it as good news. THEN click to add the flat line. Trace the possible gap with your hand. Independent work is how leaders could test for it.">
     <div class="inner wide">
       <p class="eyebrow">The diagnostic</p>
       <h2>Unproductive success</h2>
+      <p class="chart-clarifier">Illustrative pattern, not measured student data.</p>
       <figure>
-        <svg viewBox="0 0 900 260" role="img" aria-label="Over a school year visible output quality rises steadily. Actual formation stays flat. The widening gap between them is unproductive success, and every dashboard indicator stays green throughout.">
+        <svg viewBox="0 0 900 260" role="img" aria-label="Conceptual illustration, not measured student data: visible output quality rises over a school year while independent work might reveal less learning. The widening gap is a risk to investigate, not an observed result.">
           <line x1="70" y1="210" x2="860" y2="210" stroke="#AFB6BC" stroke-width="1.5"/>
           <line x1="70" y1="24" x2="70" y2="210" stroke="#AFB6BC" stroke-width="1.5"/>
           <text x="78" y="230" font-size="13" fill="#AFB6BC">Sept</text>
@@ -720,14 +744,14 @@
           <g id="formationLayer" style="display:none">
             <polyline points="70,182 220,178 380,180 540,175 700,179 850,176" fill="none" stroke="#E8825F" stroke-width="4"/>
             <circle cx="850" cy="176" r="6" fill="#E8825F"/>
-            <text x="686" y="202" font-size="14" font-weight="700" fill="#E8825F">What actually formed</text>
+            <text x="850" y="202" text-anchor="end" font-size="14" font-weight="700" fill="#E8825F">What independent work might reveal</text>
             <line x1="850" y1="72" x2="850" y2="170" stroke="#EFEBE2" stroke-width="1.5" stroke-dasharray="5 4"/>
-            <text x="404" y="130" font-size="14" font-style="italic" fill="#EFEBE2">the gap nobody is measuring</text>
+            <text x="404" y="130" font-size="14" font-style="italic" fill="#EFEBE2">a gap worth investigating</text>
           </g>
         </svg>
         <figcaption>Conceptual illustration, not measured student data. Grades and completion can remain strong while evidence of learning stays incomplete.</figcaption>
       </figure>
-      <button class="reveal-btn" type="button" data-svg-reveal="formationLayer" aria-expanded="false">Now add what actually formed</button>
+      <button class="reveal-btn" type="button" data-svg-reveal="formationLayer" aria-expanded="false">Now add what independent work might reveal</button>
     </div>
   </section>
 
@@ -740,7 +764,7 @@
     </div>
   </section>
 
-  <!-- 17 --><section class="scene" data-sec="The lens" data-notes="INTERACTIVE. Click each question to open the why. Four is the one that changes procurement conversations. Leave four open when you move on.">
+  <!-- 17 --><section class="scene" data-sec="The lens" data-notes="INTERACTIVE. Click each question to open the why. Four is the one that changes procurement conversations. Leave four open when you move on. This lens diagnoses displaced learning; it does not clear a use for privacy, accuracy, bias, access, or academic integrity. Those are separate safeguards, including when a tool eases only the base.">
     <div class="inner">
       <p class="eyebrow">The lens</p>
       <h2>Four questions. Any tool, any vendor.</h2>
@@ -770,16 +794,16 @@
     </div>
   </section>
 
-  <!-- 18 --><section class="scene" data-sec="The lens" data-notes="INTERACTIVE. Do 3 or 4, not all seven. SAVE TEXT TO SPEECH FOR LAST. It is the one that shows the same feature can be either, depending on the objective. That is the whole lens in one example.">
+  <!-- 18 --><section class="scene" data-sec="The lens" data-notes="INTERACTIVE. Do 3 or 4, not all seven. SAVE TEXT TO SPEECH FOR LAST. It is the one that shows the same feature can be either, depending on the objective. Base-layer relief is not automatic approval: name the separate privacy, accuracy, access, bias, and integrity checks when the first two examples appear.">
     <div class="inner wide">
       <p class="eyebrow">Try the lens &middot; pick one</p>
       <h2>Which layer does it ease?</h2>
       <p class="hint">Click a tool</p>
       <div class="sorter">
         <div class="chips">
-          <button class="chip" type="button" aria-pressed="false" data-layers="base" data-verdict="good" data-text="Pure access. This was never the learning. Do it, and do not feel conflicted about it.">Translate a family notice</button>
-          <button class="chip" type="button" aria-pressed="false" data-layers="base" data-verdict="good" data-text="Adult logistics. Nothing student facing at all. This is the safest AI use in your district.">Auto-schedule IEP meetings</button>
-          <button class="chip" type="button" aria-pressed="false" data-layers="room" data-verdict="bypass" data-text="The articulation was the assignment. This is the bypass, and it is the most common one in your buildings right now.">Chatbot writes the first draft</button>
+          <button class="chip" type="button" aria-pressed="false" data-layers="base" data-verdict="good" data-text="Reduces an access barrier. For consequential notices, verify translation quality and use an approved workflow.">Translate a family notice</button>
+          <button class="chip" type="button" aria-pressed="false" data-layers="base" data-verdict="good" data-text="Reduces adult logistics. Sensitive meeting information and required notices still need approved handling and human verification.">Auto-schedule IEP meetings</button>
+          <button class="chip" type="button" aria-pressed="false" data-layers="room" data-verdict="bypass" data-text="If articulation was the assignment, this use bypasses it. Ask how often the student is still doing that work.">Chatbot writes the first draft</button>
           <button class="chip" type="button" aria-pressed="false" data-layers="head" data-verdict="bypass" data-text="If comprehension was the objective, the objective just left the building. If the reading was background for something else, this may be fine.">AI summarizes the reading</button>
           <button class="chip" type="button" aria-pressed="false" data-layers="head" data-verdict="depends" data-text="Load management, not load removal. Good, as long as somebody owns the exit ramp. Scaffolds that never come down become ceilings.">Adaptive practice set</button>
           <button class="chip" type="button" aria-pressed="false" data-layers="base" data-verdict="depends" data-text="Speeds feedback, which is real value. It also takes the teacher's read of the class. Decide on purpose who keeps that.">Auto-grade short answers</button>
@@ -796,7 +820,7 @@
           </div>
           <div class="sorter-verdict">
             <span class="sv-tag depends" id="svTag">Pick one</span>
-            <p class="sv-text" id="svText">Every one of these is in somebody's district already. The question is never whether to use it. The question is which layer it touches.</p>
+            <p class="sv-text" id="svText">First ask which layer the use touches. Then decide whether to keep, change, constrain, or stop it.</p>
           </div>
         </div>
       </div>
@@ -935,8 +959,9 @@
             <button class="vrow vrow--keep" type="button" aria-expanded="false"><span class="vlabel">What stays yours</span><span class="vvalue">Monitor trajectory toward grade level and use the available placement and assignment controls. The risk is not that no exit exists. It is that nobody notices when support becomes a ceiling.</span></button>
           </div>
         </div>
-        <figure class="fig-sm">
-          <svg viewBox="0 0 360 220" role="img" aria-label="An adaptive path holds a student inside the productive band all year, but the path drifts downward while grade-level demand rises, so the scaffold becomes a ceiling and a gap opens by May.">
+        <figure class="fig-sm fig-mypath">
+          <div class="figure-caveat">Hypothetical risk, not measured MyPath results</div>
+          <svg viewBox="0 0 360 220" role="img" aria-label="Hypothetical risk, not measured MyPath results: if an adaptive path stays below rising grade-level demand, a gap could open by May. A district would need to monitor student trajectory to know whether this is happening.">
             <rect x="52" y="8" width="300" height="42" fill="#DBD6C9"/>
             <text x="202" y="34" font-size="11" text-anchor="middle" fill="#525A61">too hard: shutdown</text>
             <rect x="52" y="54" width="300" height="70" fill="#F1E7CF"/>
@@ -951,7 +976,7 @@
             <text x="344" y="98" font-size="11" text-anchor="end" font-weight="700" fill="#191D21">the gap</text>
             <text x="52" y="186" font-size="10" fill="#525A61">Sept</text>
             <text x="350" y="186" font-size="10" text-anchor="end" fill="#525A61">May</text>
-            <text x="180" y="212" font-size="11.5" text-anchor="middle" font-style="italic" fill="#191D21">Both lines stay green all year.</text>
+            <text x="180" y="212" font-size="11.5" text-anchor="middle" font-style="italic" fill="#191D21">A dashboard might still look green.</text>
           </svg>
           <figcaption>Conceptual risk illustration, not measured MyPath outcomes. Monitor whether supports fade as learners approach grade-level work.</figcaption>
         </figure>
@@ -967,7 +992,7 @@
     </div>
   </section>
 
-  <!-- 26 --><section class="scene" data-sec="Close" data-notes="NINETY SECONDS, NOT MORE. This is not a district show and tell. Say the design is not a design award and move on, then walk the three rows. Click the reveal only after you have said you asked yourself question four. The admission is the point, not the Portrait.">
+  <!-- 26 --><section class="scene" data-sec="Close" data-notes="NINETY SECONDS, NOT MORE. This is not a showcase of our Portrait's design. Use it to show how a leader tests a local aspiration against AI guidance, then walk the three rows. Click the reveal only after you have said you asked yourself question four. The admission is the point, not the Portrait.">
     <div class="inner wide">
       <p class="eyebrow">Before I ask you to do this</p>
       <h2>Ours. Written before I got here.</h2>
@@ -1000,14 +1025,14 @@
 
   <!-- 27 --><section class="scene" data-sec="Close" data-notes="Ninety seconds of silent writing. Enforce the silence. Then two or three share out, kept short.">
     <div class="inner">
-      <p class="eyebrow">The Monday move &middot; ninety seconds, silent</p>
+      <p class="eyebrow">The next move &middot; ninety seconds, silent</p>
       <h2>One competency. One protection. One owner.</h2>
       <p class="lede">Take your Portrait of a Graduate. Pick a single competency. Ask what in your current AI guidance protects it, and write down who is responsible for watching it.</p>
       <div class="quiet">If you find a gap, name one protection and one owner. <strong>That is a useful result,</strong> and it gives you a concrete next step for this week.</div>
     </div>
   </section>
 
-  <!-- 28 --><section class="scene dark" data-sec="Close" data-notes="Return to the silence from question two. Land it and stop. Do not add anything after this line.">
+  <!-- 28 --><section class="scene dark" data-sec="Close" data-notes="Return to the silence from question two. Land the line and pause. Then advance silently to the resources slide for Q&amp;A; do not add another spoken conclusion.">
     <div class="inner">
       <p class="eyebrow">Where we started</p>
       <p class="huge">The districts that will be future ready are not the ones that adopted fastest.</p>
@@ -1019,6 +1044,7 @@
     <div class="inner">
       <p class="eyebrow">Take one thing with you</p>
       <h2>Resources</h2>
+      <div class="resource-grid">
       <ul class="plain">
         <li><span class="bullet">&rarr;</span><span><a href="https://minerclass.github.io/technoskepticism-primer/">Technoskepticism Primer</a><span>Five questions to ask of any technology, and where they came from.</span></span></li>
         <li><span class="bullet">&rarr;</span><span><a href="https://minerclass.github.io/screen-time-wrong-question/">Screen Time Is the Wrong Question</a><span>The longer version of the argument in the middle of this talk.</span></span></li>
@@ -1026,6 +1052,11 @@
         <li><span class="bullet">&rarr;</span><span><a href="https://minerclass.github.io/">All projects and research</a><span>minerclass.github.io</span></span></li>
         <li><span class="bullet">&rarr;</span><span><a href="https://minerclass.github.io/future-ready-not-just-ai-ready/">These slides, with every link above</a><span>minerclass.github.io/future-ready-not-just-ai-ready</span></span></li>
       </ul>
+        <div class="resource-scan">
+          <a href="https://minerclass.github.io/future-ready-not-just-ai-ready/"><img src="assets/deck-qr.svg" width="328" height="328" alt="QR code linking to this public deck and its resource links"></a>
+          <p>Scan for these slides and every link.</p>
+        </div>
+      </div>
       <hr class="rule">
       <p class="credit">Micah Miner &middot; micahminer.com &middot; Beach Park CCSD 3</p>
     </div>
@@ -1220,7 +1251,7 @@
       if (was) {
         svTag.className = 'sv-tag depends';
         svTag.textContent = 'Pick one';
-        svText.textContent = 'Every one of these is in somebody’s district already. The question is never whether to use it. The question is which layer it touches.';
+        svText.textContent = 'First ask which layer the use touches. Then decide whether to keep, change, constrain, or stop it.';
         return;
       }
       chip.setAttribute('aria-pressed', 'true');
@@ -1237,7 +1268,7 @@
 
       var v = chip.getAttribute('data-verdict');
       svTag.className = 'sv-tag ' + v;
-      svTag.textContent = v === 'good' ? 'Ease it' : (v === 'bypass' ? 'That was the learning' : 'It depends');
+      svTag.textContent = v === 'good' ? 'Base-layer gain' : (v === 'bypass' ? 'That was the learning' : 'It depends');
       svText.textContent = chip.getAttribute('data-text') || '';
     });
   });
