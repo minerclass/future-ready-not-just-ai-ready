@@ -3,8 +3,9 @@
 Interactive keynote deck. Screen time, pedagogical friction, and the decisions
 only district leaders can make.
 
-Prepared for the Imagine Learning **IL Future Ready Student Summit**, October 6,
-2026. Micah Miner, Director of Innovation and Technology, Beach Park CCSD 3.
+Prepared for **Turning Vision into Classroom Practice**, an Imagine Learning
+summit for district leaders at The Morton Arboretum, Tuesday, October 6, 2026.
+Micah Miner, Director of Innovation and Technology, Beach Park CCSD 3.
 
 ## What the session argues
 
@@ -14,7 +15,7 @@ student who did none. The more useful question is not how long the screen was on
 but what the screen made easy.
 
 Friction is the productive resistance learning requires, and it comes in layers.
-**The base** covers time, access, logistics, technology, policy, and institutional
+**The base** covers time, access, logistics, technology, policy, and infrastructural
 conditions. **Head, Room, and World** name learner-facing cognitive, dialogic, and
 developmental work. Technology may appropriately reduce barriers in any layer.
 The learning goal determines which work should remain with the learner.
