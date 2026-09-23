@@ -139,7 +139,8 @@ Slide 26 references the Beach Park CCSD 3 Portrait of a Learner, which was
 adopted before the speaker joined the district. It is used to model the ask made
 on slide 27, not as a district showcase.
 
-Slide 29 includes a self-hosted QR code pointing to this public deck. Its link
+Slide 29 includes a self-hosted QR code that opens this public deck directly on
+the resources slide (`#29`), so a phone does not land on slide 1. The deck link
 also appears as text for people who cannot scan it. Before presenting, test the
 code from the back of the actual room, and regenerate it if the deck URL changes.
 Social previews use a 1200x630 PNG built
@@ -170,7 +171,7 @@ These seven names are the section rail at the bottom of the deck.
 - `index.html` — the complete deck. No build step or JavaScript package
   dependency; the shared `tokens.css` URL is requested with local fallback
   values.
-- `assets/deck-qr.svg` — static QR code for the public deck URL.
+- `assets/deck-qr.svg` — static QR code for the resources slide (`…/future-ready-not-just-ai-ready/#29`).
 - `assets/social-card.html` and `assets/social-card.png` — source layout and
   preview image for LinkedIn, X, and Bluesky shares.
 - `.nojekyll` — tells GitHub Pages to serve the files directly.
@@ -199,6 +200,24 @@ translation, and **the Great Bypass** are Miner's proposed conceptual
 contributions from doctoral work at National Louis University. They extend media
 ecology and learning-science traditions; they are not established empirical
 findings.
+
+## Sources
+
+- Kapur, M. (2016). Examining productive failure, productive success,
+  unproductive failure, and unproductive success in learning. *Educational
+  Psychologist, 51*(2), 289–299. https://doi.org/10.1080/00461520.2016.1155457
+
+The four worked examples describe product features as the vendor documents
+them. These pages support what each feature does, not claims that it improves
+learning:
+
+- Traverse: [inquiry-driven brochure](https://www.imaginelearning.com/wp-content/uploads/2024/10/1326711867-Traverse-Inquiry-Driven-Brochure_sml.pdf)
+- Imagine IM: [Knowledge Checks and AI Tutor](https://www.imaginelearning.com/program-updates/find-misconceptions-earlier-with-knowledge-checks-and-ai-tutor-for-imagine-im/)
+- Imagine EdgeEX: [AI Grading Assistant for writing](https://www.imaginelearning.com/press/imagine-learning-saves-teachers-time-with-first-ai-feature-in-imagine-edgeex/)
+- Imagine MyPath: [overview of learning paths and educator placement](https://help.imaginelearning.com/hc/en-us/articles/33406747226135-Imagine-MyPath-Overview)
+
+Checked against these pages on September 22, 2026. Product features change;
+re-check before reusing the examples.
 
 ## Privacy and maintenance
 
