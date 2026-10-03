@@ -73,8 +73,8 @@ Open `index.html` in a modern browser, or visit the published site:
 
 `https://minerclass.github.io/future-ready-not-just-ai-ready/`
 
-Landscape on a laptop or projector is recommended. The key revised slides were
-checked at 1280x720 and 1024x768; run the full click path and a projector check
+Landscape on a laptop or projector is recommended. All 29 slides were
+checked at 1280x720 and 1024x768 on October 3, 2026, with example rows open; run the full click path and a projector check
 before presenting.
 
 Type scales on `vmin`, so the deck fills a large display rather than sitting in
@@ -91,9 +91,13 @@ carry the same distinction:
 - **Room** &mdash; saying it so others understand
 - **World** &mdash; becoming someone who can do hard things
 
-Everything they rest on is simply **the base**: time, access, technology, policy,
-the building. Technology can often ease barriers there, subject to the same
+Everything they rest on is simply **the base**, labeled "the base: the conditions"
+on the diagram so it is not misread: time, access, technology, policy, the building. Technology can often ease barriers there, subject to the same
 privacy, accuracy, equity, and human-review checks as any other use.
+
+The deck also avoids two insider terms on its slides. It says "replacing the work
+that matters" rather than "substitution," which edtech leaders may hear as the SAMR
+level, and it describes what a tool skips rather than calling it a "bypass."
 
 ## Interactive elements
 
@@ -108,11 +112,12 @@ The deck is built to be clicked during the session, not read past.
 | 10 | Dashboard reveal | Ask the room what their data says about the two students, then reveal that it cannot tell them apart |
 | 14 | Head / Room / World nodes | Click each layer to open what it is and what it looks like when a tool absorbs it |
 | 15 | Conceptual gap reveal | Show the rising line first, then add the possible gap that independent work could test |
-| 17 | The four questions | Click any question to open why it matters |
+| 17 | The four questions | Click any question to open why it matters, with one concrete example in each |
 | 18 | Tool sorter | Click a familiar use and see which layer it touches. Base-layer relief is not automatic approval; text to speech shows how the learning goal changes the call |
-| 19 | Four-minute table audit | Choose one specific district use, anchor it to the goal, run the lens, and leave with a safeguard, signal, and owner |
+| 19 | Four-minute table audit | Choose one specific district use, anchor it to the goal, run the lens, and leave with a safeguard, signal, and owner. Four finished example sentences (middle school reading, math intervention, high school writing feedback, central office) open one at a time |
 | 21 to 24 | Vendor rows | Open design choice, balance, and what stays yours one at a time to control pacing |
 | 26 | The speaker's own Portrait | Three mapped lines, then reveal the gap he could not answer in his own district |
+| 27 | One competency, one protection, one owner | Three illustrative examples (Resilience, Critical thinking, Communication), labeled as illustrations rather than district policy |
 
 ## Presenter controls
 
@@ -214,9 +219,13 @@ learning:
 - Traverse: [inquiry-driven brochure](https://www.imaginelearning.com/wp-content/uploads/2024/10/1326711867-Traverse-Inquiry-Driven-Brochure_sml.pdf)
 - Imagine IM: [Knowledge Checks and AI Tutor](https://www.imaginelearning.com/program-updates/find-misconceptions-earlier-with-knowledge-checks-and-ai-tutor-for-imagine-im/)
 - Imagine EdgeEX: [AI Grading Assistant for writing](https://www.imaginelearning.com/press/imagine-learning-saves-teachers-time-with-first-ai-feature-in-imagine-edgeex/)
+  and the [Grading Assistant case study](https://www.imaginelearning.com/wp-content/uploads/2025/09/1745422961-EEX-Grading-Assistant-AI-Tool-Case-Study-2509.pdf)
+  (2024–25: average 23 hours from submission to teacher response with the assistant,
+  32 without; 58 percent of short-writing feedback AI-assisted by spring 2025)
 - Imagine MyPath: [overview of learning paths and educator placement](https://help.imaginelearning.com/hc/en-us/articles/33406747226135-Imagine-MyPath-Overview)
 
-Checked against these pages on September 22, 2026. Product features change;
+Checked against these pages on September 22, 2026; the EdgeEX figures were
+rechecked on October 3, 2026. Product features change;
 re-check before reusing the examples.
 
 ## Privacy and maintenance

@@ -105,7 +105,7 @@
   .huge { font-family:var(--font-human); font-size:clamp(1.8rem,6.2vmin,5.4rem); line-height:1.1; letter-spacing:-0.022em; margin:0; text-wrap:balance; max-width:21ch; }
   .huge em { font-style:italic; color:var(--clay); }
   .scene.dark .huge em { color:var(--clay-lit); }
-  .credit { font-family:var(--font-data); font-size:clamp(0.66rem,1.4vmin,0.88rem); letter-spacing:0.05em; color:var(--ink-faint); margin:0; }
+  .credit { font-family:var(--font-data); font-size:clamp(0.76rem,1.65vmin,1rem); letter-spacing:0.05em; color:var(--ink-faint); margin:0; }
   strong { font-weight:650; }
   a { color:var(--signal); text-underline-offset:3px; }
   .rule { height:4px; width:4.5rem; background:var(--clay); border:none; margin:0; }
@@ -146,7 +146,7 @@
   .cap[aria-pressed="true"] .cap-name { color:#FFFFFF; }
   .cap[aria-pressed="true"] .cap-sub { color:var(--clay-wash); }
   .cap-name { font-family:var(--font-display); font-weight:700; letter-spacing:-0.015em; font-size:clamp(1rem,2.8vmin,1.85rem); line-height:1.12; }
-  .cap-sub { font-family:var(--font-data); font-size:clamp(0.56rem,1.15vmin,0.82rem); letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-faint); }
+  .cap-sub { font-family:var(--font-data); font-size:clamp(0.68rem,1.45vmin,0.9rem); letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-faint); }
 
   .cap-detail {
     display:none; background:var(--stone-lift); border-left:5px solid var(--clay);
@@ -154,7 +154,7 @@
     flex-direction:column; gap:0.4rem;
   }
   .cap-detail.is-shown { display:flex; }
-  .cap-detail .cd-label { font-family:var(--font-data); font-size:clamp(0.56rem,1.15vmin,0.8rem); letter-spacing:0.13em; text-transform:uppercase; color:var(--clay); }
+  .cap-detail .cd-label { font-family:var(--font-data); font-size:clamp(0.68rem,1.45vmin,0.88rem); letter-spacing:0.13em; text-transform:uppercase; color:var(--clay); }
   .cap-detail p { font-size:clamp(0.95rem,2.4vmin,1.6rem); line-height:1.3; }
 
   /* --- two-column contrast panel --- */
@@ -177,7 +177,7 @@
   .scene.dark .card--protect { border-left-color:var(--clay-lit); }
   .scene.dark .card--cool { border-left-color:var(--signal-lit); }
 
-  .tagline { font-family:var(--font-data); font-size:clamp(0.58rem,1.2vmin,0.76rem); letter-spacing:0.14em; text-transform:uppercase; padding:0.22rem 0.55rem; border-radius:2px; align-self:flex-start; }
+  .tagline { font-family:var(--font-data); font-size:clamp(0.68rem,1.45vmin,0.88rem); letter-spacing:0.14em; text-transform:uppercase; padding:0.22rem 0.55rem; border-radius:2px; align-self:flex-start; }
   .tagline--protect { background:var(--clay-wash); color:var(--clay); }
   .tagline--reduce { background:var(--ochre-wash); color:var(--ochre); }
   .tagline--cool { background:var(--signal-wash); color:var(--signal); }
@@ -207,7 +207,7 @@
 
   figure { margin:0; display:flex; flex-direction:column; gap:0.45rem; }
   figure svg { width:100%; height:auto; max-height:44vh; display:block; }
-  figcaption { font-family:var(--font-data); font-size:clamp(0.68rem,1.45vmin,0.86rem); letter-spacing:0.06em; color:var(--ink-faint); line-height:1.45; }
+  figcaption { font-family:var(--font-data); font-size:clamp(0.78rem,1.75vmin,1rem); letter-spacing:0.06em; color:var(--ink-faint); line-height:1.45; }
   .fig-sm svg { max-height:31vh; }
   .fig-mypath svg { max-height:36vh; }
   .figure-caveat { font-family:var(--font-data); font-size:clamp(0.72rem,1.55vmin,0.9rem); font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--clay-deep); }
@@ -217,7 +217,7 @@
   /* ================= INTERACTIVE ================= */
 
   .hint {
-    font-family:var(--font-data); font-size:clamp(0.58rem,1.2vmin,0.74rem);
+    font-family:var(--font-data); font-size:clamp(0.7rem,1.5vmin,0.9rem);
     letter-spacing:0.1em; text-transform:uppercase; color:var(--signal);
     display:flex; align-items:center; gap:0.4rem;
   }
@@ -242,7 +242,7 @@
   .node[aria-pressed="true"] .node-term,
   .node[aria-pressed="true"] .node-line { color:#FFFFFF; }
   .node-name { font-family:var(--font-display); font-size:clamp(1.15rem,2.9vmin,1.8rem); font-weight:700; letter-spacing:-0.02em; color:var(--clay-deep); }
-  .node-term { font-family:var(--font-data); font-size:clamp(0.56rem,1.15vmin,0.7rem); letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-faint); }
+  .node-term { font-family:var(--font-data); font-size:clamp(0.68rem,1.45vmin,0.85rem); letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-faint); }
   .node-line { font-size:clamp(0.83rem,1.65vmin,1rem); color:var(--ink-soft); }
 
   .node-detail {
@@ -251,13 +251,13 @@
     border-radius:3px; padding:clamp(0.75rem,2vmin,1.25rem);
   }
   .node-detail.is-shown { display:flex; }
-  .node-detail .dl-label { font-family:var(--font-data); font-size:clamp(0.56rem,1.15vmin,0.7rem); letter-spacing:0.13em; text-transform:uppercase; color:var(--clay); }
+  .node-detail .dl-label { font-family:var(--font-data); font-size:clamp(0.68rem,1.45vmin,0.85rem); letter-spacing:0.13em; text-transform:uppercase; color:var(--clay); }
   .node-detail p { font-size:clamp(0.88rem,1.8vmin,1.1rem); }
   .node-detail .bypass { color:var(--clay-deep); font-weight:650; }
 
   /* --- generic reveal --- */
   .reveal-btn {
-    align-self:flex-start; font-family:var(--font-data); font-size:clamp(0.6rem,1.25vmin,0.78rem);
+    align-self:flex-start; font-family:var(--font-data); font-size:clamp(0.72rem,1.55vmin,0.95rem);
     letter-spacing:0.12em; text-transform:uppercase;
     background:var(--signal); color:#FFFFFF; border:2px solid var(--signal);
     border-radius:3px; padding:0.42rem 0.85rem; cursor:pointer;
@@ -277,7 +277,7 @@
      both rules are single-class, so source order decides. */
   .revealable { display:none; }
   .revealable.is-shown { display:flex; }
-  .verdict-strip .vs-small { font-family:var(--font-data); font-size:clamp(0.58rem,1.2vmin,0.74rem); letter-spacing:0.12em; text-transform:uppercase; opacity:0.9; }
+  .verdict-strip .vs-small { font-family:var(--font-data); font-size:clamp(0.68rem,1.45vmin,0.86rem); letter-spacing:0.12em; text-transform:uppercase; opacity:0.9; }
 
   /* --- expandable question list --- */
   .qlist { display:flex; flex-direction:column; gap:0.42rem; }
@@ -303,7 +303,7 @@
     font-family:var(--font-body); text-transform:none; letter-spacing:0;
     background:var(--stone-lift); border:1px solid var(--rule); border-radius:999px;
     padding:0.4rem 0.85rem; cursor:pointer; color:var(--ink);
-    font-size:clamp(0.8rem,1.6vmin,0.98rem);
+    font-size:clamp(0.86rem,1.8vmin,1.08rem);
   }
   .chip:hover { border-color:var(--signal); color:var(--signal); }
   .chip[aria-pressed="true"] { background:var(--ink); border-color:var(--ink); color:var(--stone); }
@@ -316,7 +316,7 @@
   .mini-cell, .mini-base {
     border:2px solid var(--rule); border-radius:3px; background:var(--stone-lift);
     padding:clamp(0.4rem,1.2vmin,0.7rem) 0.4rem; text-align:center;
-    font-size:clamp(0.72rem,1.5vmin,0.92rem); font-weight:650; color:var(--ink-faint);
+    font-size:clamp(0.8rem,1.7vmin,1rem); font-weight:650; color:var(--ink-faint);
   }
   .mini-cell.on { background:var(--clay); border-color:var(--clay-deep); color:#FFFFFF; }
   .mini-base.on { background:var(--ochre); border-color:var(--ochre-deep); color:#FFFFFF; }
@@ -324,7 +324,7 @@
   .mini-base { text-align:center; }
 
   .sorter-verdict { display:flex; flex-direction:column; gap:0.45rem; min-height:6.5rem; }
-  .sv-tag { font-family:var(--font-data); font-size:clamp(0.58rem,1.2vmin,0.74rem); letter-spacing:0.13em; text-transform:uppercase; align-self:flex-start; padding:0.2rem 0.5rem; border-radius:2px; }
+  .sv-tag { font-family:var(--font-data); font-size:clamp(0.68rem,1.45vmin,0.86rem); letter-spacing:0.13em; text-transform:uppercase; align-self:flex-start; padding:0.2rem 0.5rem; border-radius:2px; }
   .sv-tag.good { background:var(--ochre-wash); color:var(--ochre); }
   .sv-tag.bypass { background:var(--clay-wash); color:var(--clay); }
   .sv-tag.depends { background:var(--signal-wash); color:var(--signal); }
@@ -357,12 +357,16 @@
     cursor:pointer; color:var(--ink); display:flex; flex-direction:column; gap:0.3rem;
   }
   .vrow:hover { background:var(--stone-sink); }
-  .vrow .vlabel { font-family:var(--font-data); font-size:clamp(0.56rem,1.15vmin,0.72rem); letter-spacing:0.13em; text-transform:uppercase; color:var(--ink-faint); display:flex; align-items:center; gap:0.5rem; }
+  .vrow .vlabel { font-family:var(--font-data); font-size:clamp(0.7rem,1.5vmin,0.9rem); letter-spacing:0.13em; text-transform:uppercase; color:var(--ink-faint); display:flex; align-items:center; gap:0.5rem; }
   .vrow .vlabel::after { content:"+"; font-size:1.1em; color:var(--signal); }
   .vrow[aria-expanded="true"] .vlabel::after { content:"−"; }
   .vrow .vvalue { display:none; font-size:clamp(0.88rem,1.85vmin,1.12rem); }
   .vrow[aria-expanded="true"] .vvalue { display:block; }
   .vrow--keep { border-left:5px solid var(--clay); }
+  .vrow--ex { border-left:5px solid var(--signal); padding-top:clamp(0.4rem,1.1vmin,0.7rem); padding-bottom:clamp(0.4rem,1.1vmin,0.7rem); }
+  .vrow--ex .vlabel { color:var(--signal); }
+  .examples { display:flex; flex-direction:column; gap:0.35rem; }
+  .examples .ex-head { font-family:var(--font-data); font-size:clamp(0.68rem,1.45vmin,0.86rem); letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-faint); }
   .vrow--keep .vlabel { color:var(--clay); }
 
   /* ---------- chrome ---------- */
@@ -418,7 +422,7 @@
 
 <main class="deck" id="deck">
 
-  <!-- 1 --><section class="scene dark" data-sec="Opening" data-notes="Open here while people settle. Do not talk over the room. Wait for quiet.">
+  <!-- 1 --><section class="scene dark" data-sec="Opening" data-notes="Open here while people settle. Do not talk over the room. Wait for quiet. In the intro, correct the program bio: assistant principal, not principal.">
     <div class="inner">
       <p class="eyebrow">Turning Vision into Classroom Practice &middot; October 6, 2026</p>
       <h1>Future Ready,<br>Not Just AI Ready</h1>
@@ -557,7 +561,7 @@
     </div>
   </section>
 
-  <!-- 9 --><section class="scene" data-sec="Screen time" data-notes="Walk the left column fast, it is familiar. Slow down on the right. Ask the room to add to the right column before you move on. Somebody always says 'whether they were thinking.'">
+  <!-- 9 --><section class="scene" data-sec="Screen time" data-notes="Walk the left column fast, it is familiar. Slow down on the right. Ask the room to add to the right column before you move on. Somebody always says 'whether they were thinking.' IF TIME IS SHORT: skip this slide and make its point in one sentence on slide 10.">
     <div class="inner wide">
       <p class="eyebrow">First, a measurement problem</p>
       <h2>Screen time is the wrong question.</h2>
@@ -585,7 +589,7 @@
     </div>
   </section>
 
-  <!-- 10 --><section class="scene" data-sec="Screen time" data-notes="THE HINGE. Walk both bars slowly BEFORE clicking reveal. Ask the room what the dashboard says. Then click. Let the word Identical sit.">
+  <!-- 10 --><section class="scene" data-sec="Screen time" data-notes="THE HINGE. Walk both bars slowly BEFORE clicking reveal. Ask the room what the dashboard says. Then click. Let the word Identical sit. EXPECT PUSHBACK: someone may say Docs version history or process logs can tell them apart. Agree that some tools capture process, then add: most district dashboards do not surface it, and a process log still is not the thinking. Somebody has to look.">
     <div class="inner wide">
       <p class="eyebrow">Why the metric fails</p>
       <h2>Two students. Forty-five minutes each.</h2>
@@ -635,33 +639,33 @@
       <div class="split split--fig">
         <figure>
           <svg viewBox="0 0 520 320" role="img" aria-label="Learning friction has three parts, Head, Room and World, which sit side by side as equal layers. All three rest on a single wide base layer of time, access, technology and policy.">
-            <text x="260" y="18" font-size="12" letter-spacing="2" text-anchor="middle" font-weight="700" fill="#A63D26">JUDGE BY THE LEARNING GOAL</text>
+            <text x="260" y="18" font-size="13" letter-spacing="2" text-anchor="middle" font-weight="700" fill="#A63D26">JUDGE BY THE LEARNING GOAL</text>
             <rect x="8" y="32" width="160" height="92" rx="3" fill="#F2DFD7" stroke="#A63D26" stroke-width="2"/>
             <rect x="180" y="32" width="160" height="92" rx="3" fill="#F2DFD7" stroke="#A63D26" stroke-width="2"/>
             <rect x="352" y="32" width="160" height="92" rx="3" fill="#F2DFD7" stroke="#A63D26" stroke-width="2"/>
             <text x="88" y="66" font-size="19" font-weight="700" text-anchor="middle" fill="#7A2C1B">Head</text>
-            <text x="88" y="90" font-size="12" text-anchor="middle" fill="#7A2C1B">working it out</text>
-            <text x="88" y="108" font-size="12" text-anchor="middle" fill="#7A2C1B">for yourself</text>
+            <text x="88" y="90" font-size="13.5" text-anchor="middle" fill="#7A2C1B">working it out</text>
+            <text x="88" y="109" font-size="13.5" text-anchor="middle" fill="#7A2C1B">for yourself</text>
             <text x="260" y="66" font-size="19" font-weight="700" text-anchor="middle" fill="#7A2C1B">Room</text>
-            <text x="260" y="90" font-size="12" text-anchor="middle" fill="#7A2C1B">saying it so</text>
-            <text x="260" y="108" font-size="12" text-anchor="middle" fill="#7A2C1B">others understand</text>
+            <text x="260" y="90" font-size="13.5" text-anchor="middle" fill="#7A2C1B">saying it so</text>
+            <text x="260" y="109" font-size="13.5" text-anchor="middle" fill="#7A2C1B">others understand</text>
             <text x="432" y="66" font-size="19" font-weight="700" text-anchor="middle" fill="#7A2C1B">World</text>
-            <text x="432" y="90" font-size="12" text-anchor="middle" fill="#7A2C1B">becoming someone</text>
-            <text x="432" y="108" font-size="12" text-anchor="middle" fill="#7A2C1B">who can do hard things</text>
+            <text x="432" y="90" font-size="13.5" text-anchor="middle" fill="#7A2C1B">becoming someone</text>
+            <text x="432" y="109" font-size="13.5" text-anchor="middle" fill="#7A2C1B">who can do hard things</text>
 
             <line x1="88" y1="124" x2="88" y2="168" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
             <line x1="260" y1="124" x2="260" y2="134" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
             <line x1="260" y1="152" x2="260" y2="168" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
             <line x1="432" y1="124" x2="432" y2="168" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
-            <text x="260" y="146" font-size="11.5" text-anchor="middle" fill="currentColor">all three rest on</text>
+            <text x="260" y="147" font-size="13" text-anchor="middle" fill="currentColor">all three rest on</text>
 
             <rect x="8" y="170" width="504" height="82" rx="3" fill="#F1E7CF" stroke="#78540F" stroke-width="2"/>
-            <text x="260" y="200" font-size="17" font-weight="700" text-anchor="middle" fill="#5E410B">The base</text>
-            <text x="260" y="223" font-size="12" text-anchor="middle" fill="#5E410B">time &middot; access &middot; technology &middot; policy &middot; the building</text>
-            <text x="260" y="242" font-size="12" text-anchor="middle" font-style="italic" fill="#5E410B">what makes the other three possible at all</text>
+            <text x="260" y="200" font-size="18" font-weight="700" text-anchor="middle" fill="#5E410B">The base: the conditions</text>
+            <text x="260" y="223" font-size="14" text-anchor="middle" fill="#5E410B">time &middot; access &middot; technology &middot; policy &middot; the building</text>
+            <text x="260" y="243" font-size="13.5" text-anchor="middle" font-style="italic" fill="#5E410B">what makes the other three possible at all</text>
 
-            <text x="260" y="282" font-size="12" letter-spacing="2" text-anchor="middle" font-weight="700" fill="#78540F">CHECK SUPPORTS AND CONDITIONS</text>
-            <text x="260" y="306" font-size="12" text-anchor="middle" fill="currentColor">Any layer can contain a barrier or learning work worth preserving.</text>
+            <text x="260" y="282" font-size="13" letter-spacing="2" text-anchor="middle" font-weight="700" fill="#78540F">CHECK SUPPORTS AND CONDITIONS</text>
+            <text x="260" y="307" font-size="13.5" text-anchor="middle" fill="currentColor">Any layer can contain a barrier or learning work worth preserving.</text>
           </svg>
           <figcaption>Head, Room, and World are separable on paper and tangled in practice. The learning goal determines what to reduce and what to preserve.</figcaption>
         </figure>
@@ -673,10 +677,10 @@
     </div>
   </section>
 
-  <!-- 13 --><section class="scene" data-sec="Friction" data-notes="Be generous here. Leaders who apply blanket AI caution end up restricting the safest use while permitting the riskiest. Say that out loud.">
+  <!-- 13 --><section class="scene" data-sec="Friction" data-notes="Be generous here. Leaders who apply blanket AI caution end up restricting the safest use while permitting the riskiest. Say that out loud. IF TIME IS SHORT: say this slide's point while still on slide 12 and skip it.">
     <div class="inner">
       <span class="tagline tagline--reduce">Reduce this layer</span>
-      <h2>The base</h2>
+      <h2>The base: the conditions</h2>
       <p class="lede">The conditions that make learning possible at all. Time, access, technology, policy, the building itself.</p>
       <div class="quiet">
         A student who cannot reach an archive. A family who cannot read the notice. A teacher who loses an evening to scheduling. These are barriers to learning, not the learning itself. <strong>Removing them expands who gets to do the work.</strong>
@@ -773,28 +777,28 @@
         <button class="qrow" type="button" aria-expanded="false">
           <span class="qn">01</span>
           <span class="qbody"><span class="qq">What does this make easier?</span>
-          <span class="qwhy">Be specific. "Saves teachers time" is not an answer. Saves them what, at which step?</span></span>
+          <span class="qwhy">Be specific. "Saves teachers time" is not an answer. Saves them what, at which step? Example: it drafts the parent newsletter, so the teacher spends that hour reading student arguments.</span></span>
         </button>
         <button class="qrow" type="button" aria-expanded="false">
           <span class="qn">02</span>
           <span class="qbody"><span class="qq">Which layer is it easing?</span>
-          <span class="qwhy">The base, or Head, Room, or World? If you cannot say, you cannot govern it.</span></span>
+          <span class="qwhy">The base, or Head, Room, or World? If you cannot say, you cannot govern it. Example: translating a notice eases the base. Drafting a student's essay reaches into Room.</span></span>
         </button>
         <button class="qrow" type="button" aria-expanded="false">
           <span class="qn">03</span>
           <span class="qbody"><span class="qq">What is the student no longer doing, and was that the standard?</span>
-          <span class="qwhy">If the removed step was the objective, the tool did not help with the objective. It replaced it.</span></span>
+          <span class="qwhy">If the removed step was the objective, the tool did not help with the objective. It replaced it. Example: if the standard is summarizing a text and the tool writes the summary, the standard left the room.</span></span>
         </button>
         <button class="qrow" type="button" aria-expanded="false">
           <span class="qn">04</span>
           <span class="qbody"><span class="qq">What signal would tell us it went wrong, and who is watching it?</span>
-          <span class="qwhy">If no one has named the evidence that would reveal a learning gap, ordinary completion data may not expose it. Decide what to inspect and who will inspect it.</span></span>
+          <span class="qwhy">If no one has named the evidence that would reveal a learning gap, ordinary completion data may not expose it. Decide what to inspect and who will inspect it. Example: the instructional coach reads a monthly sample of unassisted exit tickets.</span></span>
         </button>
       </div>
     </div>
   </section>
 
-  <!-- 18 --><section class="scene" data-sec="The lens" data-notes="INTERACTIVE. Do 3 or 4, not all seven. SAVE TEXT TO SPEECH FOR LAST. It is the one that shows the same feature can be either, depending on the objective. Base-layer relief is not automatic approval: name the separate privacy, accuracy, access, bias, and integrity checks when the first two examples appear.">
+  <!-- 18 --><section class="scene" data-sec="The lens" data-notes="INTERACTIVE. Do 3 or 4, not all seven (2 if time is short). SAVE TEXT TO SPEECH FOR LAST. It is the one that shows the same feature can be either, depending on the objective. Base-layer relief is not automatic approval: name the separate privacy, accuracy, access, bias, and integrity checks when the first two examples appear.">
     <div class="inner wide">
       <p class="eyebrow">Try the lens &middot; pick one</p>
       <h2>Which layer does it ease?</h2>
@@ -803,11 +807,11 @@
         <div class="chips">
           <button class="chip" type="button" aria-pressed="false" data-layers="base" data-verdict="good" data-text="Reduces an access barrier. For consequential notices, verify translation quality and use an approved workflow.">Translate a family notice</button>
           <button class="chip" type="button" aria-pressed="false" data-layers="base" data-verdict="good" data-text="Reduces adult logistics. Sensitive meeting information and required notices still need approved handling and human verification.">Auto-schedule IEP meetings</button>
-          <button class="chip" type="button" aria-pressed="false" data-layers="room" data-verdict="bypass" data-text="If articulation was the assignment, this use bypasses it. Ask how often the student is still doing that work.">Chatbot writes the first draft</button>
+          <button class="chip" type="button" aria-pressed="false" data-layers="room" data-verdict="bypass" data-text="If articulation was the assignment, this use does that work for the student. Ask how often the student is still doing it.">Chatbot writes the first draft</button>
           <button class="chip" type="button" aria-pressed="false" data-layers="head" data-verdict="bypass" data-text="If comprehension was the objective, the objective just left the building. If the reading was background for something else, this may be fine.">AI summarizes the reading</button>
           <button class="chip" type="button" aria-pressed="false" data-layers="head" data-verdict="depends" data-text="Load management, not load removal. Good, as long as somebody owns the exit ramp. Scaffolds that never come down become ceilings.">Adaptive practice set</button>
           <button class="chip" type="button" aria-pressed="false" data-layers="base" data-verdict="depends" data-text="Speeds feedback, which is real value. It also takes the teacher's read of the class. Decide on purpose who keeps that.">Auto-grade short answers</button>
-          <button class="chip" type="button" aria-pressed="false" data-layers="maybe" data-verdict="depends" data-text="Same feature, opposite call. If decoding is the objective, this is a bypass. If the objective is historical reasoning and decoding is the barrier, this is pure access. The tool cannot tell. You can.">Text to speech for a struggling reader</button>
+          <button class="chip" type="button" aria-pressed="false" data-layers="maybe" data-verdict="depends" data-text="Same feature, opposite call. If decoding is the objective, this skips the learning. If the objective is historical reasoning and decoding is the barrier, this is pure access. The tool cannot tell. You can.">Text to speech for a struggling reader</button>
         </div>
         <div class="sorter-stage">
           <div class="mini" id="miniStrata" role="img" aria-label="A small version of the friction layers. Head, Room and World sit above a wide base layer. The layer affected by the selected tool is highlighted.">
@@ -827,7 +831,7 @@
     </div>
   </section>
 
-  <!-- 19 --><section class="scene" data-sec="The lens" data-notes="Four minutes at tables. Ask each table to name a recorder. Start the timer after everyone has chosen one specific use, not an entire product. Walk the room and listen for a learning goal, a signal, and an owner. Do not use an Imagine Learning product here. After four minutes, invite two tables to share their final sentence in 30 seconds each.">
+  <!-- 19 --><section class="scene" data-sec="The lens" data-notes="Four minutes at tables. Ask each table to name a recorder. Start the timer after everyone has chosen one specific use, not an entire product. Before you start the timer, open the first example so tables see a finished sentence. Open the others only for a table that is stuck. Walk the room and listen for a learning goal, a signal, and an owner. Do not use an Imagine Learning product here. After four minutes, invite two tables to share their final sentence in 30 seconds each.">
     <div class="inner wide">
       <p class="eyebrow">Table audit &middot; four minutes</p>
       <h2>One real district use</h2>
@@ -838,17 +842,26 @@
         <div class="activity-step"><span class="step-number">03</span><h3>Run the lens</h3><p>What gets easier? Which layer? What work disappears?</p></div>
         <div class="activity-step"><span class="step-number">04</span><h3>Make the call</h3><p>Keep, change, constrain, or stop the use. Name a signal and an owner.</p></div>
       </div>
-      <div class="quiet activity-output"><strong>Your table leaves with one sentence:</strong> In this use, ______ must still ______. ______ will watch ______ for signs the support has become substitution.</div>
+      <div class="quiet activity-output"><strong>Your table leaves with one sentence:</strong> In this use, ______ must still ______. ______ will watch ______ for signs the support is replacing the work that matters.</div>
+      <div class="examples">
+        <span class="ex-head">Finished examples &middot; open one</span>
+        <div class="vrows">
+          <button class="vrow vrow--ex" type="button" aria-expanded="false"><span class="vlabel">Example &middot; middle school reading</span><span class="vvalue">In AI-summarized readings, 7th graders must still state the author's central claim in their own words. The ELA coach will watch a monthly sample of unassisted exit tickets for signs the support is replacing the work that matters.</span></button>
+          <button class="vrow vrow--ex" type="button" aria-expanded="false"><span class="vlabel">Example &middot; math intervention</span><span class="vvalue">In adaptive math practice, students below grade level must still attempt grade-level tasks every unit. The math interventionist will watch movement toward grade level, not path completion, for signs the support has become a ceiling.</span></button>
+          <button class="vrow vrow--ex" type="button" aria-expanded="false"><span class="vlabel">Example &middot; high school writing feedback</span><span class="vvalue">In AI-suggested feedback on essays, teachers must still read each essay before feedback goes out. The department chair will watch a sample of feedback each grading period for signs the teacher's own read of the class is fading.</span></button>
+          <button class="vrow vrow--ex" type="button" aria-expanded="false"><span class="vlabel">Example &middot; central office</span><span class="vvalue">In AI-translated family notices, staff must still verify any notice about discipline, special education, or safety before it is sent. The communications lead will watch family questions and corrections for signs the translation is failing families.</span></button>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- 20 --><section class="scene dark" data-sec="Examples" data-notes="Say this plainly, do not rush. Disclosure before the examples is what makes the examples credible. Look at Marla and Liz on the first line.">
+  <!-- 20 --><section class="scene dark" data-sec="Examples" data-notes="Say this plainly, do not rush. Disclosure before the examples is what makes the examples credible. Look at Marla and Liz on the first line. If someone asks who decides renewal, answer plainly with how that decision works in your district.">
     <div class="inner">
       <p class="eyebrow">Before the examples, some disclosure</p>
       <h2>Why I am using our hosts as the worked example.</h2>
       <ul class="plain">
         <li><span class="bullet">01</span><span><strong>They are hosting and I am being paid to be here.</strong><span>You should know that before I show you anything.</span></span></li>
-        <li><span class="bullet">02</span><span><strong>Their products were in my district before I was.</strong><span>I inherited them. I did not select them.</span></span></li>
+        <li><span class="bullet">02</span><span><strong>Their products were in my district before I was.</strong><span>I inherited them. I did not select them. I support them now as part of my job, so weigh what I say with that in mind.</span></span></li>
         <li><span class="bullet">03</span><span><strong>A real example beats a hypothetical.</strong><span>Vendors face this balance from the other side. Someone in a product meeting had to decide what to make easy. So do you.</span></span></li>
         <li><span class="bullet">04</span><span><strong>Every question I ask here I would ask of any product in these categories.</strong><span>Including the ones already in your buildings.</span></span></li>
       </ul>
@@ -874,14 +887,14 @@
             <rect x="118" y="8" width="102" height="58" rx="3" fill="#F2DFD7" stroke="#A63D26" stroke-width="2"/>
             <rect x="230" y="8" width="102" height="58" rx="3" fill="#F2DFD7" stroke="#A63D26" stroke-width="2"/>
             <text x="57" y="32" font-size="14" font-weight="700" text-anchor="middle" fill="#7A2C1B">Head</text>
-            <text x="57" y="52" font-size="10" text-anchor="middle" fill="#7A2C1B">to verify</text>
+            <text x="57" y="52" font-size="12" text-anchor="middle" fill="#7A2C1B">to verify</text>
             <text x="169" y="32" font-size="14" font-weight="700" text-anchor="middle" fill="#7A2C1B">Room</text>
-            <text x="169" y="52" font-size="10" text-anchor="middle" fill="#7A2C1B">untouched</text>
+            <text x="169" y="52" font-size="12" text-anchor="middle" fill="#7A2C1B">untouched</text>
             <text x="281" y="32" font-size="14" font-weight="700" text-anchor="middle" fill="#7A2C1B">World</text>
-            <text x="281" y="52" font-size="10" text-anchor="middle" fill="#7A2C1B">untouched</text>
+            <text x="281" y="52" font-size="12" text-anchor="middle" fill="#7A2C1B">untouched</text>
             <rect x="6" y="90" width="326" height="58" rx="3" fill="#78540F" stroke="#5E410B" stroke-width="2"/>
             <text x="169" y="115" font-size="14" font-weight="700" text-anchor="middle" fill="#FFFFFF">The base</text>
-            <text x="169" y="135" font-size="11" text-anchor="middle" fill="#F1E7CF">source access and curation</text>
+            <text x="169" y="135" font-size="12" text-anchor="middle" fill="#F1E7CF">source access and curation</text>
             <text x="169" y="176" font-size="12" text-anchor="middle" font-weight="700" fill="#78540F">Eases the base. Verify the Head work.</text>
           </svg>
           <figcaption>Where the tool acts.</figcaption>
@@ -899,17 +912,17 @@
           <div class="vrows">
             <button class="vrow" type="button" aria-expanded="false"><span class="vlabel">The design choice</span><span class="vvalue">Embed two AI roles inside the curriculum: ClassMate, teacher tools for planning and practice, and AI Tutor, which addresses the misconceptions a Knowledge Check surfaces before the lesson.</span></button>
             <button class="vrow" type="button" aria-expanded="false"><span class="vlabel">The balance it strikes</span><span class="vvalue">ClassMate can return planning time. AI Tutor can add timely support, but it acts directly on the Head work and needs a different decision.</span></button>
-            <button class="vrow vrow--keep" type="button" aria-expanded="false"><span class="vlabel">What stays yours</span><span class="vvalue">What the tutor may explain, what the student must still attempt and articulate, and what evidence shows support did not become substitution.</span></button>
+            <button class="vrow vrow--keep" type="button" aria-expanded="false"><span class="vlabel">What stays yours</span><span class="vvalue">What the tutor may explain, what the student must still attempt and articulate, and what evidence shows the tutor supported the thinking instead of doing it.</span></button>
           </div>
         </div>
         <figure class="fig-sm">
           <svg viewBox="0 0 340 200" role="img" aria-label="Locator: in Imagine IM, ClassMate's teacher tools act on the base layer, while the student-facing AI Tutor can touch Head, the learner's thinking work.">
             <rect x="6" y="8" width="326" height="58" rx="3" fill="#F2DFD7" stroke="#A63D26" stroke-width="2"/>
             <text x="169" y="33" font-size="13" font-weight="700" text-anchor="middle" fill="#7A2C1B">Head &middot; Room &middot; World</text>
-            <text x="169" y="53" font-size="11" text-anchor="middle" fill="#7A2C1B">AI Tutor can touch Head</text>
+            <text x="169" y="53" font-size="12" text-anchor="middle" fill="#7A2C1B">AI Tutor can touch Head</text>
             <rect x="6" y="90" width="326" height="58" rx="3" fill="#78540F" stroke="#5E410B" stroke-width="2"/>
             <text x="169" y="115" font-size="14" font-weight="700" text-anchor="middle" fill="#FFFFFF">The base</text>
-            <text x="169" y="135" font-size="11" text-anchor="middle" fill="#F1E7CF">ClassMate: teacher planning time</text>
+            <text x="169" y="135" font-size="12" text-anchor="middle" fill="#F1E7CF">ClassMate: teacher planning time</text>
             <text x="169" y="176" font-size="12" text-anchor="middle" font-weight="700" fill="#78540F">Same curriculum. Two different decisions.</text>
           </svg>
           <figcaption>Where the tool acts.</figcaption>
@@ -918,7 +931,7 @@
     </div>
   </section>
 
-  <!-- 23 --><section class="scene" data-sec="Examples" data-notes="The honest one. Make the case FOR fast feedback seriously before opening the third row, or it sounds like a gotcha. Be precise: the assistant suggests editable comments on short writing and essays, not scores; the teacher remains responsible for reviewing and delivering the feedback. Scale, from Imagine Learning's own case study: by spring 2025, 58 percent of short-writing feedback in EdgeEX was AI-assisted. That is why the third row matters.">
+  <!-- 23 --><section class="scene" data-sec="Examples" data-notes="The honest one. Make the case FOR fast feedback seriously before opening the third row, or it sounds like a gotcha. Be precise: the assistant suggests editable comments on short writing and essays, not scores; the teacher remains responsible for reviewing and delivering the feedback. Scale, from Imagine Learning's own case study: by spring 2025, 58 percent of short-writing feedback in EdgeEX was AI-assisted. That is why the third row matters. The 23 and 32 hours are average time from submission to teacher response in that same case study; say vendor-reported.">
     <div class="inner wide">
       <p class="eyebrow">Worked example &middot; courseware</p>
       <h2>EdgeEX</h2>
@@ -926,7 +939,7 @@
         <div>
           <div class="vrows">
             <button class="vrow" type="button" aria-expanded="false"><span class="vlabel">The design choice</span><span class="vvalue">Suggest editable comments on student writing so teachers can return feedback sooner.</span></button>
-            <button class="vrow" type="button" aria-expanded="false"><span class="vlabel">The balance it strikes</span><span class="vvalue">Turnaround is a genuine barrier: feedback that arrives while the work is fresh gets used. Imagine Learning reports about 23 hours with the assistant against 32 without. In alternative pathways, that is real value, not convenience.</span></button>
+            <button class="vrow" type="button" aria-expanded="false"><span class="vlabel">The balance it strikes</span><span class="vvalue">Turnaround is a genuine barrier: feedback that arrives while the work is fresh gets used. Imagine Learning reports that teachers using the assistant returned assignments about 23 hours after submission, compared with 32 hours for teachers not using it (vendor-reported, 2024&ndash;25). Where written feedback is a student's main contact with a teacher, as in credit recovery or online courses, nine hours matters.</span></button>
             <button class="vrow vrow--keep" type="button" aria-expanded="false"><span class="vlabel">What stays yours</span><span class="vvalue">The teacher still reviews the work and the suggestion. What matters is whether the faster workflow preserves the teacher's diagnostic read of the class and redirects time toward student support.</span></button>
           </div>
         </div>
@@ -937,7 +950,7 @@
             <line x1="6" y1="76" x2="332" y2="76" stroke="#0E6E78" stroke-width="3" stroke-dasharray="7 5"/>
             <rect x="6" y="92" width="326" height="52" rx="3" fill="#78540F" stroke="#5E410B" stroke-width="2"/>
             <text x="169" y="114" font-size="14" font-weight="700" text-anchor="middle" fill="#FFFFFF">The base</text>
-            <text x="169" y="133" font-size="11" text-anchor="middle" fill="#F1E7CF">feedback latency</text>
+            <text x="169" y="133" font-size="12" text-anchor="middle" fill="#F1E7CF">feedback latency</text>
             <text x="169" y="172" font-size="11.5" text-anchor="middle" font-weight="700" fill="#0E6E78">The teacher's read of the class</text>
             <text x="169" y="190" font-size="11.5" text-anchor="middle" font-weight="700" fill="#0E6E78">lives on this line.</text>
           </svg>
@@ -947,7 +960,7 @@
     </div>
   </section>
 
-  <!-- 24 --><section class="scene" data-sec="Examples" data-notes="Reducing load so a student can engage is NOT a bypass. Say that clearly before opening row three. MyPath documentation (August 2026) says paths build prerequisite skills toward the grade-level skill, and educators can change placement or use Assignment Builder to extend learning. The governance question is whether anyone monitors trajectory and uses those controls before support becomes a ceiling.">
+  <!-- 24 --><section class="scene" data-sec="Examples" data-notes="Reducing load so a student can engage does NOT skip the learning. Say that clearly before opening row three. MyPath documentation (August 2026) says paths build prerequisite skills toward the grade-level skill, and educators can change placement or use Assignment Builder to extend learning. The governance question is whether anyone monitors trajectory and uses those controls before support becomes a ceiling.">
     <div class="inner wide">
       <p class="eyebrow">Worked example &middot; intervention</p>
       <h2>MyPath</h2>
@@ -955,7 +968,7 @@
         <div>
           <div class="vrows">
             <button class="vrow" type="button" aria-expanded="false"><span class="vlabel">The design choice</span><span class="vvalue">Use assessment and mastery checks to target prerequisite skills while keeping grade-level proficiency as the destination.</span></button>
-            <button class="vrow" type="button" aria-expanded="false"><span class="vlabel">The balance it strikes</span><span class="vvalue">Students receive support at a level where they can engage, and the path can adjust as performance changes. That is load management, not a bypass.</span></button>
+            <button class="vrow" type="button" aria-expanded="false"><span class="vlabel">The balance it strikes</span><span class="vvalue">Students receive support at a level where they can engage, and the path can adjust as performance changes. That lowers the load so the student can engage. It does not skip the learning.</span></button>
             <button class="vrow vrow--keep" type="button" aria-expanded="false"><span class="vlabel">What stays yours</span><span class="vvalue">Monitor trajectory toward grade level and use the available placement and assignment controls. The risk is not that no exit exists. It is that nobody notices when support becomes a ceiling.</span></button>
           </div>
         </div>
@@ -963,19 +976,19 @@
           <div class="figure-caveat">Hypothetical risk, not measured MyPath results</div>
           <svg viewBox="0 0 360 220" role="img" aria-label="Hypothetical risk, not measured MyPath results: if an adaptive path stays below rising grade-level demand, a gap could open by May. A district would need to monitor student trajectory to know whether this is happening.">
             <rect x="52" y="8" width="300" height="42" fill="#DBD6C9"/>
-            <text x="202" y="34" font-size="11" text-anchor="middle" fill="#525A61">too hard: shutdown</text>
+            <text x="202" y="34" font-size="12" text-anchor="middle" fill="#525A61">too hard: shutdown</text>
             <rect x="52" y="54" width="300" height="70" fill="#F1E7CF"/>
-            <text x="202" y="74" font-size="11" text-anchor="middle" fill="#5E410B">the productive band</text>
+            <text x="202" y="74" font-size="12" text-anchor="middle" fill="#5E410B">the right level of challenge</text>
             <rect x="52" y="128" width="300" height="42" fill="#DBD6C9"/>
-            <text x="202" y="154" font-size="11" text-anchor="middle" fill="#525A61">too easy: disengagement</text>
+            <text x="202" y="154" font-size="12" text-anchor="middle" fill="#525A61">too easy: disengagement</text>
             <polyline points="52,68 150,54 250,40 350,28" fill="none" stroke="#0E6E78" stroke-width="3.5"/>
-            <text x="200" y="22" font-size="11" font-weight="700" fill="#075762">grade-level demand</text>
+            <text x="200" y="22" font-size="12" font-weight="700" fill="#075762">grade-level demand</text>
             <polyline points="52,90 150,92 250,93 350,94" fill="none" stroke="#A63D26" stroke-width="3.5"/>
-            <text x="146" y="140" font-size="11" font-weight="700" fill="#8F311F">the adaptive path</text>
+            <text x="146" y="140" font-size="12" font-weight="700" fill="#8F311F">the adaptive path</text>
             <line x1="350" y1="32" x2="350" y2="90" stroke="#191D21" stroke-width="1.5" stroke-dasharray="4 3"/>
-            <text x="344" y="66" font-size="11" text-anchor="end" font-weight="700" fill="#191D21">the gap</text>
-            <text x="52" y="186" font-size="10" fill="#525A61">Sept</text>
-            <text x="350" y="186" font-size="10" text-anchor="end" fill="#525A61">May</text>
+            <text x="344" y="66" font-size="12" text-anchor="end" font-weight="700" fill="#191D21">the gap</text>
+            <text x="52" y="186" font-size="11.5" fill="#525A61">Sept</text>
+            <text x="350" y="186" font-size="11.5" text-anchor="end" fill="#525A61">May</text>
             <text x="180" y="212" font-size="11.5" text-anchor="middle" font-style="italic" fill="#191D21">A dashboard might still look green.</text>
           </svg>
           <figcaption>Conceptual risk illustration, not measured MyPath outcomes. Monitor whether supports fade as learners approach grade-level work.</figcaption>
@@ -988,7 +1001,7 @@
     <div class="inner">
       <p class="eyebrow">The pattern across all four</p>
       <p class="huge">The vendor decides what the tool makes easy. <em>You decide what it means.</em></p>
-      <p class="lede">Two districts can run identical software and get opposite outcomes. Privacy, bias, equity, and academic integrity remain non-negotiable safeguards. The friction lens adds one more question: did anyone decide, on purpose, what learning to keep hard?</p>
+      <p class="lede">Two districts can run identical software and get opposite outcomes. Privacy, bias, equity, and academic integrity remain non-negotiable safeguards. For a district, digital citizenship and sound AI policy come down to the same decision: what students still do for themselves. Did anyone make that decision on purpose?</p>
     </div>
   </section>
 
@@ -1023,12 +1036,20 @@
     </div>
   </section>
 
-  <!-- 27 --><section class="scene" data-sec="Close" data-notes="Ninety seconds of silent writing. Enforce the silence. Then two or three share out, kept short.">
+  <!-- 27 --><section class="scene" data-sec="Close" data-notes="Open one example first, read it, then close it so the room writes its own. These are illustrations, not Beach Park policy; say so. Ninety seconds of silent writing. Enforce the silence. Then two or three share out, kept short.">
     <div class="inner">
       <p class="eyebrow">The next move &middot; ninety seconds, silent</p>
       <h2>One competency. One protection. One owner.</h2>
       <p class="lede">Take your Portrait of a Graduate. Pick a single competency. Ask what in your current AI guidance protects it, and write down who is responsible for watching it.</p>
       <div class="quiet">If you find a gap, name one protection and one owner. <strong>That is a useful result,</strong> and it gives you a concrete next step for this week.</div>
+      <div class="examples">
+        <span class="ex-head">Illustrations &middot; not district policy</span>
+        <div class="vrows">
+          <button class="vrow vrow--ex" type="button" aria-expanded="false"><span class="vlabel">Example &middot; Resilience</span><span class="vvalue">Protection: in each unit, students finish one extended task without AI drafting, and teachers look at the revision history, not only the final product. Owner: the building principal, through quarterly walkthroughs.</span></button>
+          <button class="vrow vrow--ex" type="button" aria-expanded="false"><span class="vlabel">Example &middot; Critical thinking</span><span class="vvalue">Protection: AI guidance names the analysis students do before any AI use, such as stating a claim and choosing evidence. Owner: the director of curriculum, reviewed each semester.</span></button>
+          <button class="vrow vrow--ex" type="button" aria-expanded="false"><span class="vlabel">Example &middot; Communication</span><span class="vvalue">Protection: in every course, students explain at least one piece of work aloud, in a conference or presentation, where a tool cannot stand in. Owner: department chairs.</span></button>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1228,6 +1249,12 @@
   Array.prototype.forEach.call(document.querySelectorAll('.qrow, .vrow'), function (row) {
     row.addEventListener('click', function () {
       var open = row.getAttribute('aria-expanded') === 'true';
+      // Example rows show one at a time so the slide never outgrows the screen.
+      if (!open && row.classList.contains('vrow--ex')) {
+        Array.prototype.forEach.call(row.parentNode.querySelectorAll('.vrow--ex'), function (r) {
+          r.setAttribute('aria-expanded', 'false');
+        });
+      }
       row.setAttribute('aria-expanded', open ? 'false' : 'true');
     });
   });
