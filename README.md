@@ -95,7 +95,10 @@ Everything they rest on is simply **the base**, labeled "the base: the condition
 on the diagram so it is not misread: time, access, technology, policy, the building. Technology can often ease barriers there, subject to the same
 privacy, accuracy, equity, and human-review checks as any other use.
 
-The deck also avoids two insider terms on its slides. It says "replacing the work
+The deck names **pedagogical friction** once, on slide 12, in plain words,
+alongside an Illinois student's line from the September 29 ISBE Weekly. Slide 15
+leads with "Green dashboard, unfinished learning" and keeps the research term,
+unproductive success, as its label. The deck also avoids two insider terms on its slides. It says "replacing the work
 that matters" rather than "substitution," which edtech leaders may hear as the SAMR
 level, and it describes what a tool skips rather than calling it a "bypass."
 
