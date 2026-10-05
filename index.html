@@ -370,6 +370,15 @@
   .vrow--keep .vlabel { color:var(--clay); }
 
   /* ---------- opening video ---------- */
+  .inner.opening-layout { display:grid; grid-template-columns:minmax(0,1fr) clamp(12rem,27vmin,17rem); align-items:center; gap:clamp(1.5rem,4vw,3.5rem); }
+  .opening-copy { display:flex; flex-direction:column; gap:clamp(0.7rem,2.3vmin,1.9rem); min-width:0; }
+  .opening-qr { margin:0; }
+  .opening-qr img { display:block; width:100%; height:auto; background:#fff; }
+  .opening-qr figcaption { margin-top:0.75rem; font-family:var(--font-data); font-size:clamp(0.85rem,1.8vmin,1.1rem); line-height:1.4; text-align:center; color:var(--on-dark-soft); }
+  @media (max-width:700px) {
+    .inner.opening-layout { grid-template-columns:1fr; }
+    .opening-qr { width:10rem; justify-self:start; }
+  }
   .opener-actions { display:flex; flex-wrap:wrap; gap:0.6rem; }
   .opener-launch {
     align-self:flex-start; padding:0.65rem 1rem; border:1px solid var(--signal-lit);
@@ -447,8 +456,9 @@
 
 <main class="deck" id="deck">
 
-  <!-- 1 --><section class="scene dark" data-sec="Opening" data-notes="Open here while people settle. Choose Play opening video or Play Maya's essay when ready. Use Back to presentation or Escape to return to the title, then advance to the questions. Do not talk over the room. Wait for quiet. In the intro, correct the program bio: assistant principal, not principal. The invitation went to leaders in Illinois, Indiana, Minnesota, and Wisconsin, so when you mention ISBE, frame it as the Illinois example.">
-    <div class="inner">
+  <!-- 1 --><section class="scene dark" data-sec="Opening" data-notes="Open here while people settle. Invite attendees to scan the code to follow along; it opens this public deck at slide 1. Choose Play opening video or Play Maya's essay when ready. Use Back to presentation or Escape to return to the title, then advance to the questions. Do not talk over the room. Wait for quiet. In the intro, correct the program bio: assistant principal, not principal. The invitation went to leaders in Illinois, Indiana, Minnesota, and Wisconsin, so when you mention ISBE, frame it as the Illinois example.">
+    <div class="inner opening-layout">
+      <div class="opening-copy">
       <p class="eyebrow">Turning Vision into Classroom Practice &middot; October 6, 2026</p>
       <h1>Future Ready,<br>Not Just AI Ready</h1>
       <p class="display-sub">What should stay difficult? A district leader's lens for deciding what AI should make easier.</p>
@@ -462,6 +472,11 @@
         <p>Opening video:<a href="https://youtu.be/G6Rt6yAxOOg" target="_blank" rel="noopener" aria-label="Watch opening video on YouTube">YouTube</a><a href="https://drive.google.com/file/d/1RQxLxx7SLG7usTLoGP7bpaOZ5ZIs9wzk/view?usp=sharing" target="_blank" rel="noopener" aria-label="Watch opening video in Google Drive">Google Drive</a></p>
         <p>Maya's essay:<a href="https://youtu.be/ZL2OTAgw05I" target="_blank" rel="noopener" aria-label="Watch Maya's essay on YouTube">YouTube</a><a href="https://drive.google.com/file/d/11eBjpBlkZd04eP-zko-qvKscFqIaqYiq/view?usp=sharing" target="_blank" rel="noopener" aria-label="Watch Maya's essay in Google Drive">Google Drive</a></p>
       </div>
+      </div>
+      <figure class="opening-qr">
+        <a href="https://minerclass.github.io/future-ready-not-just-ai-ready/#1"><img src="assets/opening-qr.svg" width="256" height="256" alt="QR code to open this public presentation at slide 1"></a>
+        <figcaption>Scan to follow along<br>Slides &amp; resources</figcaption>
+      </figure>
     </div>
   </section>
 

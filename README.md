@@ -187,6 +187,8 @@ Slide 29 includes a self-hosted QR code that opens this public deck directly on
 the resources slide (`#29`), so a phone does not land on slide 1. The deck link
 also appears as text for people who cannot scan it. Before presenting, test the
 code from the back of the actual room, and regenerate it if the deck URL changes.
+Slide 1 also displays a QR code that opens the presentation at the beginning
+(`#1`), so attendees can scan it as they arrive and follow along.
 Social previews use a 1200x630 PNG built
 from `assets/social-card.html`; update the PNG if the public event title or deck
 subtitle changes.
