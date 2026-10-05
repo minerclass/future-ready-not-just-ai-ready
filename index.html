@@ -369,6 +369,28 @@
   .examples .ex-head { font-family:var(--font-data); font-size:clamp(0.68rem,1.45vmin,0.86rem); letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-faint); }
   .vrow--keep .vlabel { color:var(--clay); }
 
+  /* ---------- opening video ---------- */
+  .opener-actions { display:flex; flex-wrap:wrap; gap:0.6rem; }
+  .opener-launch {
+    align-self:flex-start; padding:0.65rem 1rem; border:1px solid var(--signal-lit);
+    border-radius:3px; background:var(--graphite-lift); color:var(--on-dark);
+    font:inherit; font-size:clamp(0.9rem,1.9vmin,1.25rem); cursor:pointer;
+  }
+  .opener-launch:hover { background:var(--signal); }
+  .opener {
+    width:min(calc(100vw - 2rem),calc((100dvh - 10rem) * 16 / 9),90rem);
+    max-height:calc(100dvh - 2rem); padding:1rem; border:1px solid var(--rule-dark);
+    border-radius:4px; background:var(--graphite); color:var(--on-dark);
+  }
+  .opener::backdrop { background:rgba(0,0,0,0.88); }
+  .opener-head { display:flex; justify-content:space-between; align-items:center; gap:1rem; margin-bottom:0.75rem; }
+  .opener-head h2 { font-size:clamp(1rem,2.5vmin,1.5rem); }
+  .opener video { display:block; width:100%; max-height:calc(100dvh - 10rem); background:#000; }
+  .opener .credit { margin-top:0.75rem; color:var(--on-dark-soft); }
+  .opener a { color:var(--signal-lit); }
+  .opener :focus-visible { outline-color:var(--signal-lit); }
+  .opener-error { margin-top:0.75rem; font-size:1rem; }
+
   /* ---------- chrome ---------- */
   .progress { position:fixed; top:0; left:0; height:4px; background:var(--clay); width:0; z-index:40; transition:width 260ms ease; }
   @media (prefers-reduced-motion:reduce){ .progress{transition:none;} }
@@ -422,13 +444,17 @@
 
 <main class="deck" id="deck">
 
-  <!-- 1 --><section class="scene dark" data-sec="Opening" data-notes="Open here while people settle. Do not talk over the room. Wait for quiet. In the intro, correct the program bio: assistant principal, not principal. The invitation went to leaders in Illinois, Indiana, Minnesota, and Wisconsin, so when you mention ISBE, frame it as the Illinois example.">
+  <!-- 1 --><section class="scene dark" data-sec="Opening" data-notes="Open here while people settle. Choose Play opening video or Play Maya's essay when ready. Use Back to presentation or Escape to return to the title, then advance to the questions. Do not talk over the room. Wait for quiet. In the intro, correct the program bio: assistant principal, not principal. The invitation went to leaders in Illinois, Indiana, Minnesota, and Wisconsin, so when you mention ISBE, frame it as the Illinois example.">
     <div class="inner">
       <p class="eyebrow">Turning Vision into Classroom Practice &middot; October 6, 2026</p>
       <h1>Future Ready,<br>Not Just AI Ready</h1>
       <p class="display-sub">What should stay difficult? A district leader's lens for deciding what AI should make easier.</p>
       <hr class="rule">
       <p class="credit">Micah Miner, CETL &middot; Director of Innovation and Technology, Beach Park CCSD 3 &middot; Author, <em>AI Goes to School</em></p>
+      <div class="opener-actions">
+        <button class="opener-launch" id="btnOpener" type="button" aria-haspopup="dialog" aria-controls="opener" data-video="assets/future-ready-opener.mp4" data-youtube="https://youtu.be/G6Rt6yAxOOg" data-video-title="Future Ready opening video">Play opening video</button>
+        <button class="opener-launch" id="btnMayaOpener" type="button" aria-haspopup="dialog" aria-controls="opener" data-video="assets/mayas-essay-opener.mp4" data-youtube="https://youtu.be/ZL2OTAgw05I" data-video-title="Maya's essay video">Play Maya's essay</button>
+      </div>
     </div>
   </section>
 
@@ -1112,6 +1138,19 @@
   <div class="thumbs" id="thumbs"></div>
 </div>
 
+<dialog class="opener" id="opener" aria-labelledby="openerTitle">
+  <div class="opener-head">
+    <h2 id="openerTitle">Opening video</h2>
+    <button class="ctl" id="btnCloseOpener" type="button" autofocus>Back to presentation</button>
+  </div>
+  <video id="openerVideo" controls playsinline preload="metadata" aria-label="Future Ready opening video">
+    <source src="assets/future-ready-opener.mp4" type="video/mp4">
+    Your browser cannot play this video. <a id="openerFallback" href="assets/future-ready-opener.mp4">Open the video directly</a>.
+  </video>
+  <p class="opener-error" id="openerError" role="alert" hidden>The video could not load. Try Watch on YouTube or download the clip below.</p>
+  <p class="credit"><a id="openerDownload" href="assets/future-ready-opener.mp4" download>Download video</a> &middot; <a id="openerYouTube" href="https://youtu.be/G6Rt6yAxOOg" target="_blank" rel="noopener">Watch on YouTube</a></p>
+</dialog>
+
 <p class="sr-only" id="liveRegion" aria-live="polite"></p>
 
 <script>
@@ -1126,6 +1165,40 @@
   var notes = $('notes'), notesBody = $('notesBody');
   var overview = $('overview'), thumbs = $('thumbs'), rail = $('rail');
   var live = $('liveRegion'), btnPrev = $('btnPrev'), btnNext = $('btnNext');
+  var opener = $('opener'), openerVideo = $('openerVideo');
+
+  /* ---------- opening video ---------- */
+  function closeOpener() {
+    openerVideo.pause();
+    if (opener.open) opener.close();
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('.opener-launch'), function (btn) {
+    btn.addEventListener('click', function () {
+      var path = btn.getAttribute('data-video');
+      var title = btn.getAttribute('data-video-title');
+      var source = openerVideo.querySelector('source');
+      $('openerTitle').textContent = title;
+      openerVideo.setAttribute('aria-label', title);
+      $('openerFallback').href = path;
+      $('openerDownload').href = path;
+      $('openerYouTube').href = btn.getAttribute('data-youtube');
+      $('openerError').hidden = true;
+      if (source.getAttribute('src') !== path) {
+        source.setAttribute('src', path);
+        openerVideo.load();
+      }
+      opener.showModal();
+      openerVideo.currentTime = 0;
+      var playback = openerVideo.play();
+      if (playback) playback.catch(function () { /* Native controls remain available. */ });
+    });
+  });
+  $('btnCloseOpener').addEventListener('click', closeOpener);
+  $('openerYouTube').addEventListener('click', function () { openerVideo.pause(); });
+  opener.addEventListener('close', function () { openerVideo.pause(); });
+  function videoError() { $('openerError').hidden = false; }
+  openerVideo.addEventListener('error', videoError);
+  openerVideo.querySelector('source').addEventListener('error', videoError);
 
   function labelFor(s) {
     var h = s.querySelector('h1, h2, .huge');
@@ -1186,7 +1259,7 @@
     if (history.replaceState) history.replaceState(null, '', '#' + (i + 1));
   }
 
-  function go(n) { i = Math.max(0, Math.min(total - 1, n)); render(); }
+  function go(n) { closeOpener(); i = Math.max(0, Math.min(total - 1, n)); render(); }
 
   /* ---------- interactive: Head / Room / World nodes ---------- */
   Array.prototype.forEach.call(document.querySelectorAll('.node'), function (btn) {
@@ -1342,7 +1415,7 @@
      hijacked for navigation while the presenter is opening a panel. Arrows
      always navigate. */
   document.addEventListener('keydown', function (e) {
-    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    if (opener.open || e.metaKey || e.ctrlKey || e.altKey) return;
     var t = e.target || {};
     var tag = (t.tagName || '').toLowerCase();
     if (tag === 'input' || tag === 'textarea' || t.isContentEditable) return;

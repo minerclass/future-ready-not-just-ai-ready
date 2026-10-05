@@ -122,6 +122,30 @@ The deck is built to be clicked during the session, not read past.
 | 26 | The speaker's own Portrait | Three mapped lines, then reveal the gap he could not answer in his own district |
 | 27 | One competency, one protection, one owner | Write a commitment with an existing meeting, date, and evidence to bring; then share with a partner. Use a district priority or learning goal if no Portrait exists. Three illustrative examples remain labeled as illustrations rather than district policy |
 
+## Opening videos
+
+On the title slide, choose **Play opening video** or **Play Maya's essay**.
+Each supplied MP4 opens in the same large player and starts from the beginning,
+with native playback and fullscreen controls. Click **Back to presentation**
+or press **Escape** to return to the title slide. Closing the player stops
+playback. Slide navigation shortcuts are suspended while the player is open so
+they do not interfere with video controls. The existing 29 slide numbers and
+resource QR link stay intact.
+
+Both clips play directly from the deck's `assets` folder; no YouTube or Google
+Drive player is required. For an offline copy, keep `index.html` and the `assets`
+folder together. The download link always points to the selected clip.
+Both supplied clips are 15 seconds long and have no audio track.
+
+The player also offers **Watch on YouTube** for the selected clip. It opens a
+new tab and pauses the MP4 player. The YouTube links are:
+
+- [Opening video](https://youtu.be/G6Rt6yAxOOg)
+- [Maya's essay](https://youtu.be/ZL2OTAgw05I)
+
+Keep the downloaded deck available for presenting when internet access is
+unreliable; YouTube playback requires a connection and access to YouTube.
+
 ## Presenter controls
 
 | Key | Action |
@@ -200,6 +224,8 @@ closing commitment when shortening the talk.
 - `index.html` — the complete deck. No build step or JavaScript package
   dependency; the shared `tokens.css` URL is requested with local fallback
   values.
+- `assets/future-ready-opener.mp4` — opening video supplied for the October 6 presentation.
+- `assets/mayas-essay-opener.mp4` — second opening clip supplied for the October 6 presentation.
 - `assets/deck-qr.svg` — static QR code for the resources slide (`…/future-ready-not-just-ai-ready/#29`).
 - `assets/social-card.html` and `assets/social-card.png` — source layout and
   preview image for LinkedIn, X, and Bluesky shares.
