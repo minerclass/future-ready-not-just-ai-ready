@@ -137,14 +137,20 @@ Drive player is required. For an offline copy, keep `index.html` and the `assets
 folder together. The download link always points to the selected clip.
 Both supplied clips are 15 seconds long and have no audio track.
 
-The player also offers **Watch on YouTube** for the selected clip. It opens a
-new tab and pauses the MP4 player. The YouTube links are:
+The player also offers **Watch on YouTube** and **Watch in Google Drive**
+for the selected clip. Each opens a new tab and pauses the MP4 player.
 
-- [Opening video](https://youtu.be/G6Rt6yAxOOg)
-- [Maya's essay](https://youtu.be/ZL2OTAgw05I)
+| Clip | YouTube | Google Drive |
+|---|---|---|
+| Opening video | [Watch](https://youtu.be/G6Rt6yAxOOg) | [Watch](https://drive.google.com/file/d/1RQxLxx7SLG7usTLoGP7bpaOZ5ZIs9wzk/view?usp=sharing) |
+| Maya's essay | [Watch](https://youtu.be/ZL2OTAgw05I) | [Watch](https://drive.google.com/file/d/11eBjpBlkZd04eP-zko-qvKscFqIaqYiq/view?usp=sharing) |
 
-Keep the downloaded deck available for presenting when internet access is
-unreliable; YouTube playback requires a connection and access to YouTube.
+Both Drive files allow anyone with the link to view them, checked October 5,
+2026. Both Drive previews returned "Unable to load video" in a signed-out
+browser check that day, so Drive playback remains unverified. MP4 and YouTube
+playback passed. Keep the downloaded deck available for presenting when
+internet access is unreliable. YouTube and Drive playback require a connection and access to
+the chosen service.
 
 ## Presenter controls
 
