@@ -1,6 +1,6 @@
 # Future Ready, Not Just AI Ready
 
-Interactive keynote deck asking what should stay hard as AI makes schoolwork
+Interactive keynote deck asking what should stay difficult as AI makes schoolwork
 easier. It connects screen time, pedagogical friction, and decisions only
 district leaders can make.
 
@@ -89,7 +89,7 @@ carry the same distinction:
 
 - **Head** &mdash; working it out for yourself
 - **Room** &mdash; saying it so others understand
-- **World** &mdash; becoming someone who can do hard things
+- **World** &mdash; becoming someone who can do difficult things
 
 Everything they rest on is simply **the base**, labeled "the base: the conditions"
 on the diagram so it is not misread: time, access, technology, policy, the building. Technology can often ease barriers there, subject to the same
@@ -116,11 +116,11 @@ The deck is built to be clicked during the session, not read past.
 | 14 | Head / Room / World nodes | Click each layer to open what it is and what it looks like when a tool absorbs it |
 | 15 | Conceptual gap reveal | Show the rising line first, then add the possible gap that independent work could test |
 | 17 | The four questions | Click any question to open why it matters, with one concrete example in each |
-| 18 | Tool sorter | Click a familiar use and see which layer it touches. Base-layer relief is not automatic approval; text to speech shows how the learning goal changes the call |
-| 19 | Four-minute table audit | Choose one specific district use, anchor it to the goal, run the lens, and leave with a safeguard, signal, and owner. Four finished example sentences (middle school reading, math intervention, high school writing feedback, central office) open one at a time |
-| 21 to 24 | Vendor rows | Open design choice, balance, and what stays yours one at a time to control pacing |
+| 18 | Tool sorter | Decide individually, compare with a neighbor, and vote before the reveal. Text to speech shows how the learning goal changes the decision while needed accessibility supports remain in place |
+| 19 | Eight-minute table audit | One minute to choose a use, one to model the response, four for table work, and two for reports and debrief. Leave with a safeguard, observable signal, and owner. Four finished examples open one at a time |
+| 21 to 24 | Vendor rows | On Traverse, ask the audience to name a district responsibility and evidence before revealing what stays yours. Open the remaining examples one row at a time |
 | 26 | The speaker's own Portrait | Three mapped lines, then reveal the gap he could not answer in his own district |
-| 27 | One competency, one protection, one owner | Three illustrative examples (Resilience, Critical thinking, Communication), labeled as illustrations rather than district policy |
+| 27 | One competency, one protection, one owner | Write a commitment with an existing meeting, date, and evidence to bring; then share with a partner. Use a district priority or learning goal if no Portrait exists. Three illustrative examples remain labeled as illustrations rather than district policy |
 
 ## Presenter controls
 
@@ -136,6 +136,10 @@ The deck is built to be clicked during the session, not read past.
 
 Space and Enter belong to a focused in-slide control, so opening a panel never
 also advances the slide. Arrow keys always navigate.
+
+The Notes control opens an overlay on the deck itself. Use separate printed or
+device notes when mirroring the presentation screen. Reload the deck after
+rehearsal to reset opened panels before attendees arrive.
 
 The bottom bar also carries a **section rail** for jumping between the seven
 parts of the talk, and a **presenter timer** you start with a click.
@@ -173,6 +177,23 @@ subtitle changes.
    next move, the close, and resources.
 
 These seven names are the section rail at the bottom of the deck.
+
+The October 5 facilitation revision budgets a 60-minute session as follows:
+
+| Elapsed minutes | Focus |
+|---|---|
+| 0 to 8 | Opening questions and the gap |
+| 8 to 16 | Future readiness and the dashboard comparison |
+| 16 to 26 | Friction and unproductive success |
+| 26 to 34 | Four questions and audience voting |
+| 34 to 42 | Table audit and debrief |
+| 42 to 51 | Disclosure and worked examples |
+| 51 to 55 | Local example, dated commitment, and close |
+| 55 to 60 | Questions |
+
+Speaker notes include these pacing targets. Adapt the opening to actual audience
+answers, keep needed accessibility supports, and protect the table audit and
+closing commitment when shortening the talk.
 
 ## Repository structure
 
