@@ -377,6 +377,9 @@
     font:inherit; font-size:clamp(0.9rem,1.9vmin,1.25rem); cursor:pointer;
   }
   .opener-launch:hover { background:var(--signal); }
+  .opener-backups { display:flex; flex-wrap:wrap; gap:0.4rem 2rem; font-size:clamp(0.82rem,1.8vmin,1.1rem); color:var(--on-dark-soft); }
+  .opener-backups p { margin:0; }
+  .opener-backups a { margin-left:0.6rem; }
   .opener {
     width:min(calc(100vw - 2rem),calc((100dvh - 10rem) * 16 / 9),90rem);
     max-height:calc(100dvh - 2rem); padding:1rem; border:1px solid var(--rule-dark);
@@ -454,6 +457,10 @@
       <div class="opener-actions">
         <button class="opener-launch" id="btnOpener" type="button" aria-haspopup="dialog" aria-controls="opener" data-video="assets/future-ready-opener.mp4" data-youtube="https://youtu.be/G6Rt6yAxOOg" data-drive="https://drive.google.com/file/d/1RQxLxx7SLG7usTLoGP7bpaOZ5ZIs9wzk/view?usp=sharing" data-video-title="Future Ready opening video">Play opening video</button>
         <button class="opener-launch" id="btnMayaOpener" type="button" aria-haspopup="dialog" aria-controls="opener" data-video="assets/mayas-essay-opener.mp4" data-youtube="https://youtu.be/ZL2OTAgw05I" data-drive="https://drive.google.com/file/d/11eBjpBlkZd04eP-zko-qvKscFqIaqYiq/view?usp=sharing" data-video-title="Maya's essay video">Play Maya's essay</button>
+      </div>
+      <div class="opener-backups" aria-label="Opening video links">
+        <p>Opening video:<a href="https://youtu.be/G6Rt6yAxOOg" target="_blank" rel="noopener" aria-label="Watch opening video on YouTube">YouTube</a><a href="https://drive.google.com/file/d/1RQxLxx7SLG7usTLoGP7bpaOZ5ZIs9wzk/view?usp=sharing" target="_blank" rel="noopener" aria-label="Watch opening video in Google Drive">Google Drive</a></p>
+        <p>Maya's essay:<a href="https://youtu.be/ZL2OTAgw05I" target="_blank" rel="noopener" aria-label="Watch Maya's essay on YouTube">YouTube</a><a href="https://drive.google.com/file/d/11eBjpBlkZd04eP-zko-qvKscFqIaqYiq/view?usp=sharing" target="_blank" rel="noopener" aria-label="Watch Maya's essay in Google Drive">Google Drive</a></p>
       </div>
     </div>
   </section>

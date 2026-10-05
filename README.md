@@ -139,6 +139,8 @@ Both supplied clips are 15 seconds long and have no audio track.
 
 The player also offers **Watch on YouTube** and **Watch in Google Drive**
 for the selected clip. Each opens a new tab and pauses the MP4 player.
+Slide 1 also displays direct YouTube and Google Drive links for both clips,
+so you can open an external video without first opening the deck's player.
 
 | Clip | YouTube | Google Drive |
 |---|---|---|
