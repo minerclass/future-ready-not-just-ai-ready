@@ -61,7 +61,7 @@ Twelve diagrams do work the prose cannot:
 |---|---|---|
 | 6 | Two clocks | The procurement clock renews every year; one cohort, this fall's third graders, travels a single line to graduation in 2036, with evidence checks every year. Plays once on arrival |
 | 10 | Two students, forty-five minutes | Identical bars, opposite internal composition, identical dashboard row |
-| 12 | Who creates, who curates | Walter Ong's three stages (primary orality, literacy, secondary orality) and Miner's two proposed stages (algorithmic secondary orality, tertiary algorithmicity) across two rows. People create and curate through Ong's stages; social media hands curation to algorithms; generative AI hands over creation too. Optional, static |
+| 12 | Who creates, who curates | Walter Ong's three stages (primary orality, literacy, secondary orality) and Miner's two proposed stages (algorithmic secondary orality, tertiary algorithmicity) across two rows. People create and curate through Ong's stages; social media hands curation to algorithms; generative AI hands over creation too. Optional. A **Play animation** button opens a 22-second silent version that builds the stages one at a time |
 | 13 | The friction layers | Head, Room and World as equal layers resting on one wide base |
 | 14 | Remove the barriers | Twelve students below the base; barriers stop nine. Removing them lets all twelve reach the same, unchanged work. An illustration, not student data |
 | 16 | Unproductive success | An illustrative gap between visible output and what independent work might reveal, not measured student data |
@@ -276,6 +276,8 @@ closing commitment when shortening the talk.
 - `assets/mayas-essay-opener.mp4` — second opening clip supplied for the October 6 presentation.
 - `assets/teachers-tuesday-night.mp4` — 15-second scene clip for slide 14, no audio.
 - `assets/teachers-tuesday-night.html` — frame-by-frame source for that clip.
+- `assets/who-makes-the-words.mp4` — 22-second silent animation for slide 12, no audio.
+- `assets/who-makes-the-words.html` — frame-by-frame source for that animation (open it with `#12.5` to preview any moment).
 - `assets/deck-qr.svg` — static QR code for the resources slide (`…/future-ready-not-just-ai-ready/#30`), regenerated October 5, 2026 when slide 12 was added.
 - `assets/social-card.html` and `assets/social-card.png` — source layout and
   preview image for LinkedIn, X, and Bluesky shares.
