@@ -37,7 +37,7 @@ of the table: someone in a product meeting had to decide what to make easy. Each
 example names the design choice, the balance it strikes, and the decision that
 stays with the district.
 
-The speaker's relationship to the host is disclosed on slide 20, before any
+The speaker's relationship to the host is disclosed on slide 21, before any
 product appears. One Imagine Learning product was adopted in Beach Park CCSD 3
 before the speaker joined the district.
 
@@ -48,29 +48,30 @@ The color system carries the argument instead of decorating it.
 **Warm** tones, clay and ochre, mark the human layers: friction, effort,
 formation, the things a district protects. **Cool** signal teal marks the
 algorithmic: smooth, fast, frictionless, the things a tool does. Once the
-audience has seen the friction diagram on slide 12, every later slide can be read
+audience has seen the friction diagram on slide 13, every later slide can be read
 at a glance by its color alone.
 
 Grounds alternate. Most content sits on stone. Eight scenes drop to graphite for
 the moments where the room should go quiet: the two opening questions, the pivot,
 unproductive success, the disclosure, the pattern, and the close.
 
-Eleven diagrams do work the prose cannot:
+Twelve diagrams do work the prose cannot:
 
 | Slide | Figure | What it shows |
 |---|---|---|
 | 6 | Two clocks | The procurement clock renews every year; one cohort, this fall's third graders, travels a single line to graduation in 2036, with evidence checks every year. Plays once on arrival |
 | 10 | Two students, forty-five minutes | Identical bars, opposite internal composition, identical dashboard row |
-| 12 | The friction layers | Head, Room and World as equal layers resting on one wide base |
-| 13 | Remove the barriers | Twelve students below the base; barriers stop nine. Removing them lets all twelve reach the same, unchanged work. An illustration, not student data |
-| 15 | Unproductive success | An illustrative gap between visible output and what independent work might reveal, not measured student data |
-| 16 | Where the judgment sits | Tool design, learning goal, and learner needs meet at one decision point held by educators and leaders, leading to keep, change, constrain, or stop. Static |
-| 21 to 24 | Tool locators | Which layer each platform acts on, drawn on the same strata shape each time |
-| 25 | Same software, two decisions | A fork: identical software leads to students still doing the thinking, or to the tool quietly doing the work, depending on whether the district decided on purpose. Static, on graphite |
+| 12 | Who creates, who curates | Walter Ong's three stages (primary orality, literacy, secondary orality) and Miner's two proposed stages (algorithmic secondary orality, tertiary algorithmicity) across two rows. People create and curate through Ong's stages; social media hands curation to algorithms; generative AI hands over creation too. Optional, static |
+| 13 | The friction layers | Head, Room and World as equal layers resting on one wide base |
+| 14 | Remove the barriers | Twelve students below the base; barriers stop nine. Removing them lets all twelve reach the same, unchanged work. An illustration, not student data |
+| 16 | Unproductive success | An illustrative gap between visible output and what independent work might reveal, not measured student data |
+| 17 | Where the judgment sits | Tool design, learning goal, and learner needs meet at one decision point held by educators and leaders, leading to keep, change, constrain, or stop. Static |
+| 22 to 25 | Tool locators | Which layer each platform acts on, drawn on the same strata shape each time |
+| 26 | Same software, two decisions | A fork: identical software leads to students still doing the thinking, or to the tool quietly doing the work, depending on whether the district decided on purpose. Static, on graphite |
 
 Motion is used only where it carries the point: time passing on slide 6 and
-the barriers lifting on slide 13. Both respect the reduced-motion setting and
-show their finished state instead. The quiet graphite slides (3, 4, 11, 20, 28)
+the barriers lifting on slide 14. Both respect the reduced-motion setting and
+show their finished state instead. The quiet graphite slides (3, 4, 11, 21, 29)
 deliberately carry no figure.
 
 The locator diagram repeats across all four vendor slides on purpose. It becomes
@@ -82,10 +83,9 @@ Open `index.html` in a modern browser, or visit the published site:
 
 `https://minerclass.github.io/future-ready-not-just-ai-ready/`
 
-Landscape on a laptop or projector is recommended. All 29 slides were
-checked at 1280x720 and 1024x768 on October 3, 2026, with example rows open. The new figures on slides 6, 13, 16, and 25
-were checked at both sizes on October 5, 2026. Run the full click path and a projector check
-before presenting.
+Landscape on a laptop or projector is recommended. All 30 slides were
+checked at 1280x720, 1024x768, and 1920x1080 on October 5, 2026, after slide 12 was added.
+Run the full click path and a projector check before presenting.
 
 Type scales on `vmin`, so the deck fills a large display rather than sitting in
 the middle of it. The `clamp()` ceilings only engage above roughly 1600px.
@@ -105,8 +105,14 @@ Everything they rest on is simply **the base**, labeled "the base: the condition
 on the diagram so it is not misread: time, access, technology, policy, the building. Technology can often ease barriers there, subject to the same
 privacy, accuracy, equity, and human-review checks as any other use.
 
-The deck names **pedagogical friction** once, on slide 12, in plain words,
-alongside an Illinois student's line from the September 29 ISBE Weekly. Slide 15
+Slide 12 is the one place the deck uses scholarly names on purpose: Walter Ong's
+three stages and the two proposed stages that extend them. The point there is the
+lineage, so each name carries a plain example underneath (speech and memory,
+writing and print, radio and TV, social media feeds, generative AI), and the
+slide is optional.
+
+The deck names **pedagogical friction** once, on slide 13, in plain words,
+alongside an Illinois student's line from the September 29 ISBE Weekly. Slide 16
 leads with "Green dashboard, unfinished learning" and keeps the research term,
 unproductive success, as its label. The deck also avoids two insider terms on its slides. It says "replacing the work
 that matters" rather than "substitution," which edtech leaders may hear as the SAMR
@@ -123,15 +129,15 @@ The deck is built to be clicked during the session, not read past.
 | 8 | Portrait show of hands | Count the room, then ask leaders to put the Portrait and AI guidance in the same conversation |
 | 9 | What screen time counts | Two columns: what the report measures against what it cannot see |
 | 10 | Dashboard reveal | Ask the room what their data says about the two students, then reveal that it cannot tell them apart |
-| 13 | Remove the barriers | Count the dots that reach the work, click, and watch all twelve reach the same work. Optional 15-second scene beside it |
-| 14 | Head / Room / World nodes | Click each layer to open what it is and what it looks like when a tool absorbs it |
-| 15 | Conceptual gap reveal | Show the rising line first, then add the possible gap that independent work could test |
-| 17 | The four questions | Click any question to open why it matters, with one concrete example in each |
-| 18 | Tool sorter | Decide individually, compare with a neighbor, and vote before the reveal. Text to speech shows how the learning goal changes the decision while needed accessibility supports remain in place |
-| 19 | Eight-minute table audit | One minute to choose a use, one to model the response, four for table work, and two for reports and debrief. Leave with a safeguard, observable signal, and owner. Four finished examples open one at a time |
-| 21 to 24 | Vendor rows | On Traverse, ask the audience to name a district responsibility and evidence before revealing what stays yours. Open the remaining examples one row at a time |
-| 26 | The speaker's own Portrait | Three mapped lines, then reveal the gap he could not answer in his own district |
-| 27 | One competency, one protection, one owner | Write a commitment with an existing meeting, date, and evidence to bring; then share with a partner. Use a district priority or learning goal if no Portrait exists. Three illustrative examples remain labeled as illustrations rather than district policy |
+| 14 | Remove the barriers | Count the dots that reach the work, click, and watch all twelve reach the same work. Optional 15-second scene beside it |
+| 15 | Head / Room / World nodes | Click each layer to open what it is and what it looks like when a tool absorbs it |
+| 16 | Conceptual gap reveal | Show the rising line first, then add the possible gap that independent work could test |
+| 18 | The four questions | Click any question to open why it matters, with one concrete example in each |
+| 19 | Tool sorter | Decide individually, compare with a neighbor, and vote before the reveal. Text to speech shows how the learning goal changes the decision while needed accessibility supports remain in place |
+| 20 | Eight-minute table audit | One minute to choose a use, one to model the response, four for table work, and two for reports and debrief. Leave with a safeguard, observable signal, and owner. Four finished examples open one at a time |
+| 22 to 25 | Vendor rows | On Traverse, ask the audience to name a district responsibility and evidence before revealing what stays yours. Open the remaining examples one row at a time |
+| 27 | The speaker's own Portrait | Three mapped lines, then reveal the gap he could not answer in his own district |
+| 28 | One competency, one protection, one owner | Write a commitment with an existing meeting, date, and evidence to bring; then share with a partner. Use a district priority or learning goal if no Portrait exists. Three illustrative examples remain labeled as illustrations rather than district policy |
 
 ## Opening videos
 
@@ -140,7 +146,7 @@ Each supplied MP4 opens in the same large player and starts from the beginning,
 with native playback and fullscreen controls. Click **Back to presentation**
 or press **Escape** to return to the title slide. Closing the player stops
 playback. Slide navigation shortcuts are suspended while the player is open so
-they do not interfere with video controls. The existing 29 slide numbers and
+they do not interfere with video controls. The slide numbers and
 resource QR link stay intact.
 
 Both clips play directly from the deck's `assets` folder; no YouTube or Google
@@ -165,9 +171,9 @@ playback passed. Keep the downloaded deck available for presenting when
 internet access is unreliable. YouTube and Drive playback require a connection and access to
 the chosen service.
 
-## Scene clip on slide 13
+## Scene clip on slide 14
 
-Slide 13 carries a **Play scene** button for a 15-second clip in the same
+Slide 14 carries a **Play scene** button for a 15-second clip in the same
 illustrated style as Maya's essay: a teacher's Tuesday evening goes to IEP
 scheduling, a drafted schedule arrives that she still reviews before it goes
 out, and the time she gets back goes to feedback on Maya's essay. It shows the
@@ -207,15 +213,15 @@ rehearsal to reset opened panels before attendees arrive.
 The bottom bar also carries a **section rail** for jumping between the seven
 parts of the talk, and a **presenter timer** you start with a click.
 
-Every slide carries speaker notes. The URL tracks the slide number, so `#20`
+Every slide carries speaker notes. The URL tracks the slide number, so `#21`
 deep-links to the disclosure slide.
 
-Slide 26 references the Beach Park CCSD 3 Portrait of a Learner, which was
+Slide 27 references the Beach Park CCSD 3 Portrait of a Learner, which was
 adopted before the speaker joined the district. It is used to model the ask made
-on slide 27, not as a district showcase.
+on slide 28, not as a district showcase.
 
-Slide 29 includes a self-hosted QR code that opens this public deck directly on
-the resources slide (`#29`), so a phone does not land on slide 1. The deck link
+Slide 30 includes a self-hosted QR code that opens this public deck directly on
+the resources slide (`#30`), so a phone does not land on slide 1. The deck link
 also appears as text for people who cannot scan it. Before presenting, test the
 code from the back of the actual room, and regenerate it if the deck URL changes.
 Slide 1 also displays a QR code that opens the presentation at the beginning
@@ -226,19 +232,20 @@ subtitle changes.
 
 ## Structure
 
-29 scenes, roughly a 60 minute session with two audience exercises and twelve interactive moments.
+30 scenes, roughly a 60 minute session with two audience exercises and twelve interactive moments.
 
 1. **Opening** (1 to 5). Two questions to the room. The second lands quiet, and
    that silence is the session's premise.
 2. **Framing** (6 to 8). Future ready is a graduate question, not a procurement
    question. The durable six. The Portrait of a Graduate gap.
-3. **Screen time** (9 to 11). Why the metric fails and what replaces it.
-4. **Friction** (12 to 16). The base, Head, Room, World, unproductive success,
+3. **Screen time** (9 to 12). Why the metric fails, what replaces it, and an
+   optional minute on why this moment differs: who creates and who curates.
+4. **Friction** (13 to 17). The base, Head, Room, World, unproductive success,
    and why no vendor can solve this for you.
-5. **The lens** (17 to 19). Four questions, the tool sorter, then a table
+5. **The lens** (18 to 20). Four questions, the tool sorter, then a table
    exercise on the audience's own tools.
-6. **Examples** (20 to 25). Disclosure, four worked examples, and the pattern.
-7. **Close** (26 to 29). The speaker models the ask on his own district, then the
+6. **Examples** (21 to 26). Disclosure, four worked examples, and the pattern.
+7. **Close** (27 to 30). The speaker models the ask on his own district, then the
    next move, the close, and resources.
 
 These seven names are the section rail at the bottom of the deck.
@@ -267,9 +274,9 @@ closing commitment when shortening the talk.
   values.
 - `assets/future-ready-opener.mp4` — opening video supplied for the October 6 presentation.
 - `assets/mayas-essay-opener.mp4` — second opening clip supplied for the October 6 presentation.
-- `assets/teachers-tuesday-night.mp4` — 15-second scene clip for slide 13, no audio.
+- `assets/teachers-tuesday-night.mp4` — 15-second scene clip for slide 14, no audio.
 - `assets/teachers-tuesday-night.html` — frame-by-frame source for that clip.
-- `assets/deck-qr.svg` — static QR code for the resources slide (`…/future-ready-not-just-ai-ready/#29`).
+- `assets/deck-qr.svg` — static QR code for the resources slide (`…/future-ready-not-just-ai-ready/#30`), regenerated October 5, 2026 when slide 12 was added.
 - `assets/social-card.html` and `assets/social-card.png` — source layout and
   preview image for LinkedIn, X, and Bluesky shares.
 - `.nojekyll` — tells GitHub Pages to serve the files directly.
@@ -294,13 +301,18 @@ The deck links to these public resources:
 
 This keynote applies Kapur's (2016) concept of **unproductive success** to
 AI-supported schoolwork. **Pedagogical friction**, its Head, Room, and World
-translation, and **the Great Bypass** are Miner's proposed conceptual
-contributions from doctoral work at National Louis University. They extend media
+translation, **the Great Bypass**, and the two media stages on slide 12,
+**algorithmic secondary orality** and **tertiary algorithmicity**, are Miner's
+proposed conceptual contributions from doctoral work at National Louis
+University. The two stages extend Walter Ong's three: primary orality, literacy,
+and secondary orality. They extend media
 ecology and learning-science traditions; they are not established empirical
 findings.
 
 ## Sources
 
+- Ong, W. J. (1982). *Orality and literacy: The technologizing of the word*.
+  Methuen.
 - Kapur, M. (2016). Examining productive failure, productive success,
   unproductive failure, and unproductive success in learning. *Educational
   Psychologist, 51*(2), 289–299. https://doi.org/10.1080/00461520.2016.1155457

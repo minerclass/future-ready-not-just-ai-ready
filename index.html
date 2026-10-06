@@ -370,12 +370,13 @@
   .vrow--keep .vlabel { color:var(--clay); }
 
 
-  /* ================= ANIMATED FIGURES (slides 6, 13, 16, 25) =================
+  /* ================= FIGURES ADDED OCT 5 (slides 6, 12, 14, 17, 26) =================
      Each figure replays when its scene becomes active, because .scene toggles
      display and that restarts CSS animations. With reduced motion, the figures
      render in their finished state. Lines use pathLength="100". */
   .fig-anim svg { max-height:40vh; }
   .fig-clock svg { max-height:33vh; }
+  .fig-stages svg { max-height:42vh; }
   .anim-draw { stroke-dasharray:100; stroke-dashoffset:0; }
   .kid { transform:translate(780px,0px) scale(1.2); }
   @media (prefers-reduced-motion: no-preference) {
@@ -389,7 +390,7 @@
     @keyframes kidwalk { from{transform:translate(0px,0px) scale(.72);} to{transform:translate(780px,0px) scale(1.2);} }
   }
 
-  /* --- slide 13: remove the barriers --- */
+  /* --- slide 14: remove the barriers --- */
   .barrier-fig .blocked { transition:transform 750ms cubic-bezier(.22,.9,.3,1); transition-delay:var(--d,0s); }
   .barrier-fig .barrier { transition:opacity 380ms ease, transform 380ms ease; transform-box:fill-box; transform-origin:center; }
   .barrier-fig .eased, .barrier-fig .count-cleared { opacity:0; transition:opacity 400ms ease 350ms; }
@@ -655,7 +656,7 @@
     </div>
   </section>
 
-  <!-- 8 --><section class="scene" data-sec="Framing" data-notes="INTERACTIVE. Ask for hands and count before opening each row. Describe the actual response. Ask a district that has mapped its AI guidance to its Portrait for one example if time permits. Anyone without a Portrait can use a district priority or learning goal. Sari Factor's session takes on the connection between the Portrait and the classroom; point to it. Pacing target: finish slide 11 by minute 16.">
+  <!-- 8 --><section class="scene" data-sec="Framing" data-notes="INTERACTIVE. Ask for hands and count before opening each row. Describe the actual response. Ask a district that has mapped its AI guidance to its Portrait for one example if time permits. Anyone without a Portrait can use a district priority or learning goal. Sari Factor's session takes on the connection between the Portrait and the classroom; point to it. Pacing target: finish slide 12 by minute 16; slide 12 is optional.">
     <div class="inner wide">
       <p class="eyebrow">Show of hands</p>
       <h2>Two questions about your Portrait of a Graduate.</h2>
@@ -746,7 +747,48 @@
     </div>
   </section>
 
-  <!-- 12 --><section class="scene" data-sec="Friction" data-notes="Say plainly: I am not arguing for making school harder. Some difficulty is the point, some is just a barrier. The diagram does the structural work, do not over-explain. Say the term pedagogical friction once here, then use the plain words. Read the student quote last; it is the same student whose column appears on slide 15.">
+  <!-- 12 --><section class="scene" data-sec="Screen time" data-notes="OPTIONAL, about sixty seconds. Context, not a lecture. Walter Ong described three stages: primary orality, literacy, and the secondary orality of radio, TV, and the telephone. Through all three, people made the words and people chose which ones reached us. Point to the two rows. Social media handed the choosing to algorithms; generative AI hands over the making. Say plainly that the last two stages are your proposed extension from your doctoral work, not established terms in the field. Land it: this is why minutes cannot tell us what happened. The screen looks the same whether the student made the work or the algorithm did. Do not walk every column. IF TIME IS SHORT: skip this slide; slide 11 makes the turn on its own.">
+    <div class="inner wide">
+      <p class="eyebrow">Context &middot; who makes the words</p>
+      <h2>Why this moment is different.</h2>
+      <p class="lede" style="max-width:74ch;">For most of history, people made the words and people chose which ones reached us. Social media handed the choosing to algorithms. Generative AI hands over the making.</p>
+      <figure class="fig-anim fig-stages">
+        <svg viewBox="0 0 1000 290" role="img" aria-label="Five media stages across two rows, who creates and who curates. Walter Ong's three stages, primary orality, literacy, and secondary orality, are people in both rows. Miner's first proposed stage, algorithmic secondary orality, the era of social media feeds, has people creating and an algorithm curating. His second proposed stage, tertiary algorithmicity, the era of generative AI, has an algorithm in both rows.">
+            <text x="0" y="146" font-size="13" font-weight="700" letter-spacing="1.5" fill="#4A5158">WHO CREATES</text>
+            <text x="0" y="208" font-size="13" font-weight="700" letter-spacing="1.5" fill="#4A5158">WHO CURATES</text>
+            <text x="216.0" y="26" font-size="16" font-weight="700" text-anchor="middle" fill="#191D21">Primary</text>
+            <text x="216.0" y="46" font-size="16" font-weight="700" text-anchor="middle" fill="#191D21">orality</text>
+            <text x="216.0" y="74" font-size="13" font-style="italic" text-anchor="middle" fill="#4A5158">speech and memory</text>
+            <rect x="132" y="116" width="168" height="48" rx="3" fill="#F2DFD7" stroke="#A63D26" stroke-width="2"/><text x="216.0" y="146" font-size="15" font-weight="700" text-anchor="middle" fill="#7A2C1B">people</text>
+            <rect x="132" y="178" width="168" height="48" rx="3" fill="#F2DFD7" stroke="#A63D26" stroke-width="2"/><text x="216.0" y="208" font-size="15" font-weight="700" text-anchor="middle" fill="#7A2C1B">people</text>
+            <text x="390.0" y="36" font-size="16" font-weight="700" text-anchor="middle" fill="#191D21">Literacy</text>
+            <text x="390.0" y="74" font-size="13" font-style="italic" text-anchor="middle" fill="#4A5158">writing and print</text>
+            <rect x="306" y="116" width="168" height="48" rx="3" fill="#F2DFD7" stroke="#A63D26" stroke-width="2"/><text x="390.0" y="146" font-size="15" font-weight="700" text-anchor="middle" fill="#7A2C1B">people</text>
+            <rect x="306" y="178" width="168" height="48" rx="3" fill="#F2DFD7" stroke="#A63D26" stroke-width="2"/><text x="390.0" y="208" font-size="15" font-weight="700" text-anchor="middle" fill="#7A2C1B">people</text>
+            <text x="564.0" y="26" font-size="16" font-weight="700" text-anchor="middle" fill="#191D21">Secondary</text>
+            <text x="564.0" y="46" font-size="16" font-weight="700" text-anchor="middle" fill="#191D21">orality</text>
+            <text x="564.0" y="74" font-size="13" font-style="italic" text-anchor="middle" fill="#4A5158">radio, TV, telephone</text>
+            <rect x="480" y="116" width="168" height="48" rx="3" fill="#F2DFD7" stroke="#A63D26" stroke-width="2"/><text x="564.0" y="146" font-size="15" font-weight="700" text-anchor="middle" fill="#7A2C1B">people</text>
+            <rect x="480" y="178" width="168" height="48" rx="3" fill="#F2DFD7" stroke="#A63D26" stroke-width="2"/><text x="564.0" y="208" font-size="15" font-weight="700" text-anchor="middle" fill="#7A2C1B">people</text>
+            <text x="738.0" y="26" font-size="16" font-weight="700" text-anchor="middle" fill="#191D21">Algorithmic</text>
+            <text x="738.0" y="46" font-size="16" font-weight="700" text-anchor="middle" fill="#191D21">secondary orality</text>
+            <text x="738.0" y="74" font-size="13" font-style="italic" text-anchor="middle" fill="#4A5158">social media feeds</text>
+            <rect x="654" y="116" width="168" height="48" rx="3" fill="#F2DFD7" stroke="#A63D26" stroke-width="2"/><text x="738.0" y="146" font-size="15" font-weight="700" text-anchor="middle" fill="#7A2C1B">people</text>
+            <rect x="654" y="178" width="168" height="48" rx="3" fill="#0E6E78" stroke="#0B5B63" stroke-width="2"/><text x="738.0" y="208" font-size="15" font-weight="700" text-anchor="middle" fill="#FFFFFF">algorithm</text>
+            <text x="912.0" y="26" font-size="16" font-weight="700" text-anchor="middle" fill="#191D21">Tertiary</text>
+            <text x="912.0" y="46" font-size="16" font-weight="700" text-anchor="middle" fill="#191D21">algorithmicity</text>
+            <text x="912.0" y="74" font-size="13" font-style="italic" text-anchor="middle" fill="#4A5158">generative AI</text>
+            <rect x="828" y="116" width="168" height="48" rx="3" fill="#0E6E78" stroke="#0B5B63" stroke-width="2"/><text x="912.0" y="146" font-size="15" font-weight="700" text-anchor="middle" fill="#FFFFFF">algorithm</text>
+            <rect x="828" y="178" width="168" height="48" rx="3" fill="#0E6E78" stroke="#0B5B63" stroke-width="2"/><text x="912.0" y="208" font-size="15" font-weight="700" text-anchor="middle" fill="#FFFFFF">algorithm</text>
+            <path d="M136 244 L136 254 L644 254 L644 244" fill="none" stroke="#4A5158" stroke-width="2"/><text x="390.0" y="278" font-size="13" font-weight="700" letter-spacing="1.5" text-anchor="middle" fill="#4A5158">WALTER ONG: THREE STAGES</text>
+            <path d="M658 244 L658 254 L992 254 L992 244" fill="none" stroke="#0E6E78" stroke-width="2"/><text x="825.0" y="278" font-size="13" font-weight="700" letter-spacing="1.5" text-anchor="middle" fill="#0E6E78">MINER: TWO PROPOSED STAGES</text>
+        </svg>
+        <figcaption>Ong, <em>Orality and Literacy</em> (1982). The last two stages are Miner's proposed extension from doctoral work at National Louis University, not established terms.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 13 --><section class="scene" data-sec="Friction" data-notes="Say plainly: I am not arguing for making school harder. Some difficulty is the point, some is just a barrier. The diagram does the structural work, do not over-explain. Say the term pedagogical friction once here, then use the plain words. Read the student quote last; it is the same student whose column appears on slide 16.">
     <div class="inner wide">
       <p class="eyebrow">The reframe</p>
       <h2>Friction is not one thing.</h2>
@@ -792,7 +834,7 @@
     </div>
   </section>
 
-  <!-- 13 --><section class="scene" data-sec="Friction" data-notes="Be generous here. Leaders who apply blanket AI caution end up restricting the safest use while permitting the riskiest. Say that out loud. Ask the room to count the dots that reach Head, Room, and World: three of twelve. Click Remove the barriers. All twelve now reach the same work, and the work itself did not change. That is the point: easing the base changes who reaches the work; it does not do the work for them. OPTIONAL, 15 seconds, no audio: Play scene shows a teacher whose evening goes to IEP scheduling, a drafted schedule she still reviews, and the time she gets back spent on feedback for Maya. Skip it if Maya's essay did not open the session. The illustration is not student data. IF TIME IS SHORT: say this slide's point while still on slide 12 and skip it.">
+  <!-- 14 --><section class="scene" data-sec="Friction" data-notes="Be generous here. Leaders who apply blanket AI caution end up restricting the safest use while permitting the riskiest. Say that out loud. Ask the room to count the dots that reach Head, Room, and World: three of twelve. Click Remove the barriers. All twelve now reach the same work, and the work itself did not change. That is the point: easing the base changes who reaches the work; it does not do the work for them. OPTIONAL, 15 seconds, no audio: Play scene shows a teacher whose evening goes to IEP scheduling, a drafted schedule she still reviews, and the time she gets back spent on feedback for Maya. Skip it if Maya's essay did not open the session. The illustration is not student data. IF TIME IS SHORT: say this slide's point while still on slide 13 and skip it.">
     <div class="inner wide">
       <span class="tagline tagline--reduce">Reduce this layer</span>
       <h2>The base: the conditions</h2>
@@ -822,7 +864,7 @@
     </div>
   </section>
 
-  <!-- 14 --><section class="scene" data-sec="Friction" data-notes="INTERACTIVE. Click each one as you talk through it. Head, Room, World. Roughly forty seconds each. World is the developmental layer the session description promises: who students become, not only what they produce. The panel names what it looks like when a tool absorbs that layer.">
+  <!-- 15 --><section class="scene" data-sec="Friction" data-notes="INTERACTIVE. Click each one as you talk through it. Head, Room, World. Roughly forty seconds each. World is the developmental layer the session description promises: who students become, not only what they produce. The panel names what it looks like when a tool absorbs that layer.">
     <div class="inner wide">
       <p class="eyebrow">The three you protect</p>
       <h2>Head, Room, and World.</h2>
@@ -863,7 +905,7 @@
     </div>
   </section>
 
-  <!-- 15 --><section class="scene dark" data-sec="Friction" data-notes="INTERACTIVE. This is a conceptual illustration, not measured student data. Show the rising line first and ask what it means. Most rooms read it as good news. THEN click to add the flat line. Trace the possible gap with your hand. Independent work is how leaders could test for it. Credit the term aloud: unproductive success comes from Manu Kapur (2016, Educational Psychologist); the i.e.: inquiry in education article extends it to generative AI. The caption link is the September 29 ISBE Weekly. Do not name the student. If you use it, say an Illinois student wrote that top grades and a perfect GPA can arrive without the skills those grades are supposed to represent.">
+  <!-- 16 --><section class="scene dark" data-sec="Friction" data-notes="INTERACTIVE. This is a conceptual illustration, not measured student data. Show the rising line first and ask what it means. Most rooms read it as good news. THEN click to add the flat line. Trace the possible gap with your hand. Independent work is how leaders could test for it. Credit the term aloud: unproductive success comes from Manu Kapur (2016, Educational Psychologist); the i.e.: inquiry in education article extends it to generative AI. The caption link is the September 29 ISBE Weekly. Do not name the student. If you use it, say an Illinois student wrote that top grades and a perfect GPA can arrive without the skills those grades are supposed to represent.">
     <div class="inner wide">
       <p class="eyebrow">Researchers call this unproductive success</p>
       <h2>Green dashboard, unfinished learning</h2>
@@ -893,7 +935,7 @@
     </div>
   </section>
 
-  <!-- 16 --><section class="scene" data-sec="Friction" data-notes="Tools can be designed to preserve productive struggle. The point is that educators and leaders must still judge the fit between a tool's design, the learning goal, and the learner's needs. Trace the diagram once: the tool brings its design, the district brings the goal and the learner, and the call in the middle leads to keep, change, constrain, or stop, the same four options the room votes on at slide 18. Say it warmly. Pacing target: arrive at the four questions by minute 26.">
+  <!-- 17 --><section class="scene" data-sec="Friction" data-notes="Tools can be designed to preserve productive struggle. The point is that educators and leaders must still judge the fit between a tool's design, the learning goal, and the learner's needs. Trace the diagram once: the tool brings its design, the district brings the goal and the learner, and the call in the middle leads to keep, change, constrain, or stop, the same four options the room votes on at slide 19. Say it warmly. Pacing target: arrive at the four questions by minute 26.">
     <div class="inner wide">
       <p class="eyebrow">The part that is nobody's fault</p>
       <h2>The instructional judgment stays with you.</h2>
@@ -912,7 +954,7 @@
     </div>
   </section>
 
-  <!-- 17 --><section class="scene" data-sec="The lens" data-notes="INTERACTIVE. Click each question to open the why. Four is the one that changes procurement conversations. Leave four open when you move on. This lens diagnoses displaced learning; it does not clear a use for privacy, accuracy, bias, access, or academic integrity. Those are separate safeguards, including when a tool eases only the base. IF SOMEONE RAISES THE RED/YELLOW/GREEN TRAFFIC LIGHT SYSTEM (the ISBE Weekly student describes it): the light sets permission for each assignment; these four questions decide which color, by naming the work that has to stay with the student.">
+  <!-- 18 --><section class="scene" data-sec="The lens" data-notes="INTERACTIVE. Click each question to open the why. Four is the one that changes procurement conversations. Leave four open when you move on. This lens diagnoses displaced learning; it does not clear a use for privacy, accuracy, bias, access, or academic integrity. Those are separate safeguards, including when a tool eases only the base. IF SOMEONE RAISES THE RED/YELLOW/GREEN TRAFFIC LIGHT SYSTEM (the ISBE Weekly student describes it): the light sets permission for each assignment; these four questions decide which color, by naming the work that has to stay with the student.">
     <div class="inner">
       <p class="eyebrow">The lens</p>
       <h2>Four questions. Any tool, any vendor.</h2>
@@ -942,7 +984,7 @@
     </div>
   </section>
 
-  <!-- 18 --><section class="scene" data-sec="The lens" data-notes="VOTE BEFORE THE REVEAL. Use two examples, plus text to speech last. For each, give ten seconds to decide alone, twenty seconds to explain to a neighbor, then ask for a show of hands: keep, change, constrain, or stop. Ask what information is missing before clicking. For text to speech, compare evaluating historical evidence with practicing decoding: Same feature. Different learning goal. What changes about your decision? Retain needed accessibility supports in both situations. Allow about three minutes for this discussion. Base-layer relief still needs privacy, accuracy, access, bias, and integrity checks. Pacing target: begin the table audit by minute 34.">
+  <!-- 19 --><section class="scene" data-sec="The lens" data-notes="VOTE BEFORE THE REVEAL. Use two examples, plus text to speech last. For each, give ten seconds to decide alone, twenty seconds to explain to a neighbor, then ask for a show of hands: keep, change, constrain, or stop. Ask what information is missing before clicking. For text to speech, compare evaluating historical evidence with practicing decoding: Same feature. Different learning goal. What changes about your decision? Retain needed accessibility supports in both situations. Allow about three minutes for this discussion. Base-layer relief still needs privacy, accuracy, access, bias, and integrity checks. Pacing target: begin the table audit by minute 34.">
     <div class="inner wide">
       <p class="eyebrow">Try the lens &middot; pick one</p>
       <h2>Which layer does it ease?</h2>
@@ -975,7 +1017,7 @@
     </div>
   </section>
 
-  <!-- 19 --><section class="scene" data-sec="The lens" data-notes="EIGHT MINUTES TOTAL. One minute: choose one specific use and a recorder. One minute: open the reading example and model the finished sentence. Four minutes: table discussion and writing in participants' own notes. Two minutes: two thirty-second reports and your response. Start the four-minute work period only after the task is clear. Walk the room and ask: What would you actually look at to know whether this protection was working? Listen for a learning goal, an observable signal, and an owner. Keep needed accessibility supports. Use a familiar non-Imagine Learning use here. Pacing target: finish the debrief by minute 42.">
+  <!-- 20 --><section class="scene" data-sec="The lens" data-notes="EIGHT MINUTES TOTAL. One minute: choose one specific use and a recorder. One minute: open the reading example and model the finished sentence. Four minutes: table discussion and writing in participants' own notes. Two minutes: two thirty-second reports and your response. Start the four-minute work period only after the task is clear. Walk the room and ask: What would you actually look at to know whether this protection was working? Listen for a learning goal, an observable signal, and an owner. Keep needed accessibility supports. Use a familiar non-Imagine Learning use here. Pacing target: finish the debrief by minute 42.">
     <div class="inner wide">
       <p class="eyebrow">Table audit &middot; eight minutes together</p>
       <h2>One real district use</h2>
@@ -999,7 +1041,7 @@
     </div>
   </section>
 
-  <!-- 20 --><section class="scene dark" data-sec="Examples" data-notes="Say this plainly, do not rush. Disclosure before the examples is what makes the examples credible. Look at Marla and Liz on the first line. If someone asks who decides renewal, answer plainly with how that decision works in your district.">
+  <!-- 21 --><section class="scene dark" data-sec="Examples" data-notes="Say this plainly, do not rush. Disclosure before the examples is what makes the examples credible. Look at Marla and Liz on the first line. If someone asks who decides renewal, answer plainly with how that decision works in your district.">
     <div class="inner">
       <p class="eyebrow">Before the examples, some disclosure</p>
       <h2>Why I am using our hosts as the worked example.</h2>
@@ -1012,7 +1054,7 @@
     </div>
   </section>
 
-  <!-- 21 --><section class="scene" data-sec="Examples" data-notes="AUDIENCE DECISION. Open the design choice and balance, keeping What stays yours closed. Ask: What responsibility would you keep with the district, and what evidence would you inspect? Take two brief answers, then reveal your response. Use this discussion on Traverse only; keep the other three examples moving. Do not claim every source set preserves ambiguity. Ask where students must evaluate evidence and commit to an interpretation. Point at the locator once and let them read the later versions. Budget nine minutes for disclosure and all four examples; reach slide 26 by minute 51.">
+  <!-- 22 --><section class="scene" data-sec="Examples" data-notes="AUDIENCE DECISION. Open the design choice and balance, keeping What stays yours closed. Ask: What responsibility would you keep with the district, and what evidence would you inspect? Take two brief answers, then reveal your response. Use this discussion on Traverse only; keep the other three examples moving. Do not claim every source set preserves ambiguity. Ask where students must evaluate evidence and commit to an interpretation. Point at the locator once and let them read the later versions. Budget nine minutes for disclosure and all four examples; reach slide 27 by minute 51.">
     <div class="inner wide">
       <p class="eyebrow">Worked example &middot; social studies</p>
       <h2>Traverse</h2>
@@ -1047,7 +1089,7 @@
     </div>
   </section>
 
-  <!-- 22 --><section class="scene" data-sec="Examples" data-notes="Imagine IM has two AI roles, both under the ClassMate name: ClassMate Teacher Tools (practice, lesson plans, resources, family communications) and the ClassMate Student AI Tutor (grades 6-8), which follows a Knowledge Check and addresses misconceptions before the lesson. Lead with the teacher tools, then name the student AI Tutor plainly. The student-facing role moves this from a clean base example to a boundary decision. Imagine Learning's own IL Classroom updates call it the ClassMate Student AI Tutor. Both features must be enabled by the school, and teachers can turn them off for a class or student.">
+  <!-- 23 --><section class="scene" data-sec="Examples" data-notes="Imagine IM has two AI roles, both under the ClassMate name: ClassMate Teacher Tools (practice, lesson plans, resources, family communications) and the ClassMate Student AI Tutor (grades 6-8), which follows a Knowledge Check and addresses misconceptions before the lesson. Lead with the teacher tools, then name the student AI Tutor plainly. The student-facing role moves this from a clean base example to a boundary decision. Imagine Learning's own IL Classroom updates call it the ClassMate Student AI Tutor. Both features must be enabled by the school, and teachers can turn them off for a class or student.">
     <div class="inner wide">
       <p class="eyebrow">Worked example &middot; mathematics</p>
       <h2>Imagine IM and ClassMate</h2>
@@ -1075,7 +1117,7 @@
     </div>
   </section>
 
-  <!-- 23 --><section class="scene" data-sec="Examples" data-notes="The honest one. Make the case FOR fast feedback seriously before opening the third row, or it sounds like a gotcha. Be precise: the assistant suggests editable comments on short writing and essays, not scores; the teacher remains responsible for reviewing and delivering the feedback. Scale, from Imagine Learning's own case study: by spring 2025, 58 percent of short-writing feedback in EdgeEX was AI-assisted. That is why the third row matters. The 23 and 32 hours are average time from submission to teacher response in that same case study; say vendor-reported.">
+  <!-- 24 --><section class="scene" data-sec="Examples" data-notes="The honest one. Make the case FOR fast feedback seriously before opening the third row, or it sounds like a gotcha. Be precise: the assistant suggests editable comments on short writing and essays, not scores; the teacher remains responsible for reviewing and delivering the feedback. Scale, from Imagine Learning's own case study: by spring 2025, 58 percent of short-writing feedback in EdgeEX was AI-assisted. That is why the third row matters. The 23 and 32 hours are average time from submission to teacher response in that same case study; say vendor-reported.">
     <div class="inner wide">
       <p class="eyebrow">Worked example &middot; courseware</p>
       <h2>EdgeEX</h2>
@@ -1104,7 +1146,7 @@
     </div>
   </section>
 
-  <!-- 24 --><section class="scene" data-sec="Examples" data-notes="Reducing load so a student can engage does NOT skip the learning. Say that clearly before opening row three. MyPath documentation (August 2026) says paths build prerequisite skills toward the grade-level skill, and educators can change placement or use Assignment Builder to extend learning. The governance question is whether anyone monitors trajectory and uses those controls before support becomes a ceiling.">
+  <!-- 25 --><section class="scene" data-sec="Examples" data-notes="Reducing load so a student can engage does NOT skip the learning. Say that clearly before opening row three. MyPath documentation (August 2026) says paths build prerequisite skills toward the grade-level skill, and educators can change placement or use Assignment Builder to extend learning. The governance question is whether anyone monitors trajectory and uses those controls before support becomes a ceiling.">
     <div class="inner wide">
       <p class="eyebrow">Worked example &middot; intervention</p>
       <h2>MyPath</h2>
@@ -1141,7 +1183,7 @@
     </div>
   </section>
 
-  <!-- 25 --><section class="scene dark" data-sec="Examples" data-notes="Pull the four together. The pattern is the payload, not any individual product. Let the fork sit; it is an illustration, not a finding. Same software, two decisions. Name the governance boundary before the final line: the friction lens diagnoses what a use changes, while privacy, bias, equity, and integrity remain non-negotiable safeguards. This is where the session description's digital citizenship promise lands: for a district, digital citizenship is less a unit than a set of decisions about what students still do for themselves.">
+  <!-- 26 --><section class="scene dark" data-sec="Examples" data-notes="Pull the four together. The pattern is the payload, not any individual product. Let the fork sit; it is an illustration, not a finding. Same software, two decisions. Name the governance boundary before the final line: the friction lens diagnoses what a use changes, while privacy, bias, equity, and integrity remain non-negotiable safeguards. This is where the session description's digital citizenship promise lands: for a district, digital citizenship is less a unit than a set of decisions about what students still do for themselves.">
     <div class="inner wide">
       <p class="eyebrow">The pattern across all four</p>
       <div class="split split--fig">
@@ -1171,7 +1213,7 @@
     </div>
   </section>
 
-  <!-- 26 --><section class="scene" data-sec="Close" data-notes="Keep this to about one minute so the room has time for its own commitment. Model how a leader tests a local aspiration against AI guidance, then walk the three rows. Click the reveal after posing your question. EXPECT THE FOLLOW-UP: so what did you do about it? Rehearse one truthful sentence about your actual next step. Name the action, who is involved, and when it will be discussed. Describe planned work as planned; do not imply it is already completed.">
+  <!-- 27 --><section class="scene" data-sec="Close" data-notes="Keep this to about one minute so the room has time for its own commitment. Model how a leader tests a local aspiration against AI guidance, then walk the three rows. Click the reveal after posing your question. EXPECT THE FOLLOW-UP: so what did you do about it? Rehearse one truthful sentence about your actual next step. Name the action, who is involved, and when it will be discussed. Describe planned work as planned; do not imply it is already completed.">
     <div class="inner wide">
       <p class="eyebrow">Before I ask you to do this</p>
       <h2>Ours. Written before I got here.</h2>
@@ -1202,7 +1244,7 @@
     </div>
   </section>
 
-  <!-- 27 --><section class="scene" data-sec="Close" data-notes="Open one example, read it, then close it before participants write their own. These are illustrations, not Beach Park policy. Keep needed accessibility supports while looking for student thinking. Anyone without a Portrait can choose a learning goal or district priority. Give ninety seconds of silent writing, including a date and an existing meeting. Then ask partners to share their commitment in thirty seconds each. A useful commitment names the competency, protection, owner, and the evidence to bring. Pacing target: close by minute 55 and leave five minutes for questions.">
+  <!-- 28 --><section class="scene" data-sec="Close" data-notes="Open one example, read it, then close it before participants write their own. These are illustrations, not Beach Park policy. Keep needed accessibility supports while looking for student thinking. Anyone without a Portrait can choose a learning goal or district priority. Give ninety seconds of silent writing, including a date and an existing meeting. Then ask partners to share their commitment in thirty seconds each. A useful commitment names the competency, protection, owner, and the evidence to bring. Pacing target: close by minute 55 and leave five minutes for questions.">
     <div class="inner">
       <p class="eyebrow">The next move &middot; ninety seconds, silent</p>
       <h2>One competency. One protection. One owner.</h2>
@@ -1219,7 +1261,7 @@
     </div>
   </section>
 
-  <!-- 28 --><section class="scene dark" data-sec="Close" data-notes="Return to what the room said at the opening: what got easier, what got better, and the evidence that distinguishes them. Land the line and pause. Then advance silently to resources for questions. Keep the final five minutes available for the room.">
+  <!-- 29 --><section class="scene dark" data-sec="Close" data-notes="Return to what the room said at the opening: what got easier, what got better, and the evidence that distinguishes them. Land the line and pause. Then advance silently to resources for questions. Keep the final five minutes available for the room.">
     <div class="inner">
       <p class="eyebrow">Where we started</p>
       <p class="huge">The districts that will be future ready are not the ones that adopted fastest.</p>
@@ -1227,7 +1269,7 @@
     </div>
   </section>
 
-  <!-- 29 --><section class="scene" data-sec="Close" data-notes="Leave this up during questions. The primer is the single best takeaway for this audience.">
+  <!-- 30 --><section class="scene" data-sec="Close" data-notes="Leave this up during questions. The primer is the single best takeaway for this audience.">
     <div class="inner">
       <p class="eyebrow">Take one thing with you</p>
       <h2>Resources</h2>
@@ -1241,7 +1283,7 @@
         <li><span class="bullet">&rarr;</span><span><a href="https://minerclass.github.io/future-ready-not-just-ai-ready/">These slides, with every link above</a><span>minerclass.github.io/future-ready-not-just-ai-ready</span></span></li>
       </ul>
         <div class="resource-scan">
-          <a href="https://minerclass.github.io/future-ready-not-just-ai-ready/#29"><img src="assets/deck-qr.svg" width="328" height="328" alt="QR code linking to the resources slide of this public deck"></a>
+          <a href="https://minerclass.github.io/future-ready-not-just-ai-ready/#30"><img src="assets/deck-qr.svg" width="328" height="328" alt="QR code linking to the resources slide of this public deck"></a>
           <p>Scan for these slides and every link.</p>
         </div>
       </div>
@@ -1262,7 +1304,7 @@
     <button class="ctl" id="btnOverview" type="button" aria-label="Toggle slide overview">Overview</button>
     <button class="ctl" id="btnNotes" type="button" aria-label="Toggle speaker notes">Notes</button>
     <button class="ctl" id="btnPrev" type="button" aria-label="Previous slide">Prev</button>
-    <span class="chrome-left counter" id="counter">1 / 29</span>
+    <span class="chrome-left counter" id="counter">1 / 30</span>
     <button class="ctl" id="btnNext" type="button" aria-label="Next slide">Next</button>
   </div>
 </div>
@@ -1467,7 +1509,7 @@
     });
   });
 
-  /* ---------- interactive: remove the barriers (slide 13) ---------- */
+  /* ---------- interactive: remove the barriers (slide 14) ---------- */
   Array.prototype.forEach.call(document.querySelectorAll('[data-clear]'), function (btn) {
     btn.addEventListener('click', function () {
       var fig = $(btn.getAttribute('data-clear'));
