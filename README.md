@@ -55,14 +55,23 @@ Grounds alternate. Most content sits on stone. Eight scenes drop to graphite for
 the moments where the room should go quiet: the two opening questions, the pivot,
 unproductive success, the disclosure, the pattern, and the close.
 
-Seven diagrams do work the prose cannot:
+Eleven diagrams do work the prose cannot:
 
 | Slide | Figure | What it shows |
 |---|---|---|
+| 6 | Two clocks | The procurement clock renews every year; one cohort, this fall's third graders, travels a single line to graduation in 2036, with evidence checks every year. Plays once on arrival |
 | 10 | Two students, forty-five minutes | Identical bars, opposite internal composition, identical dashboard row |
 | 12 | The friction layers | Head, Room and World as equal layers resting on one wide base |
+| 13 | Remove the barriers | Twelve students below the base; barriers stop nine. Removing them lets all twelve reach the same, unchanged work. An illustration, not student data |
 | 15 | Unproductive success | An illustrative gap between visible output and what independent work might reveal, not measured student data |
+| 16 | Where the judgment sits | Tool design, learning goal, and learner needs meet at one decision point held by educators and leaders, leading to keep, change, constrain, or stop. Static |
 | 21 to 24 | Tool locators | Which layer each platform acts on, drawn on the same strata shape each time |
+| 25 | Same software, two decisions | A fork: identical software leads to students still doing the thinking, or to the tool quietly doing the work, depending on whether the district decided on purpose. Static, on graphite |
+
+Motion is used only where it carries the point: time passing on slide 6 and
+the barriers lifting on slide 13. Both respect the reduced-motion setting and
+show their finished state instead. The quiet graphite slides (3, 4, 11, 20, 28)
+deliberately carry no figure.
 
 The locator diagram repeats across all four vendor slides on purpose. It becomes
 a visual grammar the audience learns once and then reads without help.
@@ -74,7 +83,8 @@ Open `index.html` in a modern browser, or visit the published site:
 `https://minerclass.github.io/future-ready-not-just-ai-ready/`
 
 Landscape on a laptop or projector is recommended. All 29 slides were
-checked at 1280x720 and 1024x768 on October 3, 2026, with example rows open; run the full click path and a projector check
+checked at 1280x720 and 1024x768 on October 3, 2026, with example rows open. The new figures on slides 6, 13, 16, and 25
+were checked at both sizes on October 5, 2026. Run the full click path and a projector check
 before presenting.
 
 Type scales on `vmin`, so the deck fills a large display rather than sitting in
@@ -113,6 +123,7 @@ The deck is built to be clicked during the session, not read past.
 | 8 | Portrait show of hands | Count the room, then ask leaders to put the Portrait and AI guidance in the same conversation |
 | 9 | What screen time counts | Two columns: what the report measures against what it cannot see |
 | 10 | Dashboard reveal | Ask the room what their data says about the two students, then reveal that it cannot tell them apart |
+| 13 | Remove the barriers | Count the dots that reach the work, click, and watch all twelve reach the same work. Optional 15-second scene beside it |
 | 14 | Head / Room / World nodes | Click each layer to open what it is and what it looks like when a tool absorbs it |
 | 15 | Conceptual gap reveal | Show the rising line first, then add the possible gap that independent work could test |
 | 17 | The four questions | Click any question to open why it matters, with one concrete example in each |
@@ -153,6 +164,20 @@ browser check that day, so Drive playback remains unverified. MP4 and YouTube
 playback passed. Keep the downloaded deck available for presenting when
 internet access is unreliable. YouTube and Drive playback require a connection and access to
 the chosen service.
+
+## Scene clip on slide 13
+
+Slide 13 carries a **Play scene** button for a 15-second clip in the same
+illustrated style as Maya's essay: a teacher's Tuesday evening goes to IEP
+scheduling, a drafted schedule arrives that she still reviews before it goes
+out, and the time she gets back goes to feedback on Maya's essay. It shows the
+base getting easier while the thinking stays with people. The clip has no audio
+and opens in the same player as the opening videos. It has no YouTube or Google
+Drive copy, so the player shows only the download link for it.
+
+The clip was rendered frame by frame from `assets/teachers-tuesday-night.html`
+(open it with `#7.5` to preview any moment). The teacher, schedule, and essay
+are illustrations, not district data.
 
 ## Presenter controls
 
@@ -195,7 +220,7 @@ subtitle changes.
 
 ## Structure
 
-29 scenes, roughly a 60 minute session with two audience exercises and eleven interactive moments.
+29 scenes, roughly a 60 minute session with two audience exercises and twelve interactive moments.
 
 1. **Opening** (1 to 5). Two questions to the room. The second lands quiet, and
    that silence is the session's premise.
@@ -236,6 +261,8 @@ closing commitment when shortening the talk.
   values.
 - `assets/future-ready-opener.mp4` — opening video supplied for the October 6 presentation.
 - `assets/mayas-essay-opener.mp4` — second opening clip supplied for the October 6 presentation.
+- `assets/teachers-tuesday-night.mp4` — 15-second scene clip for slide 13, no audio.
+- `assets/teachers-tuesday-night.html` — frame-by-frame source for that clip.
 - `assets/deck-qr.svg` — static QR code for the resources slide (`…/future-ready-not-just-ai-ready/#29`).
 - `assets/social-card.html` and `assets/social-card.png` — source layout and
   preview image for LinkedIn, X, and Bluesky shares.

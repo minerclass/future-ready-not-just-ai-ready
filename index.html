@@ -369,6 +369,40 @@
   .examples .ex-head { font-family:var(--font-data); font-size:clamp(0.68rem,1.45vmin,0.86rem); letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-faint); }
   .vrow--keep .vlabel { color:var(--clay); }
 
+
+  /* ================= ANIMATED FIGURES (slides 6, 13, 16, 25) =================
+     Each figure replays when its scene becomes active, because .scene toggles
+     display and that restarts CSS animations. With reduced motion, the figures
+     render in their finished state. Lines use pathLength="100". */
+  .fig-anim svg { max-height:40vh; }
+  .fig-clock svg { max-height:33vh; }
+  .anim-draw { stroke-dasharray:100; stroke-dashoffset:0; }
+  .kid { transform:translate(780px,0px) scale(1.2); }
+  @media (prefers-reduced-motion: no-preference) {
+    .scene.is-active .anim-draw { animation:figdraw var(--dur,1.1s) var(--ease,cubic-bezier(.4,0,.2,1)) var(--delay,0s) both; }
+    .scene.is-active .anim-fade { animation:figfade .45s ease var(--delay,0s) both; }
+    .scene.is-active .anim-pop { animation:figpop .5s cubic-bezier(.22,.9,.3,1.15) var(--delay,0s) both; transform-box:fill-box; transform-origin:center; }
+    .scene.is-active .kid { animation:kidwalk 4.2s linear .6s both; }
+    @keyframes figdraw { from{stroke-dashoffset:100;} to{stroke-dashoffset:0;} }
+    @keyframes figfade { from{opacity:0;} to{opacity:1;} }
+    @keyframes figpop { from{opacity:0;transform:scale(.86);} to{opacity:1;transform:none;} }
+    @keyframes kidwalk { from{transform:translate(0px,0px) scale(.72);} to{transform:translate(780px,0px) scale(1.2);} }
+  }
+
+  /* --- slide 13: remove the barriers --- */
+  .barrier-fig .blocked { transition:transform 750ms cubic-bezier(.22,.9,.3,1); transition-delay:var(--d,0s); }
+  .barrier-fig .barrier { transition:opacity 380ms ease, transform 380ms ease; transform-box:fill-box; transform-origin:center; }
+  .barrier-fig .eased, .barrier-fig .count-cleared { opacity:0; transition:opacity 400ms ease 350ms; }
+  .barrier-fig .count-blocked { transition:opacity 300ms ease; }
+  .barrier-fig.is-cleared .blocked { transform:translateY(-134px); }
+  .barrier-fig.is-cleared .barrier { opacity:0; transform:scaleY(0.2); }
+  .barrier-fig.is-cleared .eased, .barrier-fig.is-cleared .count-cleared { opacity:1; }
+  .barrier-fig.is-cleared .count-blocked, .barrier-fig.is-cleared .gapline { opacity:0; }
+  .barrier-fig .gapline { transition:opacity 300ms ease; }
+  @media (prefers-reduced-motion:reduce){ .barrier-fig * { transition:none !important; } }
+  .fig-actions { display:flex; flex-wrap:wrap; gap:0.5rem; align-items:center; }
+  .huge--split { font-size:clamp(1.6rem,5vmin,4.4rem); }
+
   /* ---------- opening video ---------- */
   .inner.opening-layout { display:grid; grid-template-columns:minmax(0,1fr) clamp(12rem,27vmin,17rem); align-items:center; gap:clamp(1.5rem,4vw,3.5rem); }
   .opening-copy { display:flex; flex-direction:column; gap:clamp(0.7rem,2.3vmin,1.9rem); min-width:0; }
@@ -386,6 +420,14 @@
     font:inherit; font-size:clamp(0.9rem,1.9vmin,1.25rem); cursor:pointer;
   }
   .opener-launch:hover { background:var(--signal); }
+
+  /* A scene clip launched from a light slide uses the deck's button language. */
+  .opener-launch.scene-launch {
+    font-family:var(--font-data); font-size:clamp(0.72rem,1.55vmin,0.95rem); letter-spacing:0.12em; text-transform:uppercase;
+    background:transparent; color:var(--signal); border:2px solid var(--signal); padding:0.42rem 0.85rem;
+  }
+  .opener-launch.scene-launch:hover { background:var(--signal-wash); }
+  .opener-launch.scene-launch::before { content:"\25B6\00A0"; font-size:0.85em; }
   .opener-backups { display:flex; flex-wrap:wrap; gap:0.4rem 2rem; font-size:clamp(0.82rem,1.8vmin,1.1rem); color:var(--on-dark-soft); }
   .opener-backups p { margin:0; }
   .opener-backups a { margin-left:0.6rem; }
@@ -530,7 +572,7 @@
     </div>
   </section>
 
-  <!-- 6 --><section class="scene" data-sec="Framing" data-notes="Definition slide. Keep it short. A decade is the horizon for graduate outcomes, not permission to wait a decade to inspect learning. Look for early signs in independent work now.">
+  <!-- 6 --><section class="scene" data-sec="Framing" data-notes="Definition slide. Keep it short. The timeline plays on its own: the teal loops are the procurement clock, renewing every year; the clay line is one cohort, this fall's third graders, who graduate in 2036. A decade is the horizon for graduate outcomes, not permission to wait a decade to inspect learning. Point at the dots on the clay line: look for early signs in independent work every year.">
     <div class="inner">
       <p class="eyebrow">The distinction</p>
       <div class="split">
@@ -545,6 +587,30 @@
           <p>Can our students think, judge, and make themselves understood when the tool is not there? Answerable in a decade.</p>
         </div>
       </div>
+
+      <figure class="fig-anim fig-clock">
+        <svg viewBox="0 0 900 220" role="img" aria-label="Two clocks. The procurement clock runs on a one-year cycle: tools, policy, training and data agreements renew every year from 2026 to 2036. The graduate clock is one line: this fall's third graders move from 2026 to graduation in 2036, with evidence from independent work checked every year along the way.">
+          <text x="60" y="20" font-size="13" letter-spacing="2" font-weight="700" fill="#0E6E78">AI READY &middot; THE PROCUREMENT CLOCK</text>
+          <text x="840" y="20" font-size="13" text-anchor="end" fill="#0E6E78">buy, revise, retrain, renew. Every year.</text>
+          <circle cx="60" cy="64" r="3.5" fill="#0E6E78"/>
+          <path class="anim-draw" style="--delay:0.25s;--dur:.35s" pathLength="100" d="M60 64 Q99 34 138 64" fill="none" stroke="#0E6E78" stroke-width="2.5"/><circle class="anim-fade" style="--delay:0.55s" cx="138" cy="64" r="3.5" fill="#0E6E78"/><path class="anim-draw" style="--delay:0.41s;--dur:.35s" pathLength="100" d="M138 64 Q177 34 216 64" fill="none" stroke="#0E6E78" stroke-width="2.5"/><circle class="anim-fade" style="--delay:0.71s" cx="216" cy="64" r="3.5" fill="#0E6E78"/><path class="anim-draw" style="--delay:0.57s;--dur:.35s" pathLength="100" d="M216 64 Q255 34 294 64" fill="none" stroke="#0E6E78" stroke-width="2.5"/><circle class="anim-fade" style="--delay:0.87s" cx="294" cy="64" r="3.5" fill="#0E6E78"/><path class="anim-draw" style="--delay:0.73s;--dur:.35s" pathLength="100" d="M294 64 Q333 34 372 64" fill="none" stroke="#0E6E78" stroke-width="2.5"/><circle class="anim-fade" style="--delay:1.03s" cx="372" cy="64" r="3.5" fill="#0E6E78"/><path class="anim-draw" style="--delay:0.89s;--dur:.35s" pathLength="100" d="M372 64 Q411 34 450 64" fill="none" stroke="#0E6E78" stroke-width="2.5"/><circle class="anim-fade" style="--delay:1.19s" cx="450" cy="64" r="3.5" fill="#0E6E78"/><path class="anim-draw" style="--delay:1.05s;--dur:.35s" pathLength="100" d="M450 64 Q489 34 528 64" fill="none" stroke="#0E6E78" stroke-width="2.5"/><circle class="anim-fade" style="--delay:1.35s" cx="528" cy="64" r="3.5" fill="#0E6E78"/><path class="anim-draw" style="--delay:1.21s;--dur:.35s" pathLength="100" d="M528 64 Q567 34 606 64" fill="none" stroke="#0E6E78" stroke-width="2.5"/><circle class="anim-fade" style="--delay:1.51s" cx="606" cy="64" r="3.5" fill="#0E6E78"/><path class="anim-draw" style="--delay:1.37s;--dur:.35s" pathLength="100" d="M606 64 Q645 34 684 64" fill="none" stroke="#0E6E78" stroke-width="2.5"/><circle class="anim-fade" style="--delay:1.67s" cx="684" cy="64" r="3.5" fill="#0E6E78"/><path class="anim-draw" style="--delay:1.53s;--dur:.35s" pathLength="100" d="M684 64 Q723 34 762 64" fill="none" stroke="#0E6E78" stroke-width="2.5"/><circle class="anim-fade" style="--delay:1.83s" cx="762" cy="64" r="3.5" fill="#0E6E78"/><path class="anim-draw" style="--delay:1.69s;--dur:.35s" pathLength="100" d="M762 64 Q801 34 840 64" fill="none" stroke="#0E6E78" stroke-width="2.5"/><circle class="anim-fade" style="--delay:1.99s" cx="840" cy="64" r="3.5" fill="#0E6E78"/>
+          <text x="60" y="110" font-size="13" letter-spacing="2" font-weight="700" fill="#A63D26">FUTURE READY &middot; THE GRADUATE CLOCK</text>
+                    <line x1="60" y1="150" x2="840" y2="150" stroke="#C6C0B2" stroke-width="4"/>
+          <path class="anim-draw" style="--delay:.6s;--dur:4.2s;--ease:linear" pathLength="100" d="M60 150 L840 150" fill="none" stroke="#A63D26" stroke-width="4"/>
+          <circle class="anim-pop" style="--delay:1.02s" cx="138" cy="150" r="5.5" fill="#F2DFD7" stroke="#A63D26" stroke-width="2"/><circle class="anim-pop" style="--delay:1.44s" cx="216" cy="150" r="5.5" fill="#F2DFD7" stroke="#A63D26" stroke-width="2"/><circle class="anim-pop" style="--delay:1.86s" cx="294" cy="150" r="5.5" fill="#F2DFD7" stroke="#A63D26" stroke-width="2"/><circle class="anim-pop" style="--delay:2.28s" cx="372" cy="150" r="5.5" fill="#F2DFD7" stroke="#A63D26" stroke-width="2"/><circle class="anim-pop" style="--delay:2.70s" cx="450" cy="150" r="5.5" fill="#F2DFD7" stroke="#A63D26" stroke-width="2"/><circle class="anim-pop" style="--delay:3.12s" cx="528" cy="150" r="5.5" fill="#F2DFD7" stroke="#A63D26" stroke-width="2"/><circle class="anim-pop" style="--delay:3.54s" cx="606" cy="150" r="5.5" fill="#F2DFD7" stroke="#A63D26" stroke-width="2"/><circle class="anim-pop" style="--delay:3.96s" cx="684" cy="150" r="5.5" fill="#F2DFD7" stroke="#A63D26" stroke-width="2"/><circle class="anim-pop" style="--delay:4.38s" cx="762" cy="150" r="5.5" fill="#F2DFD7" stroke="#A63D26" stroke-width="2"/>
+          <text class="anim-fade" style="--delay:2.2s" x="450" y="136" font-size="12.5" font-style="italic" text-anchor="middle" fill="#7A2C1B">evidence from independent work, every year</text>
+          <g class="anim-fade" style="--delay:4.8s"><polygon points="826,101 840,95 854,101 840,107" fill="#191D21"/><line x1="852" y1="102" x2="852" y2="112" stroke="#E0AC4A" stroke-width="2"/></g>
+          <g transform="translate(60,146)"><g class="kid">
+            <circle cx="0" cy="-30" r="7" fill="#7A2C1B"/>
+            <rect x="-7" y="-22" width="14" height="20" rx="6" fill="#A63D26"/>
+          </g></g>
+          <text x="60" y="178" font-size="12.5" fill="#4A5158">This fall's 3rd graders</text>
+          <text class="anim-fade" style="--delay:4.6s" x="840" y="178" font-size="12.5" font-weight="700" text-anchor="end" fill="#7A2C1B">Graduation, spring 2036</text>
+          <line x1="60" y1="194" x2="840" y2="194" stroke="#C6C0B2" stroke-width="1"/>
+          <text x="60" y="212" font-size="12.5" text-anchor="middle" fill="#525A61">2026</text><text x="138" y="212" font-size="12.5" text-anchor="middle" fill="#525A61">2027</text><text x="216" y="212" font-size="12.5" text-anchor="middle" fill="#525A61">2028</text><text x="294" y="212" font-size="12.5" text-anchor="middle" fill="#525A61">2029</text><text x="372" y="212" font-size="12.5" text-anchor="middle" fill="#525A61">2030</text><text x="450" y="212" font-size="12.5" text-anchor="middle" fill="#525A61">2031</text><text x="528" y="212" font-size="12.5" text-anchor="middle" fill="#525A61">2032</text><text x="606" y="212" font-size="12.5" text-anchor="middle" fill="#525A61">2033</text><text x="684" y="212" font-size="12.5" text-anchor="middle" fill="#525A61">2034</text><text x="762" y="212" font-size="12.5" text-anchor="middle" fill="#525A61">2035</text><text x="840" y="212" font-size="12.5" text-anchor="middle" fill="#525A61">2036</text>
+        </svg>
+        <figcaption>This fall's third graders graduate in 2036. Look for early signs in their independent work every year, not only at the end.</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -726,13 +792,32 @@
     </div>
   </section>
 
-  <!-- 13 --><section class="scene" data-sec="Friction" data-notes="Be generous here. Leaders who apply blanket AI caution end up restricting the safest use while permitting the riskiest. Say that out loud. IF TIME IS SHORT: say this slide's point while still on slide 12 and skip it.">
-    <div class="inner">
+  <!-- 13 --><section class="scene" data-sec="Friction" data-notes="Be generous here. Leaders who apply blanket AI caution end up restricting the safest use while permitting the riskiest. Say that out loud. Ask the room to count the dots that reach Head, Room, and World: three of twelve. Click Remove the barriers. All twelve now reach the same work, and the work itself did not change. That is the point: easing the base changes who reaches the work; it does not do the work for them. OPTIONAL, 15 seconds, no audio: Play scene shows a teacher whose evening goes to IEP scheduling, a drafted schedule she still reviews, and the time she gets back spent on feedback for Maya. Skip it if Maya's essay did not open the session. The illustration is not student data. IF TIME IS SHORT: say this slide's point while still on slide 12 and skip it.">
+    <div class="inner wide">
       <span class="tagline tagline--reduce">Reduce this layer</span>
       <h2>The base: the conditions</h2>
-      <p class="lede">The conditions that make learning possible at all. Time, access, technology, policy, the building itself.</p>
-      <div class="quiet">
-        A student who cannot reach an archive. A family who cannot read the notice. A teacher who loses an evening to scheduling. These are barriers to learning, not the learning itself. <strong>Removing them expands who gets to do the work.</strong>
+      <div class="split split--fig">
+        <div style="display:flex;flex-direction:column;gap:clamp(0.6rem,1.8vmin,1.2rem);">
+          <p class="lede">The conditions that make learning possible at all. Time, access, technology, policy, the building itself.</p>
+          <div class="quiet">
+            A student who cannot reach an archive. A family who cannot read the notice. A teacher who loses an evening to scheduling. These are barriers to learning, not the learning itself. <strong>Removing them expands who gets to do the work.</strong>
+          </div>
+          <div class="fig-actions">
+            <button class="reveal-btn" type="button" data-clear="barrierFig" aria-pressed="false" data-label-off="Remove the barriers" data-label-on="Put the barriers back">Remove the barriers</button>
+            <button class="opener-launch scene-launch" type="button" aria-haspopup="dialog" aria-controls="opener" data-video="assets/teachers-tuesday-night.mp4" data-video-title="A teacher's Tuesday night">Play scene</button>
+          </div>
+        </div>
+        <figure class="fig-anim barrier-fig" id="barrierFig">
+          <svg viewBox="0 0 520 266" role="img" aria-label="Illustration. Twelve students sit below the base layer. Barriers in the base, an archive out of reach, a notice not in the home language, and an evening lost to scheduling, stop nine of them. Only three reach Head, Room, and World. When the barriers are removed, all twelve reach the same work, which is unchanged.">
+            <rect x="8" y="8" width="160" height="92" rx="3" fill="#F2DFD7" stroke="#A63D26" stroke-width="2"/><text x="88" y="33" font-size="17" font-weight="700" text-anchor="middle" fill="#7A2C1B">Head</text><text x="88" y="52" font-size="12" letter-spacing="1.5" text-anchor="middle" fill="#7A2C1B">THE THINKING</text><rect x="180" y="8" width="160" height="92" rx="3" fill="#F2DFD7" stroke="#A63D26" stroke-width="2"/><text x="260" y="33" font-size="17" font-weight="700" text-anchor="middle" fill="#7A2C1B">Room</text><text x="260" y="52" font-size="12" letter-spacing="1.5" text-anchor="middle" fill="#7A2C1B">THE SAYING</text><rect x="352" y="8" width="160" height="92" rx="3" fill="#F2DFD7" stroke="#A63D26" stroke-width="2"/><text x="432" y="33" font-size="17" font-weight="700" text-anchor="middle" fill="#7A2C1B">World</text><text x="432" y="52" font-size="12" letter-spacing="1.5" text-anchor="middle" fill="#7A2C1B">THE BECOMING</text>
+            <rect x="8" y="118" width="504" height="80" rx="3" fill="#F1E7CF" stroke="#78540F" stroke-width="2"/><text x="18" y="134" font-size="11" letter-spacing="2" font-weight="700" fill="#5E410B">THE BASE</text><line class="gapline" x1="144" y1="196" x2="144" y2="100" stroke="#78540F" stroke-width="1.5" stroke-dasharray="3 4" opacity="0.7"/><g class="barrier"><rect x="16" y="142" width="104" height="46" rx="3" fill="#78540F" stroke="#5E410B" stroke-width="1.5"/><text x="68" y="161" font-size="11.5" text-anchor="middle" fill="#FFFFFF">archive</text><text x="68" y="177" font-size="11.5" text-anchor="middle" fill="#FFFFFF">out of reach</text></g><line class="gapline" x1="316" y1="196" x2="316" y2="100" stroke="#78540F" stroke-width="1.5" stroke-dasharray="3 4" opacity="0.7"/><g class="barrier"><rect x="188" y="142" width="104" height="46" rx="3" fill="#78540F" stroke="#5E410B" stroke-width="1.5"/><text x="240" y="161" font-size="11.5" text-anchor="middle" fill="#FFFFFF">notice not in</text><text x="240" y="177" font-size="11.5" text-anchor="middle" fill="#FFFFFF">home language</text></g><line class="gapline" x1="488" y1="196" x2="488" y2="100" stroke="#78540F" stroke-width="1.5" stroke-dasharray="3 4" opacity="0.7"/><g class="barrier"><rect x="360" y="142" width="104" height="46" rx="3" fill="#78540F" stroke="#5E410B" stroke-width="1.5"/><text x="412" y="161" font-size="11.5" text-anchor="middle" fill="#FFFFFF">evening lost</text><text x="412" y="177" font-size="11.5" text-anchor="middle" fill="#FFFFFF">to scheduling</text></g><text class="eased" x="270" y="168" font-size="13.5" font-style="italic" text-anchor="middle" fill="#5E410B">sources reachable &middot; notice translated &middot; scheduling drafted</text>
+            <circle cx="144" cy="80" r="7" fill="#4A5158"/><circle class="blocked" style="--d:0.05s" cx="36" cy="214" r="7" fill="#4A5158"/><circle class="blocked" style="--d:0.11s" cx="64" cy="214" r="7" fill="#4A5158"/><circle class="blocked" style="--d:0.17s" cx="92" cy="214" r="7" fill="#4A5158"/><circle cx="316" cy="80" r="7" fill="#4A5158"/><circle class="blocked" style="--d:0.23s" cx="208" cy="214" r="7" fill="#4A5158"/><circle class="blocked" style="--d:0.29s" cx="236" cy="214" r="7" fill="#4A5158"/><circle class="blocked" style="--d:0.35s" cx="264" cy="214" r="7" fill="#4A5158"/><circle cx="488" cy="80" r="7" fill="#4A5158"/><circle class="blocked" style="--d:0.41s" cx="380" cy="214" r="7" fill="#4A5158"/><circle class="blocked" style="--d:0.47s" cx="408" cy="214" r="7" fill="#4A5158"/><circle class="blocked" style="--d:0.53s" cx="436" cy="214" r="7" fill="#4A5158"/>
+            <text x="8" y="254" font-size="12.5" fill="#525A61">Each dot: a student</text>
+            <text class="count-blocked" x="512" y="254" font-size="13" font-weight="700" text-anchor="end" fill="#7A2C1B">3 of 12 reach the work</text>
+            <text class="count-cleared" x="512" y="254" font-size="13" font-weight="700" text-anchor="end" fill="#7A2C1B">12 of 12 reach the same work</text>
+          </svg>
+          <figcaption>Illustration. Easing the base changes who reaches the work. It does not do the work for them.</figcaption>
+        </figure>
       </div>
     </div>
   </section>
@@ -808,12 +893,22 @@
     </div>
   </section>
 
-  <!-- 16 --><section class="scene" data-sec="Friction" data-notes="Tools can be designed to preserve productive struggle. The point is that educators and leaders must still judge the fit between a tool's design, the learning goal, and the learner's needs. Say it warmly. Pacing target: arrive at the four questions by minute 26.">
-    <div class="inner">
+  <!-- 16 --><section class="scene" data-sec="Friction" data-notes="Tools can be designed to preserve productive struggle. The point is that educators and leaders must still judge the fit between a tool's design, the learning goal, and the learner's needs. Trace the diagram once: the tool brings its design, the district brings the goal and the learner, and the call in the middle leads to keep, change, constrain, or stop, the same four options the room votes on at slide 18. Say it warmly. Pacing target: arrive at the four questions by minute 26.">
+    <div class="inner wide">
       <p class="eyebrow">The part that is nobody's fault</p>
       <h2>The instructional judgment stays with you.</h2>
-      <p class="lede">Tools embody decisions about what to make easier. Districts still have to judge whether those decisions serve the learning goal and the learner's needs.</p>
-      <div class="quiet"><strong>Which means the judgment call can only live with the adults.</strong> No procurement process, no setting, and no vendor assurance moves that responsibility off your desk.</div>
+      <div class="split split--fig">
+        <div style="display:flex;flex-direction:column;gap:clamp(0.6rem,1.8vmin,1.2rem);">
+          <p class="lede">Tools embody decisions about what to make easier. Districts still have to judge whether those decisions serve the learning goal and the learner's needs.</p>
+          <div class="quiet"><strong>Which means the judgment call can only live with the adults.</strong> No procurement process, no setting, and no vendor assurance moves that responsibility off your desk.</div>
+        </div>
+        <figure class="fig-anim">
+          <svg viewBox="0 0 520 300" role="img" aria-label="Three inputs, tool design, the learning goal, and the learner's needs, meet at one decision point held by educators and leaders. No product can sit there. That decision leads to keep, change, constrain, or stop.">
+            <g><rect x="8" y="12" width="200" height="64" rx="3" fill="#D8EBED" stroke="#0E6E78" stroke-width="2"/><text x="20" y="39" font-size="15" font-weight="700" fill="#0E6E78">Tool design</text><text x="20" y="59" font-size="11.5" fill="#0E6E78">what the vendor made easy</text></g><path d="M208 44 C 232 44, 226 150, 250 150" fill="none" stroke="#0E6E78" stroke-width="2.5"/><g><rect x="8" y="118" width="200" height="64" rx="3" fill="#F2DFD7" stroke="#A63D26" stroke-width="2"/><text x="20" y="145" font-size="15" font-weight="700" fill="#7A2C1B">Learning goal</text><text x="20" y="165" font-size="11.5" fill="#7A2C1B">what the learner must still do</text></g><path d="M208 150 C 232 150, 226 150, 250 150" fill="none" stroke="#A63D26" stroke-width="2.5"/><g><rect x="8" y="224" width="200" height="64" rx="3" fill="#F1E7CF" stroke="#78540F" stroke-width="2"/><text x="20" y="251" font-size="15" font-weight="700" fill="#5E410B">Learner's needs</text><text x="20" y="271" font-size="11.5" fill="#5E410B">the supports this learner needs</text></g><path d="M208 256 C 232 256, 226 150, 250 150" fill="none" stroke="#78540F" stroke-width="2.5"/><g><rect x="250" y="104" width="130" height="92" rx="4" fill="#191D21"/><text x="315" y="139" font-size="15" font-weight="700" text-anchor="middle" fill="#EFEBE2">Educators</text><text x="315" y="158" font-size="15" font-weight="700" text-anchor="middle" fill="#EFEBE2">&amp; leaders</text><text x="315" y="180" font-size="11.5" text-anchor="middle" fill="#AFB6BC">judge the fit</text></g><text x="315" y="218" font-size="12" font-style="italic" text-anchor="middle" fill="#7A2C1B">no product can sit here</text><text x="468" y="56" font-size="10.5" letter-spacing="1.5" font-weight="700" text-anchor="middle" fill="#525A61">THE CALL</text><path d="M380 150 C 402 150, 402 84, 424 84" fill="none" stroke="#525A61" stroke-width="1.5"/><g><rect x="424" y="66" width="88" height="36" rx="3" fill="#F3F0E9" stroke="#525A61" stroke-width="1.5"/><text x="468" y="89" font-size="13" font-weight="700" text-anchor="middle" fill="#191D21">Keep</text></g><path d="M380 150 C 402 150, 402 130, 424 130" fill="none" stroke="#525A61" stroke-width="1.5"/><g><rect x="424" y="112" width="88" height="36" rx="3" fill="#F3F0E9" stroke="#525A61" stroke-width="1.5"/><text x="468" y="135" font-size="13" font-weight="700" text-anchor="middle" fill="#191D21">Change</text></g><path d="M380 150 C 402 150, 402 176, 424 176" fill="none" stroke="#525A61" stroke-width="1.5"/><g><rect x="424" y="158" width="88" height="36" rx="3" fill="#F3F0E9" stroke="#525A61" stroke-width="1.5"/><text x="468" y="181" font-size="13" font-weight="700" text-anchor="middle" fill="#191D21">Constrain</text></g><path d="M380 150 C 402 150, 402 222, 424 222" fill="none" stroke="#525A61" stroke-width="1.5"/><g><rect x="424" y="204" width="88" height="36" rx="3" fill="#F3F0E9" stroke="#525A61" stroke-width="1.5"/><text x="468" y="227" font-size="13" font-weight="700" text-anchor="middle" fill="#191D21">Stop</text></g>
+          </svg>
+          <figcaption>The tool brings its design. The district brings the goal and the learner. The call happens in the middle.</figcaption>
+        </figure>
+      </div>
     </div>
   </section>
 
@@ -1046,11 +1141,33 @@
     </div>
   </section>
 
-  <!-- 25 --><section class="scene dark" data-sec="Examples" data-notes="Pull the four together. The pattern is the payload, not any individual product. Name the governance boundary before the final line: the friction lens diagnoses what a use changes, while privacy, bias, equity, and integrity remain non-negotiable safeguards. This is where the session description's digital citizenship promise lands: for a district, digital citizenship is less a unit than a set of decisions about what students still do for themselves.">
-    <div class="inner">
+  <!-- 25 --><section class="scene dark" data-sec="Examples" data-notes="Pull the four together. The pattern is the payload, not any individual product. Let the fork sit; it is an illustration, not a finding. Same software, two decisions. Name the governance boundary before the final line: the friction lens diagnoses what a use changes, while privacy, bias, equity, and integrity remain non-negotiable safeguards. This is where the session description's digital citizenship promise lands: for a district, digital citizenship is less a unit than a set of decisions about what students still do for themselves.">
+    <div class="inner wide">
       <p class="eyebrow">The pattern across all four</p>
-      <p class="huge">The vendor decides what the tool makes easy. <em>You decide what it means.</em></p>
-      <p class="lede">Two districts can run identical software and get opposite outcomes. Privacy, bias, equity, and academic integrity remain non-negotiable safeguards. For a district, digital citizenship and sound AI policy come down to the same decision: what students still do for themselves. Did anyone make that decision on purpose?</p>
+      <div class="split split--fig">
+        <div style="display:flex;flex-direction:column;gap:clamp(0.7rem,2.3vmin,1.9rem);">
+          <p class="huge huge--split">The vendor decides what the tool makes easy. <em>You decide what it means.</em></p>
+          <p class="lede">Two districts can run identical software and get opposite outcomes. Privacy, bias, equity, and academic integrity remain non-negotiable safeguards. For a district, digital citizenship and sound AI policy come down to the same decision: what students still do for themselves. Did anyone make that decision on purpose?</p>
+        </div>
+        <figure class="fig-anim">
+          <svg viewBox="0 0 470 300" role="img" aria-label="Illustration. Identical software splits into two outcomes. In the district that decided on purpose, students still do the thinking. In the district that left it to the defaults, the tool quietly does the work.">
+            <rect x="4" y="116" width="128" height="68" rx="3" fill="#2A3037" stroke="#56C7D2" stroke-width="2"/>
+            <text x="68" y="145" font-size="15" font-weight="700" text-anchor="middle" fill="#EFEBE2">Identical</text>
+            <text x="68" y="166" font-size="15" font-weight="700" text-anchor="middle" fill="#EFEBE2">software</text>
+            <text x="4" y="100" font-size="12.5" font-style="italic" fill="#E8825F">decided on purpose</text>
+            <text x="4" y="212" font-size="12.5" font-style="italic" fill="#56C7D2">left to the defaults</text>
+            <path d="M132 150 C 200 150, 210 60, 290 60" fill="none" stroke="#E8825F" stroke-width="4"/>
+            <path d="M132 150 C 200 150, 210 240, 290 240" fill="none" stroke="#56C7D2" stroke-width="3" stroke-dasharray="7 6"/>
+            <g><rect x="290" y="26" width="176" height="68" rx="3" fill="#2A3037" stroke="#E8825F" stroke-width="2"/>
+            <text x="378" y="55" font-size="15" font-weight="700" text-anchor="middle" fill="#E8825F">Students still</text>
+            <text x="378" y="76" font-size="15" font-weight="700" text-anchor="middle" fill="#E8825F">do the thinking</text></g>
+            <g><rect x="290" y="206" width="176" height="68" rx="3" fill="#2A3037" stroke="#56C7D2" stroke-width="2" stroke-dasharray="7 6"/>
+            <text x="378" y="235" font-size="15" font-weight="700" text-anchor="middle" fill="#56C7D2">The tool quietly</text>
+            <text x="378" y="256" font-size="15" font-weight="700" text-anchor="middle" fill="#56C7D2">does the work</text></g>
+          </svg>
+          <figcaption>Illustration: the same product, two decisions.</figcaption>
+        </figure>
+      </div>
     </div>
   </section>
 
@@ -1203,8 +1320,15 @@
       openerVideo.setAttribute('aria-label', title);
       $('openerFallback').href = path;
       $('openerDownload').href = path;
-      $('openerYouTube').href = btn.getAttribute('data-youtube');
-      $('openerDrive').href = btn.getAttribute('data-drive');
+      // Scene clips made for single slides are local MP4s with no hosted copies.
+      var yt = btn.getAttribute('data-youtube'), drive = btn.getAttribute('data-drive');
+      $('openerYouTube').hidden = !yt;
+      $('openerDrive').hidden = !drive;
+      if (yt) $('openerYouTube').href = yt;
+      if (drive) $('openerDrive').href = drive;
+      $('openerError').textContent = (yt || drive)
+        ? 'The video could not load. Try YouTube, Google Drive, or download the clip below.'
+        : 'The video could not load. Download the clip below and open it directly.';
       $('openerError').hidden = true;
       if (source.getAttribute('src') !== path) {
         source.setAttribute('src', path);
@@ -1340,6 +1464,17 @@
       var open = g.style.display !== 'none';
       g.style.display = open ? 'none' : '';
       btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+    });
+  });
+
+  /* ---------- interactive: remove the barriers (slide 13) ---------- */
+  Array.prototype.forEach.call(document.querySelectorAll('[data-clear]'), function (btn) {
+    btn.addEventListener('click', function () {
+      var fig = $(btn.getAttribute('data-clear'));
+      if (!fig) return;
+      var on = fig.classList.toggle('is-cleared');
+      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+      btn.textContent = btn.getAttribute(on ? 'data-label-on' : 'data-label-off');
     });
   });
 

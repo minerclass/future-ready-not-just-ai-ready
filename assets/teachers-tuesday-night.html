@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>A teacher's Tuesday night</title>
+<style>
+  html,body{margin:0;background:#121618;}
+  svg{display:block;width:1920px;height:1080px;}
+  text{font-family:Inter,"DejaVu Sans",sans-serif;}
+  .mono{font-family:"DejaVu Sans Mono",monospace;}
+  .serif{font-family:"Bitstream Charter",Charter,Georgia,serif;}
+</style>
+</head>
+<body>
+<svg id="s" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="glowTeal" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#2E6E74" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#2E6E74" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowWarm" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#E0AC4A" stop-opacity="0.38"/>
+      <stop offset="1" stop-color="#E0AC4A" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="lampBeam" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#E0AC4A" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#E0AC4A" stop-opacity="0.05"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ===== ROOM (shots A to C) ===== -->
+  <g id="room">
+    <rect x="0" y="0" width="1920" height="1080" fill="#1E2328"/>
+    <!-- window -->
+    <rect x="104" y="128" width="348" height="346" fill="#3A4148"/>
+    <rect x="118" y="142" width="152" height="150" fill="#161A1E"/>
+    <rect x="286" y="142" width="152" height="150" fill="#161A1E"/>
+    <rect x="118" y="306" width="152" height="154" fill="#161A1E"/>
+    <rect x="286" y="306" width="152" height="154" fill="#161A1E"/>
+    <rect x="134" y="336" width="62" height="124" fill="#2A3037"/>
+    <rect x="212" y="356" width="58" height="104" fill="#2A3037"/>
+    <rect x="290" y="370" width="66" height="90" fill="#2A3037"/>
+    <rect x="374" y="320" width="60" height="140" fill="#2A3037"/>
+    <rect x="146" y="352" width="10" height="10" fill="#E0AC4A"/>
+    <rect x="232" y="374" width="10" height="10" fill="#7E868D"/>
+    <rect x="166" y="392" width="10" height="10" fill="#7E868D"/>
+    <rect x="388" y="340" width="10" height="10" fill="#7E868D"/>
+    <rect x="404" y="384" width="10" height="10" fill="#E0AC4A"/>
+    <rect x="310" y="396" width="10" height="10" fill="#7E868D"/>
+    <!-- shelf -->
+    <rect x="128" y="482" width="40" height="86" fill="#A63D26"/>
+    <rect x="172" y="498" width="28" height="70" fill="#78540F"/>
+    <rect x="204" y="476" width="30" height="92" fill="#0E6E78"/>
+    <rect x="238" y="504" width="24" height="64" fill="#5A6168"/>
+    <rect x="266" y="488" width="30" height="80" fill="#C9954A"/>
+    <rect x="112" y="568" width="300" height="12" fill="#3A4148"/>
+
+    <!-- glows -->
+    <circle id="glowT" cx="605" cy="470" r="200" fill="url(#glowTeal)"/>
+    <circle id="glowW" cx="640" cy="520" r="300" fill="url(#glowWarm)" opacity="0"/>
+
+    <!-- teacher -->
+    <g id="teacher">
+      <ellipse cx="605" cy="468" rx="82" ry="86" fill="#5B3A22"/>
+      <rect x="590" y="520" width="30" height="34" fill="#C98F69"/>
+      <path d="M528 640 L528 590 Q528 552 568 548 L642 548 Q682 552 682 590 L682 640 Z" fill="#E0AC4A"/>
+      <path d="M588 548 L605 572 L622 548 Z" fill="#C98F69"/>
+      <circle cx="605" cy="472" r="60" fill="#D9A27A"/>
+      <path d="M545 470 Q545 404 605 402 Q668 404 666 470 Q648 432 610 432 Q578 434 560 454 Q552 464 545 470 Z" fill="#5B3A22"/>
+      <circle cx="582" cy="478" r="17" fill="none" stroke="#1E2328" stroke-width="4"/>
+      <circle cx="628" cy="478" r="17" fill="none" stroke="#1E2328" stroke-width="4"/>
+      <line x1="599" y1="477" x2="611" y2="477" stroke="#1E2328" stroke-width="4"/>
+      <circle cx="582" cy="480" r="4.5" fill="#1E2328"/>
+      <circle cx="628" cy="480" r="4.5" fill="#1E2328"/>
+      <path id="browL" d="M566 452 L594 458" stroke="#3A2414" stroke-width="5" stroke-linecap="round"/>
+      <path id="browR" d="M644 452 L616 458" stroke="#3A2414" stroke-width="5" stroke-linecap="round"/>
+      <path id="mouthSad" d="M588 512 Q605 502 622 512" fill="none" stroke="#3A2414" stroke-width="4.5" stroke-linecap="round"/>
+      <path id="mouthHappy" d="M586 506 Q605 524 624 506" fill="none" stroke="#3A2414" stroke-width="4.5" stroke-linecap="round" opacity="0"/>
+      <circle cx="545" cy="482" r="9" fill="#C98F69"/>
+      <circle cx="665" cy="482" r="9" fill="#C98F69"/>
+    </g>
+
+    <!-- desk and laptop -->
+    <rect x="498" y="612" width="214" height="140" rx="8" fill="#2A3037" stroke="#4A5158" stroke-width="3"/>
+    <circle cx="605" cy="682" r="8" fill="#4A5158"/>
+    <rect x="262" y="750" width="730" height="24" fill="#3A4148"/>
+    <rect x="288" y="774" width="678" height="306" fill="#2A3037"/>
+    <!-- essay stack with note -->
+    <g id="stack">
+      <rect x="784" y="726" width="132" height="10" fill="#E9E5DB"/>
+      <rect x="788" y="716" width="128" height="10" fill="#F3F0E9"/>
+      <rect x="782" y="706" width="132" height="10" fill="#E9E5DB"/>
+      <rect x="790" y="696" width="124" height="10" fill="#F3F0E9"/>
+      <rect x="830" y="672" width="64" height="40" fill="#E0AC4A" transform="rotate(-6 862 692)"/>
+      <text x="862" y="697" font-size="15" font-weight="700" text-anchor="middle" fill="#1E2328" transform="rotate(-6 862 692)">ESSAYS</text>
+    </g>
+    <!-- lamp (shot C) -->
+    <g id="lamp" opacity="0">
+      <path d="M836 612 L700 752 L960 752 Z" fill="url(#lampBeam)"/>
+      <line x1="880" y1="748" x2="868" y2="620" stroke="#7E868D" stroke-width="7"/>
+      <rect x="846" y="742" width="70" height="10" rx="3" fill="#4A5158"/>
+      <path d="M800 600 L880 576 L888 628 Z" fill="#E0AC4A"/>
+    </g>
+    <!-- time tag -->
+    <rect x="88" y="90" width="320" height="44" fill="#121618"/>
+    <text id="tag" class="mono" x="108" y="121" font-size="24" letter-spacing="3" font-weight="700" fill="#56C7D2">TUESDAY · 8:52 PM</text>
+  </g>
+
+  <!-- ===== PANEL: schedule (shots A, B) ===== -->
+  <g id="panelSched">
+    <rect x="1016" y="136" width="818" height="664" rx="14" fill="#2A3037"/>
+    <rect x="1030" y="150" width="790" height="636" rx="6" fill="#F3F0E9"/>
+    <rect x="1030" y="150" width="790" height="46" fill="#DBD6C9"/>
+    <text class="mono" x="1052" y="180" font-size="17" letter-spacing="1.5" fill="#4A5158">IEP_MEETINGS_FALL.XLSX</text>
+    <text id="schedCount" class="mono" x="1798" y="180" font-size="17" letter-spacing="1.5" text-anchor="end" fill="#A63D26">2 OF 14 PLACED · 9 CONFLICTS</text>
+    <g id="grid"></g>
+    <!-- draft button -->
+    <g id="draftBtn" opacity="0">
+      <rect id="draftBtnRect" x="1060" y="702" width="300" height="56" rx="28" fill="#0E6E78"/>
+      <text x="1210" y="737" font-size="22" font-weight="700" text-anchor="middle" fill="#FFFFFF">Draft a schedule</text>
+    </g>
+    <g id="review" opacity="0">
+      <rect x="1392" y="708" width="40" height="40" rx="5" fill="#FFFFFF" stroke="#191D21" stroke-width="3"/>
+      <path id="reviewTick" d="M1400 728 L1410 739 L1426 716" fill="none" stroke="#A63D26" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="0"/>
+      <text x="1446" y="737" font-size="22" font-weight="700" fill="#191D21">I review it before it goes out</text>
+    </g>
+    <!-- cursor -->
+    <path id="cursor" d="M0 0 L0 36 L10 27 L17 42 L23 39 L16 25 L29 25 Z" fill="#FFFFFF" stroke="#191D21" stroke-width="2.5" transform="translate(1500,760)" opacity="0"/>
+  </g>
+
+  <!-- ===== PANEL: essay (shot C) ===== -->
+  <g id="panelEssay" opacity="0">
+    <rect x="1016" y="136" width="818" height="664" rx="14" fill="#2A3037"/>
+    <rect x="1030" y="150" width="790" height="636" rx="6" fill="#F3F0E9"/>
+    <rect x="1030" y="150" width="790" height="46" fill="#DBD6C9"/>
+    <text class="mono" x="1052" y="180" font-size="17" letter-spacing="1.5" fill="#4A5158">MAYA · ESSAY_DRAFT_2.DOCX</text>
+    <text class="mono" x="1798" y="180" font-size="17" letter-spacing="1.5" text-anchor="end" fill="#4A5158">FEEDBACK</text>
+    <text class="serif" x="1066" y="252" font-size="36" font-style="italic" fill="#191D21">Was the Industrial Revolution worth it?</text>
+    <text class="serif" x="1066" y="318" font-size="31" fill="#191D21">It wasn’t worth it for the kids in the mills.</text>
+    <rect x="1066" y="350" width="660" height="12" rx="6" fill="#C6C0B2"/>
+    <rect x="1066" y="380" width="610" height="12" rx="6" fill="#C6C0B2"/>
+    <rect x="1066" y="410" width="640" height="12" rx="6" fill="#C6C0B2"/>
+    <rect x="1066" y="440" width="420" height="12" rx="6" fill="#C6C0B2"/>
+    <g id="comment" opacity="0">
+      <rect x="1066" y="500" width="700" height="190" rx="10" fill="#F2DFD7" stroke="#A63D26" stroke-width="3"/>
+      <text class="mono" x="1092" y="538" font-size="16" letter-spacing="2" font-weight="700" fill="#A63D26">TEACHER COMMENT</text>
+      <text id="commentText1" class="serif" x="1092" y="590" font-size="31" font-style="italic" fill="#7A2C1B"></text>
+      <text id="commentText2" class="serif" x="1092" y="636" font-size="31" font-style="italic" fill="#7A2C1B"></text>
+    </g>
+  </g>
+
+  <!-- ===== END CARD ===== -->
+  <g id="endCard" opacity="0">
+    <rect x="0" y="0" width="1920" height="1080" fill="#1E2328"/>
+    <text class="mono" x="200" y="400" font-size="24" letter-spacing="5" font-weight="700" fill="#E0AC4A">THE BASE GOT EASIER</text>
+    <text x="196" y="510" font-size="92" font-weight="800" letter-spacing="-2" fill="#EFEBE2">Easier scheduling.</text>
+    <text class="serif" x="200" y="620" font-size="76" font-style="italic" fill="#E8825F">More time for Maya’s thinking.</text>
+    <rect x="200" y="672" width="96" height="6" fill="#E8825F"/>
+    <text class="mono" x="200" y="740" font-size="22" letter-spacing="2" fill="#AFB6BC">FUTURE READY, NOT JUST AI READY</text>
+  </g>
+
+  <!-- letterbox -->
+  <rect x="0" y="0" width="1920" height="60" fill="#121618"/>
+  <rect x="0" y="1020" width="1920" height="60" fill="#121618"/>
+  <rect id="fade" x="0" y="0" width="1920" height="1080" fill="#121618" opacity="0"/>
+</svg>
+
+<script>
+(function(){
+  var NS = 'http://www.w3.org/2000/svg';
+  var $ = function(id){ return document.getElementById(id); };
+  function el(tag, attrs, parent, text){
+    var e = document.createElementNS(NS, tag);
+    for (var k in attrs) e.setAttribute(k, attrs[k]);
+    if (text != null) e.textContent = text;
+    parent.appendChild(e); return e;
+  }
+  var clamp = function(x,a,b){ return Math.max(a, Math.min(b, x)); };
+  var prog = function(t,a,b){ return clamp((t-a)/(b-a),0,1); };
+  var ease = function(x){ return x<.5 ? 2*x*x : 1-Math.pow(-2*x+2,2)/2; };
+
+  // ---- schedule grid: 5 days x 6 slots ----
+  var grid = $('grid');
+  var days = ['MON','TUE','WED','THU','FRI'];
+  var slots = ['7:30','8:00','2:45','3:15','3:45','4:15'];
+  var gx = 1150, gy = 254, cw = 128, ch = 66;
+  days.forEach(function(d,i){ el('text',{x:gx+i*cw+cw/2-4,y:236,'font-size':17,'letter-spacing':2,'text-anchor':'middle','font-weight':700,fill:'#4A5158','class':'mono'},grid,d); });
+  slots.forEach(function(s,j){ el('text',{x:1060,y:gy+j*ch+40,'font-size':17,fill:'#4A5158','class':'mono'},grid,s); });
+  // fixed busy cells (staff conflicts) and the two manually placed meetings
+  var busy = [[0,0],[1,2],[2,4],[3,1],[4,3],[0,5],[2,0],[4,5],[1,4],[3,3]];
+  var manual = [[0,2],[3,5]];
+  var conflicts = [[1,1],[2,2],[3,4],[4,0],[0,3],[2,5],[1,3],[4,4],[3,0]];
+  var cells = {};
+  for (var i=0;i<5;i++) for (var j=0;j<6;j++){
+    cells[i+','+j] = el('rect',{x:gx+i*cw,y:gy+j*ch,width:cw-8,height:ch-8,rx:5,fill:'#E9E5DB',stroke:'#C6C0B2','stroke-width':1.5},grid);
+  }
+  busy.forEach(function(c){ var r=cells[c]; r.setAttribute('fill','#C6C0B2'); el('text',{x:gx+c[0]*cw+(cw-8)/2,y:gy+c[1]*ch+37,'font-size':15,'text-anchor':'middle',fill:'#4A5158'},grid,'staff busy'); });
+  manual.forEach(function(c,k){ var r=cells[c]; r.setAttribute('fill','#F1E7CF'); r.setAttribute('stroke','#78540F'); el('text',{x:gx+c[0]*cw+(cw-8)/2,y:gy+c[1]*ch+37,'font-size':16,'font-weight':700,'text-anchor':'middle',fill:'#5E410B'},grid,'IEP '+(k+1)); });
+  var conflictEls = conflicts.map(function(c){
+    var g = el('g',{},grid);
+    el('rect',{x:gx+c[0]*cw,y:gy+c[1]*ch,width:cw-8,height:ch-8,rx:5,fill:'none',stroke:'#A63D26','stroke-width':4},g);
+    el('text',{x:gx+c[0]*cw+(cw-8)/2,y:gy+c[1]*ch+37,'font-size':22,'font-weight':800,'text-anchor':'middle',fill:'#A63D26'},g,'!');
+    return g;
+  });
+  // drafted meetings fill the twelve free cells, in reading order
+  var drafted = [];
+  var taken = {}; busy.concat(manual).forEach(function(c){ taken[c]=1; });
+  for (var j2=0;j2<6;j2++) for (var i2=0;i2<5;i2++){ if(!taken[i2+','+j2] && drafted.length<12) drafted.push([i2,j2]); }
+  var draftedEls = drafted.map(function(c,k){
+    var g = el('g',{opacity:0},grid);
+    el('rect',{x:gx+c[0]*cw,y:gy+c[1]*ch,width:cw-8,height:ch-8,rx:5,fill:'#D8EBED',stroke:'#0E6E78','stroke-width':2.5},g);
+    el('text',{x:gx+c[0]*cw+(cw-8)/2,y:gy+c[1]*ch+37,'font-size':16,'font-weight':700,'text-anchor':'middle',fill:'#0E6E78'},g,'IEP '+(k+3));
+    return g;
+  });
+
+  var c1 = 'Strong claim. Which source', c2 = 'convinced you most?';
+
+  // ---- timeline (seconds) ----
+  // A 0.0-5.2 schedule by hand | B 5.2-8.6 draft + review | C 8.8-13.0 essay feedback | D 13.2-15 end card
+  window.render = function(t){
+    var A = t < 5.2, B = t >= 5.2 && t < 8.7, C = t >= 8.7 && t < 13.15;
+
+    // tag and mood
+    $('tag').textContent = t < 8.7 ? 'TUESDAY · 8:52 PM' : 'TUESDAY · 9:01 PM';
+    var happy = t >= 7.4;
+    $('mouthSad').setAttribute('opacity', happy ? 0 : 1);
+    $('mouthHappy').setAttribute('opacity', happy ? 1 : 0);
+    $('browL').setAttribute('d', happy ? 'M566 450 L594 448' : 'M566 452 L594 458');
+    $('browR').setAttribute('d', happy ? 'M644 450 L616 448' : 'M644 452 L616 458');
+
+    // conflicts pulse in shot A, clear in B
+    var pulse = 0.78 + 0.22*Math.sin(t*6);
+    var cleared = prog(t, 6.0, 6.5);
+    conflictEls.forEach(function(g, k){
+      var appear = prog(t, 0.6 + k*0.28, 0.8 + k*0.28);
+      g.setAttribute('opacity', (appear * (t < 5.2 ? pulse : 1) * (1 - cleared)).toFixed(3));
+    });
+    draftedEls.forEach(function(g,k){ g.setAttribute('opacity', prog(t, 6.2 + k*0.09, 6.45 + k*0.09).toFixed(3)); });
+    var nConf = conflictEls.filter(function(g,k){ return t >= 0.7 + k*0.28; }).length;
+    $('schedCount').textContent = t < 6.3 ? ('2 OF 14 PLACED · ' + nConf + ' CONFLICTS') : (t < 7.4 ? 'DRAFTING…' : '14 OF 14 DRAFTED · 0 CONFLICTS');
+    $('schedCount').setAttribute('fill', t < 6.3 ? '#A63D26' : '#0E6E78');
+
+    // draft button and cursor
+    $('draftBtn').setAttribute('opacity', prog(t, 4.3, 4.7).toFixed(3));
+    var mv = ease(prog(t, 4.7, 5.6));
+    var cx = 1520 + (1250 - 1520)*mv, cy = 790 + (722 - 790)*mv;
+    $('cursor').setAttribute('transform', 'translate(' + cx.toFixed(1) + ',' + cy.toFixed(1) + ')');
+    $('cursor').setAttribute('opacity', (prog(t, 4.5, 4.8) * (1 - prog(t, 7.9, 8.1))).toFixed(3));
+    var press = t >= 5.7 && t < 5.95;
+    $('draftBtnRect').setAttribute('fill', press ? '#0B5B63' : '#0E6E78');
+    // review checkbox
+    $('review').setAttribute('opacity', prog(t, 7.0, 7.3).toFixed(3));
+    $('reviewTick').setAttribute('opacity', t >= 7.75 ? 1 : 0);
+    if (t >= 7.2) {
+      var mv2 = ease(prog(t, 7.2, 7.7));
+      var rx = 1250 + (1414 - 1250)*mv2, ry = 722 + (722 - 722)*mv2;
+      $('cursor').setAttribute('transform', 'translate(' + rx.toFixed(1) + ',' + ry.toFixed(1) + ')');
+    }
+
+    // panel swap
+    var swap = prog(t, 8.6, 8.9);
+    $('panelSched').setAttribute('opacity', (1 - swap).toFixed(3));
+    $('panelEssay').setAttribute('opacity', swap.toFixed(3));
+    $('glowT').setAttribute('opacity', (1 - swap).toFixed(3));
+    $('glowW').setAttribute('opacity', swap.toFixed(3));
+    $('lamp').setAttribute('opacity', swap.toFixed(3));
+    $('stack').setAttribute('opacity', (1 - swap).toFixed(3));
+
+    // comment types in
+    $('comment').setAttribute('opacity', prog(t, 9.6, 9.9).toFixed(3));
+    var chars = Math.floor(prog(t, 10.0, 12.2) * (c1.length + c2.length));
+    $('commentText1').textContent = c1.slice(0, Math.min(chars, c1.length));
+    $('commentText2').textContent = chars > c1.length ? c2.slice(0, chars - c1.length) : '';
+
+    // end card
+    $('endCard').setAttribute('opacity', prog(t, 13.1, 13.5).toFixed(3));
+
+    // dips between shots
+    var dip = Math.max(1 - Math.abs(t - 8.75)/0.15, 0) * 0.0;
+    $('fade').setAttribute('opacity', Math.max(0, 1 - t/0.35).toFixed(3));
+  };
+  render(location.hash ? parseFloat(location.hash.slice(1)) : 2.5);
+})();
+</script>
+</body>
+</html>
