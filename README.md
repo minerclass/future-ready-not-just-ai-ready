@@ -38,7 +38,7 @@ example names the design choice, the balance it strikes, and the decision that
 stays with the district.
 
 The speaker's relationship to the host is disclosed on slide 20, before any
-product appears. Imagine Learning products were adopted in Beach Park CCSD 3
+product appears. One Imagine Learning product was adopted in Beach Park CCSD 3
 before the speaker joined the district.
 
 ## How the deck is designed
