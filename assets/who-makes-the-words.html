@@ -104,11 +104,26 @@
       return cg; });
     c.parts.rank=el('rect',{x:cx-54,y:0,width:6,height:52,rx:3,fill:'#56C7D2',opacity:0},g);
   })(cols[3],CX[3]);
-  // 4: a page that writes itself
+  // 4: a code editor that writes itself (token by token, no hands)
   (function(c,cx){ var g=c.icon;
-    el('rect',{x:cx-72,y:298,width:144,height:192,rx:4,fill:'#D8EBED'},g);
-    c.parts.lines=[0,1,2,3,4].map(function(i){ return el('rect',{x:cx-52,y:326+i*30,width:0,height:7,rx:3,fill:'#0E6E78'},g); });
-    c.parts.spark=el('path',{d:'M0 -16 L4 -4 L16 0 L4 4 L0 16 L-4 4 L-16 0 L-4 -4 Z',fill:'#56C7D2'},g);
+    el('rect',{x:cx-98,y:298,width:196,height:194,rx:10,fill:'#12181C',stroke:'#56C7D2','stroke-width':3},g);
+    el('path',{d:'M'+(cx-98)+' 324 v-16 a10 10 0 0 1 10 -10 h176 a10 10 0 0 1 10 10 v16 z',fill:'#2A3037'},g);
+    ['#E8825F','#E0AC4A','#56C7D2'].forEach(function(col,i){ el('circle',{cx:cx-82+i*15,cy:311,r:5,fill:col},g); });
+    el('text',{x:cx+86,y:316,'font-size':13,'text-anchor':'end',fill:'#AFB6BC','class':'mono'},g,'draft.py');
+    var KW='#56C7D2', ID='#EFEBE2', STR='#E0AC4A', COM='#5A6168';
+    var xL=cx-70, y0=342, dy=24;
+    var spec=[ [[0,30,KW],[36,48,ID],[90,22,ID]],
+               [[16,34,ID],[54,10,ID],[68,62,STR]],
+               [[16,24,KW],[44,40,ID],[88,34,STR]],
+               [[32,52,ID],[88,40,STR]],
+               [[16,34,KW],[54,66,ID]],
+               [[0,92,COM]] ];
+    c.parts.segs=[];
+    spec.forEach(function(line,li){
+      el('rect',{x:cx-88,y:y0+li*dy,width:8,height:9,rx:2,fill:'#3A4148'},g);
+      line.forEach(function(sg){ c.parts.segs.push({e:el('rect',{x:xL+sg[0],y:y0+li*dy,width:sg[1],height:9,rx:3,fill:sg[2],opacity:0},g), x:xL+sg[0]+sg[1], y:y0+li*dy}); });
+    });
+    c.parts.cursor=el('rect',{x:xL,y:y0-3,width:9,height:15,fill:'#56C7D2'},g);
   })(cols[4],CX[4]);
 
   // brackets
@@ -166,12 +181,12 @@
     });
     c3.parts.rank.setAttribute('opacity', t>=T[3]+1.9 ? 1 : 0);
     c3.parts.rank.setAttribute('y', 304);
-    // self-writing page: fast, no pen
-    var c4=cols[4], w4=prog(t,T[4]+0.9,T[4]+2.4)*5;
-    c4.parts.lines.forEach(function(l,i){ var f=clamp(w4-i,0,1); l.setAttribute('width',(LINE_W[i]*f).toFixed(1)); });
-    var li4=Math.min(4,Math.floor(w4)), lf4=clamp(w4-li4,0,1);
-    var sx=CX[4]-52+LINE_W[li4]*lf4+14, sy=326+li4*30+4, sc=0.8+0.25*Math.sin(t*9);
-    c4.parts.spark.setAttribute('transform','translate('+sx.toFixed(1)+','+sy+') scale('+sc.toFixed(3)+')');
+    // code writes itself one token at a time; the cursor blinks at the end
+    var c4=cols[4], segs=c4.parts.segs, nShown=Math.floor(prog(t,T[4]+0.7,T[4]+2.3)*segs.length);
+    segs.forEach(function(sg,i){ sg.e.setAttribute('opacity', i<nShown ? 1 : 0); });
+    var last = nShown>0 ? segs[nShown-1] : {x:CX[4]-70-12, y:342};
+    c4.parts.cursor.setAttribute('x',(last.x+5).toFixed(1)); c4.parts.cursor.setAttribute('y',(last.y-3).toFixed(1));
+    c4.parts.cursor.setAttribute('opacity', (nShown<segs.length || Math.floor(t*2.5)%2===0) ? 1 : 0);
 
     bOng.setAttribute('opacity',prog(t,15.0,15.6).toFixed(3));
     bMin.setAttribute('opacity',prog(t,15.6,16.2).toFixed(3));
