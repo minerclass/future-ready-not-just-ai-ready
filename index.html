@@ -804,7 +804,7 @@
           </div>
           <div class="fig-actions">
             <button class="reveal-btn" type="button" data-clear="barrierFig" aria-pressed="false" data-label-off="Remove the barriers" data-label-on="Put the barriers back">Remove the barriers</button>
-            <button class="opener-launch scene-launch" type="button" aria-haspopup="dialog" aria-controls="opener" data-video="assets/teachers-tuesday-night.mp4" data-video-title="A teacher's Tuesday night">Play scene</button>
+            <button class="opener-launch scene-launch" type="button" aria-haspopup="dialog" aria-controls="opener" data-video="assets/teachers-tuesday-night.mp4" data-youtube="https://youtu.be/qE0_TwgJwAo" data-drive="https://drive.google.com/file/d/1GAy6Wj0mEeAvJliAPGQ5-hxxHBIWXJJw/view?usp=sharing" data-video-title="A teacher's Tuesday night">Play scene</button>
           </div>
         </div>
         <figure class="fig-anim barrier-fig" id="barrierFig">
@@ -1320,7 +1320,7 @@
       openerVideo.setAttribute('aria-label', title);
       $('openerFallback').href = path;
       $('openerDownload').href = path;
-      // Scene clips made for single slides are local MP4s with no hosted copies.
+      // A clip without hosted copies hides the YouTube and Drive links.
       var yt = btn.getAttribute('data-youtube'), drive = btn.getAttribute('data-drive');
       $('openerYouTube').hidden = !yt;
       $('openerDrive').hidden = !drive;

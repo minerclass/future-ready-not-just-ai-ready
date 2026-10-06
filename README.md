@@ -172,8 +172,14 @@ illustrated style as Maya's essay: a teacher's Tuesday evening goes to IEP
 scheduling, a drafted schedule arrives that she still reviews before it goes
 out, and the time she gets back goes to feedback on Maya's essay. It shows the
 base getting easier while the thinking stays with people. The clip has no audio
-and opens in the same player as the opening videos. It has no YouTube or Google
-Drive copy, so the player shows only the download link for it.
+and opens in the same player as the opening videos, which plays the local MP4
+and also offers **Watch on YouTube** and **Watch in Google Drive** as backups.
+
+| Clip | YouTube | Google Drive |
+|---|---|---|
+| A teacher's Tuesday night | [Watch](https://youtu.be/qE0_TwgJwAo) | [Watch](https://drive.google.com/file/d/1GAy6Wj0mEeAvJliAPGQ5-hxxHBIWXJJw/view?usp=sharing) |
+
+The Drive file allows anyone with the link to view it, checked October 5, 2026.
 
 The clip was rendered frame by frame from `assets/teachers-tuesday-night.html`
 (open it with `#7.5` to preview any moment). The teacher, schedule, and essay
