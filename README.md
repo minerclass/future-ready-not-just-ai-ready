@@ -183,9 +183,10 @@ and also offers **Watch on YouTube** and **Watch in Google Drive** as backups.
 
 | Clip | YouTube | Google Drive |
 |---|---|---|
-| A teacher's Tuesday night | [Watch](https://youtu.be/qE0_TwgJwAo) | [Watch](https://drive.google.com/file/d/1GAy6Wj0mEeAvJliAPGQ5-hxxHBIWXJJw/view?usp=sharing) |
+| A teacher's Tuesday night (slide 14) | [Watch](https://youtu.be/qE0_TwgJwAo) | [Watch](https://drive.google.com/file/d/1GAy6Wj0mEeAvJliAPGQ5-hxxHBIWXJJw/view?usp=sharing) |
+| Who makes the words? (slide 12) | [Watch](https://youtu.be/fbVoI4GFEIQ) | [Watch](https://drive.google.com/file/d/1HHcTBgegv3yGGiP0HprHPLSEDxiZDdFq/view?usp=sharing) |
 
-The Drive file allows anyone with the link to view it, checked October 5, 2026.
+Both Drive files allow anyone with the link to view them, checked October 5, 2026.
 
 The clip was rendered frame by frame from `assets/teachers-tuesday-night.html`
 (open it with `#7.5` to preview any moment). The teacher, schedule, and essay
